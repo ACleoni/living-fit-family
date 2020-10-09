@@ -4,7 +4,7 @@ import Header from '@/components/header/Header'
 import styles from '@/styles/Home.module.scss'
 import { Image, Video, Transformation, CloudinaryContext } from 'cloudinary-react';
 
-import Map from '../components/map/map';
+import Form from '../components/form/Form';
 import React from "react";
 
 const location = {
@@ -12,7 +12,6 @@ const location = {
   lat: 37.42216,
   lng: -122.08427,
 };
-
 
 export default function Index() {
   const anchors = ["home", "services", "testimonials", "contact"];
@@ -26,33 +25,31 @@ export default function Index() {
         anchors={anchors}
         navigation
         navigationTooltips={anchors}
-        sectionsColor={["#282c34", "#ff5f45", "#0798ec", "#fff"]}
+        sectionsColor={["#fff", "#fff", "#0798ec", "#fff"]}
         render={({ state, fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                  <CloudinaryContext cloudName="dq0fvempx">
-                    <Video publicId="landing-page-video" muted loop autoPlay>
-                      <Transformation width="300" crop="scale"  overlay="text:arial_60:watchme" gravity="north" y="20" />
-                    </Video>
-                  </CloudinaryContext>
+                {/* <Video cloudName="dq0fvempx" publicId="landing-page-video" muted autoPlay loop>
+
+                </Video> */}
               </div>
               <div className="section">
                 <div className="slide">
-                  {/* <h3 style={{ width: '100%', justifyContent: 'center' }}>Slide 2.1</h3> */}
+
                 </div>
                 <div className="slide">
-                  {/* <h3>Slide 2.2</h3> */}
+
                 </div>
                 <div className="slide">
-                  {/* <h3>Slide 2.3</h3> */}
+
                 </div>
               </div>
               <div className="section">
-                {/* <h3>Section 3</h3> */}
+
               </div>
               <div className="section">
-                <Map location={location} zoomLevel={10} />
+                <Form />
               </div>
             </ReactFullpage.Wrapper>
           );
