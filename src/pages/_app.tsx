@@ -1,6 +1,6 @@
 import Wrapper from '@/components/wrapper/wrapper';
 import { AppProps, /*, AppContext */ } from 'next/app';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

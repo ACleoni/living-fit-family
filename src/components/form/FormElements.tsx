@@ -2,14 +2,14 @@ export default [
     {
         type: 'input',
         name: 'name',
-        placeHolder: 'Name',
+        placeHolder: 'Full Name',
         dataValidate: 'Name is required'
     },
     {
         type: 'input',
-        name: 'email',
-        placeHolder: 'Email',
-        dataValidate: 'Valid email is required: ex@abc.xyz'
+        name: 'phone',
+        placeHolder: 'Phone',
+        dataValidate: 'Name is required'
     },
     {
         type: 'input',

@@ -2,6 +2,7 @@
 import React, { ChangeEvent, JSXElementConstructor } from "react"
 import styles from './Form.module.scss';
 import FormElements from "./FormElements";
+import Map from '../map/Map';
 
 export default function Form() {
     const [name, setName] = React.useState('');
@@ -12,8 +13,8 @@ export default function Form() {
     }
 
     const renderFormElements = (): JSX.Element[] => {
-        return FormElements.map(element => (
-            <div className={`${styles.wrapInput}`} data-validate={element.dataValidate}>
+        return FormElements.map((element, index) => (
+            <div className={`${styles.wrapInput} ${styles.validateInput}`} data-validate={element.dataValidate} key={index}>
                 {element.type === 'input'
                     ? <input className={styles.input} type="text" name={element.name} placeholder={element.placeHolder} />
                     : <textarea className={styles.input} name={element.name} placeholder={element.placeHolder}></textarea>
@@ -31,8 +32,8 @@ export default function Form() {
                         Send us a message
 				    </span>
                     {renderFormElements()}
-                    <div className="container-contact1-form-btn">
-                        <button className="contact1-form-btn">
+                    <div className={styles.containerContactFormButton}>
+                        <button className={styles.contactFormButton}>
                             <span>
                                 Send Email
 							<i className="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -41,6 +42,10 @@ export default function Form() {
                     </div>
 
                 </form>
+                <div style={{ height: '380px', width: '500px', borderRadius: '50px 50px 50px 50px', marginTop: '0.5rem' }}>
+                    <Map />
+                </div>
+
             </div>
         </div>
 
