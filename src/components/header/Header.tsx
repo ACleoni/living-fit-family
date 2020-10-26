@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from './Header.module.scss'
-import Logo from '../../../public/logo.svg'
+import Logo from '../../../public/Logo.svg'
 
 export default function Header() {
     const [header, setHeader] = useState(styles.site__header_transparent)
