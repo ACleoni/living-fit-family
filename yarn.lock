@@ -1159,11 +1159,6 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@iconify/icons-mdi@^1.0.143":
-  version "1.0.148"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.0.148.tgz#176f2704581a1467343006504a2d748fbdf2cfb1"
-  integrity sha512-tdT+DRrElHBdGV0GSMvwxL439xXZA81WIah+iDnccGkyCMeqwpYNAehj0IOS7dr7wwD8neLjCZ4QaJniJ4Q+cQ==
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
