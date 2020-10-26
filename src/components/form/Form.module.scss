@@ -1,40 +1,8 @@
-// @font-face {
-//   font-family: Montserrat-Regular;
-//   src: url('../../fonts/montserrat/Montserrat-Regular.ttf'); 
-// }
-
-// @font-face {
-//   font-family: Montserrat-Bold;
-//   src: url('../../fonts/montserrat/Montserrat-Bold.ttf'); 
-// }
-
-// @font-face {
-//   font-family: Montserrat-ExtraBold;
-//   src: url('../../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
-// }
-
-// @font-face {
-//   font-family: Montserrat-Medium;
-//   src: url('../../fonts/montserrat/Montserrat-Medium.ttf'); 
-// }
-
-
-
-
-.input::-webkit-input-placeholder { color: #999999; }
-.input:-moz-placeholder { color: #999999; }
-.input::-moz-placeholder { color: #999999; }
-.input:-ms-input-placeholder { color: #999999; }
-
-// textarea::-webkit-input-placeholder { color: #999999; }
-// textarea:-moz-placeholder { color: #999999; }
-// textarea::-moz-placeholder { color: #999999; }
-// textarea:-ms-input-placeholder { color: #999999; }
-
 .contact {
   width: 100%;
   min-height: 100%;
   padding: 15px;
+  font-family: Lato, sans-serif;
 
   // background: #009bff;
   // background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
@@ -53,7 +21,9 @@
 }
 
 .containerContact {
-  width: 1293px;
+  width: 100%;
+  // max-width: 75rem;
+  margin: 0 auto;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -64,24 +34,24 @@
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-
-  padding: 90px 130px 88px 148px;
 }
 
 .contactForm {
-  width: 390px;
+  width: 35rem;
+  max-width: 75rem;
 }
 
 .contactFormTitle {
   display: block;
-  font-family: Montserrat-ExtraBold;
   font-size: 24px;
+  font-weight: 600;
   color: #333333;
   line-height: 1.2;
   text-align: center;
   padding-bottom: 44px;
+  text-transform: uppercase;
 }
 
 .wrapInput {
@@ -91,18 +61,18 @@
   margin-bottom: 20px;
 }
 
-.input {
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px;
-  display: block;
-  width: 100%;
-  background: #e6e6e6;
-  font-family: Montserrat-Bold;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
-}
+// .input {
+//   height: 50px;
+//   border-radius: 25px;
+//   padding: 0 30px;
+//   display: block;
+//   width: 100%;
+//   background: #e6e6e6;
+//   font-family: Montserrat-Bold;
+//   font-size: 15px;
+//   line-height: 1.5;
+//   color: #666666;
+// }
 
 .shadowInput {
   content: '';
@@ -117,30 +87,68 @@
   color: rgba(87,184,70, 0.5);
 }
 
-input.input {
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px;
-  outline: none;
-	border: none;
-}
-input.input + .shadowInput {
-  border-radius: 25px;
+.input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background-color: #fff;
+  font-family: inherit;
+  border-style: solid;
+  border-width: .0625rem;
+  border-color: #b1b1b1;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  border-radius: .125rem;
+  border: 2px solid #b1b1b1;
+  color: #000;
+  display: block;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  padding: .5rem;
+  height: 2.4375rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow .45s,border-color .45s ease-in-out;
 }
 
+.label {
+  color: #000;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+}
+
+// input.input + .shadowInput {
+//   border-radius: 25px;
+// }
+
 textarea.input {
-  min-height: 150px;
-  border-radius: 25px;
-  padding: 12px 30px;
-  outline: none;
-	border: none;
+  resize: none;
+  margin: 0px 0px 16px;
+  height: 108px;
+  border-radius: .125rem;
+  border: 2px solid #b1b1b1;
 }
-textarea.input + .shadowInput {
-  border-radius: 25px;
-}
+
+// textarea.input + .shadowInput {
+//   border-radius: 25px;
+// }
 
 .validateInput {
   position: relative;
+}
+
+.text {
+  color: black;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  text-rendering: optimizeLegibility;
+  display: block;
+  font-weight: 200;
+  line-height: 1.6;
+  display: block;
 }
 
 
@@ -152,15 +160,14 @@ textarea.input + .shadowInput {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .contactFormButton {
-  min-width: 193px;
+  min-width: 240px;
   height: 50px;
-  border-radius: 25px;
+  // border-radius: 25px;
   background: #2f9f31;
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -193,6 +200,7 @@ textarea.input + .shadowInput {
 
 .contactFormButton:hover {
   background: #333333;
+  cursor: pointer;
 }
 
 .contactFormButton:hover i {

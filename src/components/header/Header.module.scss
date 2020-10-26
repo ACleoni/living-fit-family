@@ -33,10 +33,11 @@ $header-z-index: 100;
 
   &__header_opaque {
     left: 0;
-    padding: 1rem 0;
+    padding: 0.7rem 0;
     position: fixed;
     top: 0;
-    background: black;
+    background: #000;
+    opacity: 0.85;
     transform: translateZ(0);
     transition: background, padding 0.5s;
     width: 100%;
@@ -125,7 +126,13 @@ $button-primary-bgcolor: $primary-color;
 
   &__primary {
     // background-color: $button-primary-bgcolor;
+    transition: background-color, border 0.1s ease;
     border: 2px solid white;
+  }
+
+  &__primary:hover {
+    border: 2px solid #2f9f31;
+    background-color: #2f9f31;
   }
 
   &__rounded {

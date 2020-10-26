@@ -1,26 +1,33 @@
+type elementProps = {
+    type: string,
+    name: string,
+    dataValidate: string
+}
+
 export default [
     {
         type: 'input',
-        name: 'name',
-        placeHolder: 'Full Name',
+        name: 'Full Name',
         dataValidate: 'Name is required'
     },
     {
         type: 'input',
-        name: 'phone',
-        placeHolder: 'Phone',
-        dataValidate: 'Name is required'
+        name: 'Phone',
+        dataValidate: 'Phone number is required'
     },
     {
         type: 'input',
-        name: 'instagram',
-        placeHolder: 'Instagram',
+        name: 'Email',
+        dataValidate: 'Email address is required'
+    },
+    {
+        type: 'input',
+        name: 'Instagram',
         dataValidate: 'Instagram profile name is require: @livingfitfamily'
     },
     {
         type: 'textarea',
-        name: 'message',
-        placeHolder: 'Message',
+        name: 'Message',
         dataValidate: 'Message is required'
     },
 ]
