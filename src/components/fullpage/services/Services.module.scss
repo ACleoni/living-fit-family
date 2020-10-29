@@ -2,14 +2,8 @@ $light-blue: #3498db;
 $black: #000000;
 
 .section {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  
+  padding: 1rem;
+
     &_header {
         font-weight: 600;
         color: #333;
@@ -28,24 +22,21 @@ $black: #000000;
   letter-spacing: 0.03em;
   line-height: 1.6;
   color: $black;
-  width: 100%;
-//   width: 1090px;
-//   min-width: 600px;
-//   height: 430px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
+  // width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 
   .card {
     width: 330px;
-	height: 430px;
-    // float: inherit;
+	  height: 430px;
+    flex: 0 0 auto;
     border-radius: 8px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    position: relative;
-    top: 0;
+    // overflow: hidden;
+    // position: relative;
+    // top: 0;
+    margin: 10px;
     text-align: center;
     transition: all 0.25s;
 
