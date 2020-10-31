@@ -48,14 +48,6 @@ export default function Services() {
             </p>
             <a href='#'>Learn more</a>
           </div>
-          <div className={styles.card}>
-            <img src='https://source.unsplash.com/category/buildings/330x200' />
-            <h2 className={styles.card_header}>Online Programs</h2>
-            <p className={styles.text}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestias facere.
-            </p>
-            <a href='#'>Learn more</a>
-          </div>
         </div>
         );
       </div>
