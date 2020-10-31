@@ -27,7 +27,10 @@
 
 #logo {
   width: 220px;
-  margin-left: 15%;
+  margin: {
+    top: 3%;
+    left: 15%;
+  }
 }
 
 #navbar {
