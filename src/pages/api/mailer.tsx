@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const { generate } = require('../../utils/otp')();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.log(req.body);
   const token = generate();
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -11,18 +12,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'livingfitfamilyllc@gmail.com', // generated ethereal user
-      pass: 'Livfitfam1!', // generated ethereal password
+      user: process.env.NODEMAILER_USER_EMAIL, // generated ethereal user
+      pass: process.env.NODEMAILER_USER_PASSWORD, // generated ethereal password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <livingfitfamilyllc@gmail.com>', // sender address
-    to: 'alexander.cleoni@gmail.com', // list of receivers
+    // from: '"Living Fit Family LLC 👻" <alexander.cleoni@gmail.com>', // sender address
+    to: req.body.email, // list of receivers
     subject: 'One Time Password', // Subject line
-    text: 'Here is your one time password from Living Fit Family"', // plain text body
-    html: `<b>${token}</b>`, // html body
+    // text: 'Here is your "', // plain text body
+    html: `<h2>one time password from Living Fit Family LLC: <h2><br /><b>${token}</b>`, // html body
   });
 
   console.log('Message sent: %s', info.messageId);

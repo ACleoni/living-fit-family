@@ -43,34 +43,9 @@ export default function Billing() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <div className={styles.header}>
-          <h2 className='animation a1'>Welcome Back</h2>
-          <h4 className='animation a2'>Log in to your account using email and password</h4>
-        </div>
-        <form className={styles.form} onSubmit={(event) => handleSubmit(event)}>
-          <input
-            type='email'
-            className={`${styles.formField} ${styles.animation} ${styles.a3}`}
-            placeholder='Email Address'
-            onChange={(event) => handleChange(event)}
-          />
-          {displayPasswordField ? (
-            <input
-              type='password'
-              className={`${styles.formField} ${styles.animation} ${styles.a4}`}
-              placeholder='Password'
-            />
-          ) : null}
-          <p className='animation a5'>
-            <a href='#'>Resend Password</a>
-          </p>
-          <button className='animation a6' type='submit'>
-            LOGIN
-          </button>
-        </form>
+      <div className={styles.loginBox}>
+        <div className={styles.logo}></div>
       </div>
-      <div className={styles.right}></div>
     </div>
   );
 }
