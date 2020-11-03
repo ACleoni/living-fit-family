@@ -6,6 +6,7 @@ import MailTemplate from '../../utils/templates';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const token = generate();
+  console.log(process.env.NODEMAILER_USER_EMAIL, process.env.NODEMAILER_USER_PASSWORD);
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
