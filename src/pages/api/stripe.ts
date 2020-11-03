@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).json(session);
       }
     } catch (error) {
-      
+      console.log(error);
     }
   } else {
     res.status(405);
