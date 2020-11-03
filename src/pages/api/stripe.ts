@@ -8,8 +8,9 @@ const stripe = new Stripe(process.env.STRIPE_API_KEY, { apiVersion: '2020-08-27'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
-      const { email, token } = req.body;
-      const isValid = verify(token);
+      const { email, password } = req.body;
+      const isValid = verify(password);
+      console.log(email, password, isValid);
       if (isValid) {
         // Process a POST request
         const customer = await httpHandler(`https://api.stripe.com/v1/search?query=${email}&prefix=false`, 'GET');

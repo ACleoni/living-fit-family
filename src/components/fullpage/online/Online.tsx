@@ -27,11 +27,11 @@ export default function () {
             </button>
           </div>
           <div style={{ width: '30%' }}>
-            <img
+            {/* <img
               className={styles.phone}
               src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/crunch_phone_%26_computer.png'
               alt=''
-            />
+            /> */}
           </div>
         </div>
       </div>

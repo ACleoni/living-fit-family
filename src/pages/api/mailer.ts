@@ -17,15 +17,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
-  // // send mail with defined transport object
-  // let info = await transporter.sendMail({
-  //   from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address
-  //   to: req.body.email, // list of receivers
-  //   subject: 'One Time Password', // Subject line
-  //   html: ReactDOMServer.renderToStaticMarkup(MailTemplate(token)), // html body
-  // });
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address
+    to: req.body.email, // list of receivers
+    subject: 'One Time Password', // Subject line
+    html: ReactDOMServer.renderToStaticMarkup(MailTemplate(token)), // html body
+  });
 
-  // console.log('Message sent: %s', info.messageId);
-  // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  res.status(200).json({ token });
+  let { messageId } = info;
+  console.log('Message sent: %s', messageId);
+
+  res.status(200).json({ messageId });
 }
