@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './Header.module.scss';
 import Logo from '../../../public/Logo.svg';
 import { menuLinks } from '../../utils/constants';
+import { useRouter } from 'next/router';
 
 export default function Header() {
-  const [headerState, setHeaderState] = useState(styles.transparent);
+  const router = useRouter();
+  const [headerState, setHeaderState] = useState(router.pathname === '/' ? styles.transparent : styles.opaque);
 
   const listenScrollEvent = () => {
     if (window.scrollY >= 500) {

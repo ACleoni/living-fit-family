@@ -1,14 +1,15 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 const stripe = require('stripe')(
-  'sk_test_51HKP4mANCpLvBRrutdMr6kDEFKQrFNlrMakwoyRQ6obXgGUc03qOt8AnKClfHCelmAHe1APjqzcbXe2iGHY48y8q00SnpBWmXH'
+  process.env.STRIPE_API_KEY
 );
 
-export default async function handler(req, res) {
-  console.log(req);
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     // Process a POST request
     var session = await stripe.billingPortal.sessions.create({
-      customer: 'cus_HuExRr4zkkH1P9',
-      return_url: 'https://livingfitfamily.com/account',
+      customer: req.body.customerId,
+      return_url: 'https://livingfitfamily.com/billing',
     });
 
     res.send(session);
