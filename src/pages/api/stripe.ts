@@ -13,6 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (isValid) {
         // Process a POST request
         const customer = await httpHandler(`https://api.stripe.com/v1/search?query=${email}&prefix=false`, 'GET');
+        console.log(customer);
         const { id } = customer.data[0];
 
         const session = await stripe.billingPortal.sessions.create({
