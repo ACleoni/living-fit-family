@@ -17,8 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
-  console.log(transporter);
-
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address

@@ -10,11 +10,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const { email, password } = req.body;
       const isValid = verify(password);
-      console.log(email, password, isValid);
       if (isValid) {
         // Process a POST request
         const customer = await httpHandler(`https://api.stripe.com/v1/search?query=${email}&prefix=false`, 'GET');
-        console.log(customer);
         const { id } = customer.data[0];
 
         const session = await stripe.billingPortal.sessions.create({
@@ -22,9 +20,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           return_url: 'https://livingfitfamily.com/billing',
         });
         res.status(200).json(session);
+      } else {
+        res.status(400);
       }
     } catch (error) {
-      console.log(error);
+      res.status(500).json(error);
     }
   } else {
     res.status(405);
