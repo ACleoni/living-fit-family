@@ -6,13 +6,13 @@ import MailTemplate from '../../utils/templates';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const token = generate();
-  console.log('HERE ____')
+  console.log('HERE ____');
   console.log(process.env.NODEMAILER_USER_EMAIL, process.env.NODEMAILER_USER_PASSWORD);
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
       user: process.env.NODEMAILER_USER_EMAIL, // generated ethereal user
       pass: process.env.NODEMAILER_USER_PASSWORD, // generated ethereal password
