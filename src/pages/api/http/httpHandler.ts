@@ -1,7 +1,5 @@
 export default async function httpHandler(url, method = 'GET', data = {}) {
   async function postData(url, method, data = {}) {
-    console.log('HERE ____');
-    console.log(process.env.NODEMAILER_USER_EMAIL, process.env.NODEMAILER_USER_PASSWORD);
     // Default options are marked with *
     const response = await fetch(url, {
       method, // *GET, POST, PUT, DELETE, etc.
