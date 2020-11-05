@@ -26,7 +26,7 @@ export default function Billing() {
       const session = await httpHandler('/api/stripe', 'POST', { email, password });
       router.push(session.url);
     } catch (error) {
-      loadingRef.current.classList.add(styles.show);
+      loadingRef.current.classList.remove(styles.show);
       alert('Oops, something went wrong. Please try again.');
     }
   };
