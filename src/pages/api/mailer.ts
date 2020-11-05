@@ -3,17 +3,23 @@ import ReactDOMServer from 'react-dom/server';
 import nodemailer from 'nodemailer';
 import { generate } from '../../utils/otp';
 import MailTemplate from '../../utils/templates';
+import { oauth2Client } from '../../utils/config';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const token = generate();
+  const accessToken = oauth2Client().getAccessToken();
+  const oneTimePassword = generate();
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.NODEMAILER_USER_EMAIL, // generated ethereal user
-      pass: process.env.NODEMAILER_USER_PASSWORD, // generated ethereal password
+      type: 'OAuth2',
+      user: process.env.NODEMAILER_USER_EMAIL,
+      clientId: process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken,
     },
   });
 
@@ -22,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address
     to: req.body.email, // list of receivers
     subject: 'One Time Password', // Subject line
-    html: ReactDOMServer.renderToStaticMarkup(MailTemplate(token)), // html body
+    html: ReactDOMServer.renderToStaticMarkup(MailTemplate(oneTimePassword)), // html body
   });
 
   let { messageId } = info;
