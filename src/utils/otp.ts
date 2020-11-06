@@ -1,6 +1,6 @@
 import { totp } from 'otplib';
 
-const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD';
+const secret = process.env.TOTP_SECRET;
 
 export default function oneTimePassword() {
   const generate = () => {

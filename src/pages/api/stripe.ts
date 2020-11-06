@@ -10,7 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const { email, password } = req.body;
       const isValid = opt().verify({ token: password });
-      console.log(req.body, isValid);
       if (isValid) {
         // Process a POST request
         const customer = await httpHandler(`https://api.stripe.com/v1/search?query=${email}&prefix=false`, 'GET');
