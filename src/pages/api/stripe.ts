@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
-import { verify } from '../../utils/otp';
+import opt from '../../utils/otp';
 import httpHandler from './http/httpHandler';
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY, { apiVersion: '2020-08-27' });
@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     try {
       const { email, password } = req.body;
-      const isValid = verify(password);
+      const isValid = opt().verify({ token: password });
       console.log(req.body, isValid);
       if (isValid) {
         // Process a POST request

@@ -1,18 +1,19 @@
-import { totp } from 'otplib';
-import { trim } from './utils';
+import { authenticator } from 'otplib';
 
-totp.options = {
-  epoch: Date.now(),
-  step: 30,
-  window: 0,
-};
+const secret = authenticator.generateSecret();
 
-const secret = 'KVKFKRCPNZQUYMLXOVYDSQKJKZDTSRLD';
-
-export function generate() {
-  return totp.generate(secret);
-}
-
-export function verify(token: string) {
-  return totp.verify({ token: trim(token), secret });
+export default function oneTimePassword() {
+  const generate = () => {
+    const token = authenticator.generate(secret);
+    return token;
+  };
+  const verify = ({ token }) => {
+    try {
+      return authenticator.verify({ token, secret });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+  return { generate, verify };
 }

@@ -8,3 +8,7 @@ export function trim(str) {
   }
   return str;
 }
+
+export default function mask() {
+  
+}

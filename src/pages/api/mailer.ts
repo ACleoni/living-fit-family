@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import ReactDOMServer from 'react-dom/server';
 import nodemailer from 'nodemailer';
-import { generate } from '../../utils/otp';
+import opt from '../../utils/otp';
 import MailTemplate from '../../utils/templates';
 import { oauth2Client } from '../../utils/config';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const accessToken = oauth2Client().getAccessToken();
-  const oneTimePassword = generate();
+  const oneTimePassword = opt().generate();
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
