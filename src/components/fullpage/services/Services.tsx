@@ -29,7 +29,12 @@ export default function Services() {
             <a href='#'>Learn more</a>
           </div>
           <div className={styles.card}>
-            <img src='https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&h=200' />
+            <img
+              style={{ objectFit: 'cover' }}
+              height={200}
+              width={330}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1604765261/group-training_pcl77h.jpg'
+            />
             <h2 className={styles.card_header}>Group Training</h2>
             <p className={styles.text}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestias facere.
