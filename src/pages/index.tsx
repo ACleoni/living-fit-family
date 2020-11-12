@@ -11,32 +11,22 @@ export default function Index() {
 
   return (
     <div>
-      <ReactFullpage
-        licenseKey={process.env.NEXT_PUBLIC_FULL_PAGE_LICENSE}
-        scrollingSpeed={1000}
-        autoScrolling={false}
-        scrollBar={true}
-        anchors={anchors}
-        sectionsColor={['#fff', '#fff', '#fff', '#fff']}
-        render={({ state, fullpageApi }) => {
-          return (
-            <ReactFullpage.Wrapper>
-              <div className='section'>
-                <Landing />
-              </div>
-              <div className='section'>
-                <Services />
-              </div>
-              <div className='section'>
-                <Online />
-              </div>
-              <div className='section'>
-                <Form />
-              </div>
-            </ReactFullpage.Wrapper>
-          );
-        }}
-      />
+      <div>
+        <Landing />
+      </div>
+      <div>
+        <Services />
+      </div>
+      <div>
+        <Online />
+      </div>
+      <div>
+        <Form />
+      </div>
+      {/* </ReactFullpage.Wrapper> */}
+      );
+      {/* }} */}
+      {/* /> */}
     </div>
   );
 }

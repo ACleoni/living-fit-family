@@ -19,6 +19,6 @@
       "@/styles/*": ["src/styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/stripe.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/stripe.ts", "src/pages/api/auth/[...nextauth].ts"],
   "exclude": ["node_modules"]
 }

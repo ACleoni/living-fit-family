@@ -1,32 +1,46 @@
 import React from 'react';
 import styles from './Landing.module.scss';
+import { Video } from 'cloudinary-react';
 
 export default function Landing() {
   const isAdminMode: boolean = false;
 
   return (
-    <div id={styles.landing}>
-      <div id={styles.filter}>
-        <div id={styles.heroContainer}>
-          <div id={styles.heroContent}>
-            {/* <h1 id={styles.heroTitle}>A RANDOM TITLE</h1>
-
-            <p id={styles.heroText}>Some random text to describe the random title</p> */}
-
-            <a href='/#services'>
-              <div className={`${styles.scrollDownArrow} ${styles.scrollDownLink}`}></div>
-              {/* <button id={styles.heroButton}>Next Section</button> */}
-            </a>
+    <section>
+      <div className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.heroFilter} />
+          <div className={styles.heroContainer}>
+            <Video
+              id={styles.video}
+              cloudName={'dq0fvempx'}
+              muted
+              autoPlay
+              loop
+              playsInline
+              data-keepplaying
+              publicId='landing-page-video'
+            ></Video>
           </div>
+          {/* <i id={styles.moveDown} className='fa fa-chevron-down fa-3x bounce'></i> */}
         </div>
+        {/* <div class='opaque-bg animated fadeInDown'>
+          <h1 style='color:white'>
+            BRAD<span style='color:#FF6363'>/</span>ENGELHARDT
+          </h1>
+          <p>
+            <span id='holder'></span>
+            <span class='blinking-cursor'>|</span>
+          </p>
+        </div> */}
       </div>
-      <video width='100%' height='100%' data-keepplaying muted autoPlay loop playsInline id={styles.video}>
-        <source
-          className='video-source'
-          src='https://res.cloudinary.com/dq0fvempx/video/upload/v1604172238/landing.mp4'
-          type='video/mp4'
-        />
-      </video>
-    </div>
+      <footer>
+        <div>
+          <p className={styles.footer}>STREAM FROM YOU PHONE OR LAPTOP WITH ZOOM</p>
+          <i className='fa fa-mobile'></i>
+          <i className='fa fa-laptop'></i>
+        </div>
+      </footer>
+    </section>
   );
 }

@@ -1,12 +1,16 @@
+import { AppProps /*, AppContext */ } from 'next/app';
 import Wrapper from '@/components/wrapper/wrapper';
-import { AppProps, /*, AppContext */ } from 'next/app';
+import { Provider } from 'next-auth/client';
+
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Wrapper>
-      <Component {...pageProps} />
-    </Wrapper>
+    <Provider session={pageProps.session}>
+      <Wrapper>
+        <Component {...pageProps} />
+      </Wrapper>
+    </Provider>
   );
 }
 

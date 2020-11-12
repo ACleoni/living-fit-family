@@ -1,3 +1,5 @@
+import NextAuth from 'next-auth';
+import Providers from 'next-auth/providers';
 import { google } from 'googleapis';
 
 export function oauth2Client() {
