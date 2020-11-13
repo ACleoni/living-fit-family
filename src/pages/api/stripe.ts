@@ -3,27 +3,6 @@ import Stripe from 'stripe';
 import opt from '../../utils/otp';
 import httpHandler from './http/httpHandler';
 
-import Cors from 'cors';
-
-// Initializing the cors middleware
-const cors = Cors({
-  methods: ['GET', 'HEAD', 'OPTIONS'],
-});
-
-// Helper method to wait for a middleware to execute before continuing
-// And to throw an error when an error happens in a middleware
-function runMiddleware(req, res, fn) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-
-      return resolve(result);
-    });
-  });
-}
-
 const stripe = new Stripe(process.env.STRIPE_API_KEY, { apiVersion: '2020-08-27' });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -41,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
         console.log(session);
 
-        await runMiddleware(req, res, cors);
+        
 
         res.redirect(session.url);
         // res.status(200).json(session);
