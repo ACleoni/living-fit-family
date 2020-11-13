@@ -3,97 +3,111 @@ import { useSession, signIn, signOut } from 'next-auth/client';
 import styles from './Header.module.scss';
 import Logo from '../../../public/Logo.svg';
 import { useRouter } from 'next/router';
+import httpHandler from 'src/pages/api/http/httpHandler';
+import { Video } from 'cloudinary-react';
 
 export default function Header() {
   const router = useRouter();
-  const [headerState, setHeaderState] = useState(router.pathname === '/' ? styles.transparent : styles.opaque);
+  const [headerState, setHeaderState] = useState(router.pathname === '/' ? 'uk-dark' : 'uk-light');
   const [session, loading] = useSession();
+  const [mobile, setMobile] = useState(false);
 
   const listenScrollEvent = () => {
     if (window.scrollY >= 500) {
-      return setHeaderState(styles.opaque);
+      return setHeaderState('');
     } else {
-      return setHeaderState(styles.transparent);
+      return setHeaderState('uk-dark');
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
+    if (typeof window !== 'undefined') {
+      // browser code
+      window.addEventListener('scroll', listenScrollEvent);
+      window.screen.width < 800 ? setMobile(true) : setMobile(false);
+    }
+
     return () => window.removeEventListener('scroll', listenScrollEvent);
   }, []);
 
+  const handleClick = (evt) => {
+    // if (evt.target === 'My Account') {
+    httpHandler('/api/stripe', 'POST', { email: 'alexander.cleoni@gmail.com' });
+    // }
+  };
+
   return (
-    // <header id={styles.header} className={headerState}>
+    <div className='uk-position-relative'>
+      <nav className='uk-navbar uk-navbar-container uk-margin uk-navbar-transparent uk-light uk-background-secondary'>
+        <div className='uk-navbar-left'>
+          <a className='uk-navbar-item uk-logo' href='/'>
+            <img src={Logo} width={150} />
+          </a>
+        </div>
+        <div className='uk-navbar-right'>
+          <button
+            className='uk-button uk-button-default uk-margin-small-right'
+            type='button'
+            data-uk-toggle='target: #offcanvas-usage'
+          >
+            <span data-uk-navbar-toggle-icon></span>
+          </button>
+        </div>
+      </nav>
 
-    <nav className={styles.navHeader} id={headerState}>
-      <div className={styles.navBrand}>
-        <a href='/'>
-          <img src={Logo} />
-        </a>
-      </div>
-
-      <div className={styles.headerLeftLinks}>
-        <ul>
-          <li>
-            <a href='/about'>About</a>
-          </li>
-          <li>
-            <a href='#portfolio'>Services</a>
-          </li>
-          <li>
-            <a href='/store'>Merch</a>
-          </li>
-          <li>
-            <a href='#portfolio'>Contact</a>
-          </li>
-        </ul>
-      </div>
-      <div className={styles.headerRightLinks}>
-        <ul>
-          <li>
-            <a href='/cart'>
-              <i className='fa fa-shopping-bag'></i>
-            </a>
-          </li>
-          {session && (
-            <li className={styles.account}>
-              <a href='#'>
-                {session.user.name} <i className='fa fa-chevron-down'></i>
-              </a>
-              <ul className={styles.accountSubMenu}>
-                <li>
-                  <a href='/'>My Account</a>
-                </li>
-                <li>
-                  <a href='/billing'>At Home</a>
-                </li>
-                <li>
-                  <button onClick={() => signOut()}>Sign Out</button>
-                </li>
-              </ul>
+      <div id='offcanvas-usage' data-uk-offcanvas='flip: true'>
+        <div className='uk-offcanvas-bar uk-margin-xlarge-top'>
+          <ul className='uk-nav uk-nav-default'>
+            <li className='uk-active'>
+              <a href='#'>About</a>
             </li>
-          )}
-          <li>
-            {!session && <button onClick={() => signIn('okta')}>Sign In</button>}
-          </li>
-        </ul>
+            <li className='uk-active'>
+              <a href='#'>Services</a>
+            </li>
+            <li className='uk-active'>
+              <a href='#'>Merch</a>
+            </li>
+            <li className='uk-active'>
+              <a href='#'>Contact</a>
+            </li>
+
+            {session && (
+              <React.Fragment>
+                <li className='uk-nav-header'>{session.user.name}</li>
+                <li>
+                  <a href='#'>
+                    <span className='uk-margin-small-right' uk-icon='icon: home'></span> At Home
+                  </a>
+                </li>
+                <li>
+                  <a href='#'>
+                    <span className='uk-margin-small-right' uk-icon='icon: credit-card'></span> Billing
+                  </a>
+                </li>
+              </React.Fragment>
+            )}
+            <li className='uk-nav-divider'></li>
+            <li>
+              {!session && (
+                <div>
+                  <span
+                    onClick={() => signIn('okta')}
+                    className='uk-margin-small-right'
+                    uk-icon='icon:  sign-in'
+                  ></span>{' '}
+                  Sign In
+                </div>
+              )}
+              {session && (
+                <div>
+                  <span onClick={() => signOut()} className='uk-margin-small-right' uk-icon='icon:  sign-out'></span>{' '}
+                  Sign Out
+                </div>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
-    </nav>
-
-    // {/* <i className='fa fa-bars fa-3x'></i> */}
-
-    //   {/* <div id={styles.responsive}>
-    //     <div id={styles.responsiveLogoContainer}>
-    //       <a href={'/'}>
-    //         <img src={Logo} alt='Living Fit Family Logo' id={styles.responsiveLogo} />
-    //       </a>
-    //       <button placeholder={'Clik Me'} id={styles.menuIcon}>
-    //         Hello
-    //       </button>
-    //     </div>
-
-    //     <div id='responsive-nav-bar'></div>
-    //   </div> */}
-    // {/* </header> */}
+    </div>
   );
 }

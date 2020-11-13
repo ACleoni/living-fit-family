@@ -3,8 +3,8 @@ import styles from './Online.module.scss';
 
 export default function () {
   return (
-    <div className={styles.contentSection}>
-      <div className={styles.container}>
+    <div>
+      {/* <div className={styles.container}>
         <div
           className='row'
           style={{ display: 'flex', width: '100%', justifyContent: 'space-around', flexWrap: 'wrap' }}
@@ -27,14 +27,14 @@ export default function () {
             </button>
           </div>
           <div style={{ width: '30%' }}>
-            {/* <img
+            <img
               className={styles.phone}
               src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/crunch_phone_%26_computer.png'
               alt=''
-            /> */}
+            />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

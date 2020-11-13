@@ -35,7 +35,6 @@ const options = {
     },
     session: async (session, user) => {
       session.groups = user.groups;
-      console.log(session);
       return Promise.resolve(session);
     },
     jwt: async (token, user, account, profile, isNewUser) => {
