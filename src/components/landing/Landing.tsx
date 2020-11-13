@@ -6,17 +6,17 @@ export default function Landing() {
   const isAdminMode: boolean = false;
 
   return (
-    // <div>
-    <Video
-      id='#video'
-      cloudName={'dq0fvempx'}
-      muted
-      autoPlay
-      loop
-      playsInline
-      data-keepplaying
-      publicId='landing-page-video'
-    ></Video>
-    // </div>
+    <div className={styles.container}>
+      <Video
+        id={styles.video}
+        cloudName={'dq0fvempx'}
+        muted
+        autoPlay
+        loop
+        playsInline
+        data-keepplaying
+        publicId='landing-page-video'
+      ></Video>
+    </div>
   );
 }

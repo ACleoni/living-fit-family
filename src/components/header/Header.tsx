@@ -38,14 +38,21 @@ export default function Header() {
 
   return (
     <div className='uk-position-relative'>
-      <nav className='uk-navbar uk-navbar-container uk-margin uk-navbar-transparent uk-light uk-background-secondary'>
+      <nav className='uk-navbar uk-navbar-container uk-navbar-transparent uk-light uk-background-secondary'>
         <div className='uk-navbar-left'>
           <a className='uk-navbar-item uk-logo' href='/'>
             <img src={Logo} width={120} />
           </a>
         </div>
         <div className='uk-navbar-right'>
-          <a className='uk-navbar-toggle' data-uk-navbar-toggle-icon href='#offcanvas-usage'></a>
+          <button
+            style={{ border: 'none' }}
+            className='uk-button uk-button-default uk-margin-small-right'
+            type='button'
+            uk-toggle='target: #offcanvas-usage'
+          >
+            <span uk-icon='icon: menu'></span>
+          </button>
         </div>
       </nav>
 
@@ -83,19 +90,13 @@ export default function Header() {
             <li className='uk-nav-divider'></li>
             <li>
               {!session && (
-                <div>
-                  <span
-                    onClick={() => signIn('okta')}
-                    className='uk-margin-small-right'
-                    uk-icon='icon:  sign-in'
-                  ></span>{' '}
-                  Sign In
+                <div onClick={() => signIn('okta')}>
+                  <span className='uk-margin-small-right' uk-icon='icon:  sign-in'></span> Sign In
                 </div>
               )}
               {session && (
-                <div>
-                  <span onClick={() => signOut()} className='uk-margin-small-right' uk-icon='icon:  sign-out'></span>{' '}
-                  Sign Out
+                <div onClick={() => signOut()}>
+                  <span className='uk-margin-small-right' uk-icon='icon:  sign-out'></span> Sign Out
                 </div>
               )}
             </li>

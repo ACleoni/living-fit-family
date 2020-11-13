@@ -1,56 +1,11 @@
-.section {
-  text-align: center;
-}
-
 .container {
-  // background: black;
-  height: 100vh;
-  width: auto;
+  margin: 0 auto;
+  height: 600px;
   position: relative;
-}
-
-.heroContainer {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  overflow: hidden;
-}
-
-.heroFilter {
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.footer {
-  display: inline-block;
-  float: left;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1.3px;
-  color: #a5a5a5;
-  margin-top: 28px;
 }
 
 #video {
   height: 100%;
-  max-width: 750px;
-  position: relative;
   object-fit: inherit;
-}
-
-#moveDown {
-  color: #ffffff !important;
-  bottom: 10px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  opacity: 1;
-  -webkit-transition: 1.2s ease;
+  width: 100%;
 }

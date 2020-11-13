@@ -1,7 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div>
-  Hello, world!
-</div>
+<video
+  autoPlay={true}
+  data-keepplaying={true}
+  id="#video"
+  loop={true}
+  muted={true}
+  playsInline={true}
+  poster="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.jpg"
+>
+  <source
+    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.webm"
+    type="video/webm"
+  />
+  <source
+    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.mp4"
+    type="video/mp4"
+  />
+  <source
+    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.ogv"
+    type="video/ogg"
+  />
+</video>
 `;
