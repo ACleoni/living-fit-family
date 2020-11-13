@@ -41,17 +41,11 @@ export default function Header() {
       <nav className='uk-navbar uk-navbar-container uk-margin uk-navbar-transparent uk-light uk-background-secondary'>
         <div className='uk-navbar-left'>
           <a className='uk-navbar-item uk-logo' href='/'>
-            <img src={Logo} width={150} />
+            <img src={Logo} width={120} />
           </a>
         </div>
         <div className='uk-navbar-right'>
-          <button
-            className='uk-button uk-button-default uk-margin-small-right'
-            type='button'
-            data-uk-toggle='target: #offcanvas-usage'
-          >
-            <span data-uk-navbar-toggle-icon></span>
-          </button>
+          <a className='uk-navbar-toggle' data-uk-navbar-toggle-icon href='#offcanvas-usage'></a>
         </div>
       </nav>
 
