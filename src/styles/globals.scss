@@ -2,6 +2,7 @@
 
 // 1. Your custom variables and variable overwrites.
 $global-link-color: #da7d02;
+$global-primary-background: #2f9f31 !default;
 
 // 2. Import default variables and available mixins.
 @import '/node_modules/uikit/src/scss/variables-theme.scss';
@@ -32,6 +33,7 @@ body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   margin: 0;
   min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -42,3 +44,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+// .uk-button-primary {
+//   background-color: #da7d02 !important;
+// }

@@ -9,6 +9,6 @@ export function trim(str) {
   return str;
 }
 
-export default function mask() {
-  
+export function handleError(err) {
+  console.log('HERE');
 }

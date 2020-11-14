@@ -35,11 +35,13 @@ const options = {
     },
     session: async (session, user) => {
       session.groups = user.groups;
+      session.accessToken = user.accessToken;
       return Promise.resolve(session);
     },
     jwt: async (token, user, account, profile, isNewUser) => {
       if (profile && profile.groups) {
         token.groups = profile.groups;
+        token.accessToken = account.accessToken;
       }
       return Promise.resolve(token);
     },

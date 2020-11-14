@@ -5,12 +5,17 @@ import Logo from '../../../public/Logo.svg';
 import { useRouter } from 'next/router';
 import httpHandler from 'src/pages/api/http/httpHandler';
 import { Video } from 'cloudinary-react';
+import MobileNavBar from './navigation/mobile/mobile-navbar';
+import { handleError } from '../../utils/utils';
+import UIkit from 'uikit';
+import Axios from 'axios';
 
 export default function Header() {
   const router = useRouter();
   const [headerState, setHeaderState] = useState(router.pathname === '/' ? 'uk-dark' : 'uk-light');
   const [session, loading] = useSession();
-  const [mobile, setMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [alert, setAlert] = useState(false);
 
   const listenScrollEvent = () => {
     if (window.scrollY >= 500) {
@@ -21,88 +26,50 @@ export default function Header() {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // browser code
-      window.addEventListener('scroll', listenScrollEvent);
-      window.screen.width < 800 ? setMobile(true) : setMobile(false);
-    }
+    window.addEventListener('scroll', listenScrollEvent);
+    window.screen.width <= 600 ? setIsMobile(true) : setIsMobile(false);
 
     return () => window.removeEventListener('scroll', listenScrollEvent);
   }, []);
 
-  const handleClick = (evt) => {
-    // if (evt.target === 'My Account') {
-    httpHandler('/api/stripe', 'POST', { email: 'alexander.cleoni@gmail.com' });
-    // }
+  const displayAlert = () => {
+    setAlert(true);
+  };
+
+  const handleClick = async () => {
+    try {
+      const response = await Axios({
+        method: 'get',
+        url: '/api/stripe/billing',
+      });
+      router.push(response.data.message);
+    } catch (error) {
+      const modal = UIkit.modal.alert(error.response.data.message).dialog;
+      const el = modal.$el;
+      el.style.color = 'black';
+    }
+  };
+
+  const props = {
+    session: session,
+    logo: Logo,
+    signIn: signIn,
+    signOut: signOut,
+    handleClick: handleClick,
+    handleError: handleError,
   };
 
   return (
     <div className='uk-position-relative'>
-      <nav className='uk-navbar uk-navbar-container uk-navbar-transparent uk-light uk-background-secondary'>
-        <div className='uk-navbar-left'>
-          <a className='uk-navbar-item uk-logo' href='/'>
-            <img src={Logo} width={120} />
-          </a>
+      {alert && (
+        <div id='my-id' data-uk-modal>
+          <div className='uk-modal-dialog uk-modal-body'>
+            <h2 className='uk-modal-title'></h2>
+            <button className='uk-modal-close' type='button'></button>
+          </div>
         </div>
-        <div className='uk-navbar-right'>
-          <button
-            style={{ border: 'none' }}
-            className='uk-button uk-button-default uk-margin-small-right'
-            type='button'
-            uk-toggle='target: #offcanvas-usage'
-          >
-            <span uk-icon='icon: menu'></span>
-          </button>
-        </div>
-      </nav>
-
-      <div id='offcanvas-usage' data-uk-offcanvas='flip: true'>
-        <div className='uk-offcanvas-bar uk-margin-xlarge-top'>
-          <ul className='uk-nav uk-nav-default'>
-            <li className='uk-active'>
-              <a href='#'>About</a>
-            </li>
-            <li className='uk-active'>
-              <a href='#'>Services</a>
-            </li>
-            <li className='uk-active'>
-              <a href='#'>Merch</a>
-            </li>
-            <li className='uk-active'>
-              <a href='#'>Contact</a>
-            </li>
-
-            {session && (
-              <React.Fragment>
-                <li className='uk-nav-header'>{session.user.name}</li>
-                <li>
-                  <a href='#'>
-                    <span className='uk-margin-small-right' uk-icon='icon: home'></span> At Home
-                  </a>
-                </li>
-                <li>
-                  <a href='#'>
-                    <span className='uk-margin-small-right' uk-icon='icon: credit-card'></span> Billing
-                  </a>
-                </li>
-              </React.Fragment>
-            )}
-            <li className='uk-nav-divider'></li>
-            <li>
-              {!session && (
-                <div onClick={() => signIn('okta')}>
-                  <span className='uk-margin-small-right' uk-icon='icon:  sign-in'></span> Sign In
-                </div>
-              )}
-              {session && (
-                <div onClick={() => signOut()}>
-                  <span className='uk-margin-small-right' uk-icon='icon:  sign-out'></span> Sign Out
-                </div>
-              )}
-            </li>
-          </ul>
-        </div>
-      </div>
+      )}
+      {isMobile ? <MobileNavBar {...props} /> : null}
     </div>
   );
 }

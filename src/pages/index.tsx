@@ -11,6 +11,7 @@ export default function Index() {
   return (
     <React.Fragment>
       <Landing />
+      <Services />
       {/* <Landing />
       <Services />
       <Online />

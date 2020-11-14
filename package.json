@@ -10,9 +10,11 @@
     "tslint": "tslint"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "cloudinary-react": "^1.6.7",
     "cross-env": "^7.0.2",
     "googleapis": "^63.0.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "^9.5.5",
     "next-auth": "^3.1.0",
     "next-images": "^1.5.0",
