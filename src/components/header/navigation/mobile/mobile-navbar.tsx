@@ -7,10 +7,9 @@ interface Props {
   signIn: Function;
   signOut: Function;
   handleClick: Function;
-  handleError: Function;
 }
 
-export default function MobileNavBar({ session, logo, signIn, signOut, handleClick, handleError }: Props) {
+export default function MobileNavBar({ session, logo, signIn, signOut, handleClick }: Props) {
   return (
     <React.Fragment>
       <nav
@@ -53,29 +52,29 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
             {session && (
               <React.Fragment>
                 <li className='uk-nav-header uk-margin-small-top'>{session.user.name}</li>
-                <li>
+                <li className='uk-active'>
                   <a href='/at-home'>
                     <span className='uk-margin-small-right' uk-icon='icon: home'></span> At Home
                   </a>
                 </li>
-                <li>
-                  <div onClick={() => handleClick()}>
+                <li className='uk-active'>
+                  <a onClick={() => handleClick()}>
                     <span className='uk-margin-small-right' uk-icon='icon: credit-card'></span> Billing
-                  </div>
+                  </a>
                 </li>
               </React.Fragment>
             )}
             <li className='uk-nav-divider'></li>
-            <li>
+            <li className='uk-active'>
               {!session && (
-                <div onClick={() => signIn('okta')}>
+                <a onClick={() => signIn('okta')}>
                   <span className='uk-margin-small-right' uk-icon='icon:  sign-in'></span> Sign In
-                </div>
+                </a>
               )}
               {session && (
-                <div onClick={() => signOut()}>
+                <a onClick={() => signOut()}>
                   <span className='uk-margin-small-right' uk-icon='icon:  sign-out'></span> Sign Out
-                </div>
+                </a>
               )}
             </li>
           </ul>

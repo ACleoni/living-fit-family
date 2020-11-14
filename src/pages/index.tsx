@@ -3,19 +3,14 @@ import React from 'react';
 import Form from '../components/form/Form';
 import Landing from '@/components/landing/Landing';
 import Services from '@/components/services/Services';
-import Online from '@/components/online/Online';
+import Testimonials from '@/components/testimonials/Testimonials';
 
 export default function Index() {
-  const anchors = ['home', 'services', 'testimonials', 'contact'];
-
   return (
-    <React.Fragment>
+    <div className='uk-container-large'>
       <Landing />
       <Services />
-      {/* <Landing />
-      <Services />
-      <Online />
-      <Form /> */}
-    </React.Fragment>
+      <Testimonials />
+    </div>
   );
 }

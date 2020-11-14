@@ -1,6 +1,5 @@
 import { AppProps /*, AppContext */ } from 'next/app';
 import Head from 'next/head';
-import Wrapper from '@/components/wrapper/wrapper';
 import { Provider } from 'next-auth/client';
 
 import UIKit from '../utils/UIKit';
