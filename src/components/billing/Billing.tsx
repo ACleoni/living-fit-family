@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import httpHandler from 'src/pages/api/http/httpHandler';
 import styles from './Billing.module.scss';
-import Logo from '../../../public/Logo.svg';
+// import Logo from '../../../public/Logo.svg';
 import next from 'next';
 
 export default function Billing() {

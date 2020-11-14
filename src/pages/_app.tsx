@@ -1,15 +1,19 @@
 import { AppProps /*, AppContext */ } from 'next/app';
-import Wrapper from '@/components/wrapper/wrapper';
+import Head from 'next/head';
 import { Provider } from 'next-auth/client';
 
+import UIKit from '../utils/UIKit';
+
 import '../styles/globals.scss';
+import Header from '@/components/header/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider session={pageProps.session}>
-      <Wrapper>
+      <UIKit>
+        <Header />
         <Component {...pageProps} />
-      </Wrapper>
+      </UIKit>
     </Provider>
   );
 }
