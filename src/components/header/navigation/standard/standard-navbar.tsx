@@ -7,21 +7,20 @@ interface Props {
   signIn: Function;
   signOut: Function;
   handleClick: Function;
-  headerState: string;
 }
 
-export default function StandardNavBar({ session, logo, signIn, signOut, handleClick, headerState }: Props) {
+export default function StandardNavBar({ session, logo, signIn, signOut, handleClick }: Props) {
   const headerRef = useRef(null);
 
-  useEffect(() => {
-    if (headerState === 'scroll') {
-      headerRef.current.classList.add('opaque');
-      headerRef.current.classList.remove('transparent');
-    } else {
-      headerRef.current.classList.add('transparent');
-      headerRef.current.classList.remove('opaque');
-    }
-  });
+  // useEffect(() => {
+  //   if (headerState === 'scroll') {
+  //     headerRef.current.classList.add('opaque');
+  //     headerRef.current.classList.remove('transparent');
+  //   } else {
+  //     headerRef.current.classList.add('transparent');
+  //     headerRef.current.classList.remove('opaque');
+  //   }
+  // });
 
   return (
     <React.Fragment>

@@ -58,12 +58,10 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
           as={Menu}
           animation='overlay'
           direction='right'
-          // icon='labeled'
           inverted
           onShow={() => toggleLockScreen()}
           onHide={() => toggleLockScreen()}
           vertical
-          // width='thin'
           visible={visible}
         >
           <Menu.Item>About</Menu.Item>
@@ -87,7 +85,7 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
           )}
 
           <Menu.Item>
-            <Button basic color='green' onClick={() => handleSessionClick()}>
+            <Button basic color='instagram' onClick={() => handleSessionClick()}>
               {session ? 'Sign Out' : 'Sign In'}
             </Button>
           </Menu.Item>
