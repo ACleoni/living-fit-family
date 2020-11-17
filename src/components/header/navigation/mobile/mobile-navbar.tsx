@@ -92,7 +92,7 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
         </Sidebar>
 
         <Sidebar.Pusher dimmed={visible}>
-          <Segment textAlign='center' vertical padded={false}>
+          <Segment textAlign='center' vertical style={{ padding: '0px' }}>
             <Landing />
           </Segment>
         </Sidebar.Pusher>

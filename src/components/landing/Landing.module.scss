@@ -14,6 +14,37 @@
   left: 0;
 }
 
+.cardContainer {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cardContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.cardContainer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.card {
+  display: inline-block !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 200px !important;
+  margin-left: 1rem !important;
+  &:last-child {
+    margin-right: 1rem !important;
+  }
+  img {
+    border-radius: 5px;
+  }
+}
+
 #video {
   // margin-top: 80px;
   width: 100%;
