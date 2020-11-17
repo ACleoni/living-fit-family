@@ -85,7 +85,7 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
           )}
 
           <Menu.Item>
-            <Button basic color='instagram' onClick={() => handleSessionClick()}>
+            <Button basic color='green' onClick={() => handleSessionClick()}>
               {session ? 'Sign Out' : 'Sign In'}
             </Button>
           </Menu.Item>
