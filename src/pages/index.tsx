@@ -1,16 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
-import Form from '../components/form/Form';
-import Landing from '@/components/landing/Landing';
-import Services from '@/components/services/Services';
-import Testimonials from '@/components/testimonials/Testimonials';
+import Landing from '@components/landing/Landing';
+import { Media, MediaContextProvider } from '../utils/config';
 
-export default function Index() {
-  return (
-    <div className='uk-container-large'>
-      <Landing />
-      <Services />
-      <Testimonials />
-    </div>
-  );
+export default function Index({ children }) {
+  return <div>{/* <Landing /> */}</div>;
 }

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import MobileNavBar from './navigation/mobile/mobile-navbar';
 import StandardNavBar from './navigation/standard/standard-navbar';
 
-import UIkit from 'uikit';
+// import UIkit from 'uikit';
 import Axios from 'axios';
 
 export default function Header() {
@@ -30,17 +30,17 @@ export default function Header() {
   }, []);
 
   const handleClick = async () => {
-    try {
-      const response = await Axios({
-        method: 'get',
-        url: '/api/stripe/billing',
-      });
-      router.push(response.data.message);
-    } catch (error) {
-      const modal = UIkit.modal.alert(error.response.data.message).dialog;
-      const el = modal.$el;
-      el.style.color = 'black';
-    }
+    // try {
+    //   const response = await Axios({
+    //     method: 'get',
+    //     url: '/api/stripe/billing',
+    //   });
+    //   router.push(response.data.message);
+    // } catch (error) {
+    //   const modal = UIkit.modal.alert(error.response.data.message).dialog;
+    //   const el = modal.$el;
+    //   el.style.color = 'black';
+    // }
   };
 
   const props = {
@@ -51,9 +51,5 @@ export default function Header() {
     handleClick: handleClick,
   };
 
-  return (
-    <div className='uk-position-relative'>
-      {isMobile ? <MobileNavBar {...props} /> : <StandardNavBar headerState={headerState} {...props} />}
-    </div>
-  );
+  return <div>{isMobile ? <MobileNavBar {...props} /> : <StandardNavBar {...props} />}</div>;
 }

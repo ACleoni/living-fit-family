@@ -10,7 +10,6 @@ export default function Landing() {
       <div className='uk-container-small' style={{ height: '90vh' }}>
         <Video
           id={styles.video}
-          classNam='uk-video'
           cloudName={'dq0fvempx'}
           muted
           autoPlay

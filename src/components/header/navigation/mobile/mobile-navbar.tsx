@@ -1,5 +1,20 @@
-import { Session } from 'next-auth/client';
 import React from 'react';
+import { Session } from 'next-auth/client';
+import {
+  Container,
+  Segment,
+  Menu,
+  Icon,
+  Image,
+  Dropdown,
+  Button,
+  Sticky,
+  Sidebar,
+  Grid,
+  Header,
+} from 'semantic-ui-react';
+import styles from './mobile-navbar.module.scss';
+import Landing from '@components/landing/Landing';
 
 interface Props {
   session: Session;
@@ -10,76 +25,80 @@ interface Props {
 }
 
 export default function MobileNavBar({ session, logo, signIn, signOut, handleClick }: Props) {
-  return (
-    <React.Fragment>
-      <nav
-        className='uk-navbar uk-navbar-container uk-navbar-transparent uk-light uk-background-secondary'
-        data-uk-sticky
-        data-uk-navbar
-      >
-        <div className='uk-navbar-left'>
-          <a className='uk-navbar-item uk-logo' href='/'>
-            <img src={logo} width={120} />
-          </a>
-        </div>
-        <div className='uk-navbar-right'>
-          <button
-            style={{ border: 'none' }}
-            className='uk-button uk-button-default uk-margin-small-right'
-            type='button'
-            uk-toggle='target: #offcanvas-usage'
-          >
-            <span uk-icon='icon: menu'></span>
-          </button>
-        </div>
-      </nav>
+  const [activeItem, setActiveItem] = React.useState('');
+  const [visible, setVisible] = React.useState(false);
 
-      <div id='offcanvas-usage' data-uk-offcanvas='flip: true, overlay: true'>
-        <div className='uk-offcanvas-bar uk-margin-xlarge-top uk-height-medium'>
-          <ul className='uk-nav uk-nav-default'>
-            <li className='uk-active'>
-              <a href='/about'>About</a>
-            </li>
-            <li className='uk-active'>
-              <a href='/#services'>Services</a>
-            </li>
-            <li className='uk-active'>
-              <a href='#'>Merch</a>
-            </li>
-            <li className='uk-active'>
-              <a href='/#contact'>Contact</a>
-            </li>
-            {session && (
-              <React.Fragment>
-                <li className='uk-nav-header uk-margin-small-top'>{session.user.name}</li>
-                <li className='uk-active'>
-                  <a href='/at-home'>
-                    <span className='uk-margin-small-right' uk-icon='icon: home'></span> At Home
-                  </a>
-                </li>
-                <li className='uk-active'>
-                  <a onClick={() => handleClick()}>
-                    <span className='uk-margin-small-right' uk-icon='icon: credit-card'></span> Billing
-                  </a>
-                </li>
-              </React.Fragment>
-            )}
-            <li className='uk-nav-divider'></li>
-            <li className='uk-active'>
-              {!session && (
-                <a onClick={() => signIn('okta')}>
-                  <span className='uk-margin-small-right' uk-icon='icon:  sign-in'></span> Sign In
-                </a>
-              )}
-              {session && (
-                <a onClick={() => signOut()}>
-                  <span className='uk-margin-small-right' uk-icon='icon:  sign-out'></span> Sign Out
-                </a>
-              )}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </React.Fragment>
+  const handleToggle = () => {
+    setVisible(!visible);
+  };
+
+  const toggleLockScreen = () => {
+    document.body.style.overflow = visible ? 'hidden' : 'scroll';
+  };
+
+  const handleSessionClick = () => {
+    return session ? signOut() : signIn('okta');
+  };
+
+  return (
+    <div>
+      <Sticky>
+        <Menu inverted borderless>
+          <Menu.Item header>
+            <Image src={logo} size='small' />
+          </Menu.Item>
+          <Menu.Item position='right' onClick={() => handleToggle()}>
+            <Icon size='big' name='bars' />
+          </Menu.Item>
+        </Menu>
+      </Sticky>
+
+      <Sidebar.Pushable>
+        <Sidebar
+          as={Menu}
+          animation='overlay'
+          direction='right'
+          // icon='labeled'
+          inverted
+          onShow={() => toggleLockScreen()}
+          onHide={() => toggleLockScreen()}
+          vertical
+          // width='thin'
+          visible={visible}
+        >
+          <Menu.Item>About</Menu.Item>
+          <Menu.Item name='search' active={activeItem === 'search'}>
+            Services
+          </Menu.Item>
+          <Menu.Item name='add' active={activeItem === 'add'}>
+            Merch
+          </Menu.Item>
+          <Menu.Item name='about' active={activeItem === 'about'}>
+            Contact
+          </Menu.Item>
+
+          {session && (
+            <Dropdown item text={session.user.name} pointing='top right'>
+              <Dropdown.Menu>
+                <Dropdown.Item icon='book' text='Homework' />
+                <Dropdown.Item icon='settings' text='Account Settings' />
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+
+          <Menu.Item>
+            <Button basic color='green' onClick={() => handleSessionClick()}>
+              {session ? 'Sign Out' : 'Sign In'}
+            </Button>
+          </Menu.Item>
+        </Sidebar>
+
+        <Sidebar.Pusher dimmed={visible}>
+          <Segment textAlign='center' vertical padded={false}>
+            <Landing />
+          </Segment>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
+    </div>
   );
 }

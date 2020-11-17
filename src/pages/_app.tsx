@@ -1,19 +1,17 @@
+import React from 'react';
 import { AppProps /*, AppContext */ } from 'next/app';
-import Head from 'next/head';
 import { Provider } from 'next-auth/client';
+import Header from '@components/header/Header';
 
-import UIKit from '../utils/UIKit';
-
+// StyleSheets
+import 'semantic-ui-css/semantic.min.css';
 import '../styles/globals.scss';
-import Header from '@/components/header/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider session={pageProps.session}>
-      <UIKit>
-        <Header />
-        <Component {...pageProps} />
-      </UIKit>
+      <Header />
+      <Component {...pageProps} />
     </Provider>
   );
 }

@@ -1,5 +1,4 @@
-import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import { createMedia } from '@artsy/fresnel';
 import { google } from 'googleapis';
 
 export function oauth2Client() {
@@ -17,3 +16,11 @@ export function oauth2Client() {
 
   return oauth2Client;
 }
+
+export const { MediaContextProvider, Media } = createMedia({
+  breakpoints: {
+    mobile: 0,
+    tablet: 768,
+    computer: 1024,
+  },
+});
