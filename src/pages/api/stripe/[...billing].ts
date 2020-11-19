@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
+import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import path from 'path';
-import jwt from 'jsonwebtoken';
-import opt from '../../../utils/otp';
 import httpHandler from '../http/httpHandler';
 import { getSession } from 'next-auth/client';
 import { stripeAPIErrorMessages } from 'src/utils/constants';
@@ -35,17 +34,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      const key = `-----BEGIN PUBLIC KEY-----
-      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgeqELu6IYnDZ0iSJB8h3
-      N3qErpfssdfPzCSsDOUTJYd2gI0wWneICs02fXT8X9aV0/pw/EVjvApufd4H2hD9
-      ChbfcuAqf5ficH6zsHPUEdAXP+6pFj8+0Ci1TFD1cNuqLYoUqtjmjuqxJf6ty/li
-      BkRPQtADWShsZaBaUACPcb9k8q/bpmsfugXm+OivlFItW9uFNirClQwpL/ZtYcAl
-      UcY1EoxZ15xXE/GzEWgzwX0wa/XwAHU9M5LFF/o2wQ52tb8vzouqMAIb5vndgXpS
-      su47vgPFcnoVS2xd80bbQiLpUNxM3Nw8DPJWoHHL1inpmdWaQd+8g8ijMFkTZjiU
-      MQIDAQAB
-      -----END PUBLIC KEY-----
-      `;
-      // const file = fs.readFileSync(path.join(__dirname, 'src/certs', 'public.pem'), 'utf8')
+      const key = fs.readFileSync(path.resolve('./src', 'certs/public.pem'));
+
+      console.log(key);
 
       const sub = await jwt.verify(userSession.accessToken, key, (err, decoded) => {
         if (err) {
