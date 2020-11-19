@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/stripe/[...billing].js": {
+    "api/stripe/*.js": {
       "includeFiles": "src/certs/**"
     }
   }
