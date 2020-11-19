@@ -35,12 +35,19 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      console.log('directory', process.cwd());
-      const filePath = path.join(process.cwd(), 'src/certs', 'public.pem');
-      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const key = `-----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgeqELu6IYnDZ0iSJB8h3
+      N3qErpfssdfPzCSsDOUTJYd2gI0wWneICs02fXT8X9aV0/pw/EVjvApufd4H2hD9
+      ChbfcuAqf5ficH6zsHPUEdAXP+6pFj8+0Ci1TFD1cNuqLYoUqtjmjuqxJf6ty/li
+      BkRPQtADWShsZaBaUACPcb9k8q/bpmsfugXm+OivlFItW9uFNirClQwpL/ZtYcAl
+      UcY1EoxZ15xXE/GzEWgzwX0wa/XwAHU9M5LFF/o2wQ52tb8vzouqMAIb5vndgXpS
+      su47vgPFcnoVS2xd80bbQiLpUNxM3Nw8DPJWoHHL1inpmdWaQd+8g8ijMFkTZjiU
+      MQIDAQAB
+      -----END PUBLIC KEY-----
+      `;
       // const file = fs.readFileSync(path.join(__dirname, 'src/certs', 'public.pem'), 'utf8')
 
-      const sub = await jwt.verify(userSession.accessToken, fileContents, (err, decoded) => {
+      const sub = await jwt.verify(userSession.accessToken, key, (err, decoded) => {
         if (err) {
           throw err;
         }
