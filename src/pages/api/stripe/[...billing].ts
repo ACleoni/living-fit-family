@@ -40,7 +40,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       // const file = fs.readFileSync(path.join(__dirname, 'src/certs', 'public.pem'), 'utf8')
 
-      const sub = await jwt.verify(userSession.accessToken, file, (err, decoded) => {
+      const sub = await jwt.verify(userSession.accessToken, fileContents, (err, decoded) => {
         if (err) {
           throw err;
         }
