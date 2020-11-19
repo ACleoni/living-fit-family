@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/stripe/**/*.ts": {
+    "src/pages/api/stripe/*.ts": {
       "includeFiles": "src/certs/**"
     }
   }
