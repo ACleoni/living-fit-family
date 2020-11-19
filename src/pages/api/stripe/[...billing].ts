@@ -36,10 +36,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       }
 
       console.log('directory', process.cwd());
-      const filePath = path.join(process.cwd(), 'src/pages/api/certs', 'public.pem');
+      const filePath = path.join(process.cwd(), 'src/certs', 'public.pem');
       const fileContents = fs.readFileSync(filePath, 'utf8');
+      // const file = fs.readFileSync(path.join(__dirname, 'src/certs', 'public.pem'), 'utf8')
 
-      const sub = await jwt.verify(userSession.accessToken, fileContents, (err, decoded) => {
+      const sub = await jwt.verify(userSession.accessToken, file, (err, decoded) => {
         if (err) {
           throw err;
         }
