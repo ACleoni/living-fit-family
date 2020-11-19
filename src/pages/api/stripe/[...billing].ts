@@ -55,16 +55,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      console.log(userSession);
-
       const cert = fs.readFileSync('src/pages/api/certs/public.pem');
       const sub = await jwt.verify(userSession.accessToken, cert, (err, decoded) => {
         if (err) {
-          console.log(err);
+          throw err;
         }
         return decoded.sub;
       });
-      console.log(sub);
 
       const customer = await httpHandler(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, 'GET');
       if (!customer || customer.count === 0) {
@@ -78,6 +75,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       });
       return res.status(200).json({ message: portalSession.url });
     } catch (err) {
+      console.log(err);
       return res.status(500).json({ message: stripeAPIErrorMessages.SYSTEM_ERROR });
     }
   } else {
