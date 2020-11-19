@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 import fs from 'fs';
+import path from 'path';
 import jwt from 'jsonwebtoken';
 import opt from '../../../utils/otp';
 import httpHandler from '../http/httpHandler';
@@ -27,36 +28,17 @@ const allowCors = (fn) => async (req, res) => {
 };
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  //TODO POST Request will be throw away code in the future
-  if (req.method === 'POST') {
-    try {
-      const { email } = req.body;
-      const isValid = true;
-      if (isValid) {
-        // Process a POST request
-        const customer = await httpHandler(`${process.env.STRIPE_SEARCH_API}?query=${email}&prefix=false`, 'GET');
-        const { id } = customer.data[0];
-        const session = await stripe.billingPortal.sessions.create({
-          customer: id,
-          return_url: 'https://livingfitfamily.com/billing',
-        });
-        res.redirect(session.url);
-        // res.status(200).json(session);
-      } else {
-        res.status(400);
-      }
-    } catch (error) {
-      res.status(500).json(error);
-    }
-  } else if (req.method === 'GET') {
+  if (req.method === 'GET') {
     try {
       const userSession = await getSession({ req });
       if (!userSession) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      const cert = fs.readFileSync('src/pages/api/certs/public.pem');
-      const sub = await jwt.verify(userSession.accessToken, cert, (err, decoded) => {
+      const filePath = path.join(process.cwd(), 'src/pages/api/certs', 'public.pem');
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+
+      const sub = await jwt.verify(userSession.accessToken, fileContents, (err, decoded) => {
         if (err) {
           throw err;
         }
