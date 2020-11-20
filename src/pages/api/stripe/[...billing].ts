@@ -17,7 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      const key = fs.readFileSync(path.join(process.cwd(), '.next/serverless/src/pages/api/stripe/certs', 'public.pem'), 'utf8');
+      const key = fs.readFileSync(path.join(process.cwd(), '.next/serverless/pages/api/stripe/certs', 'public.pem'), 'utf8');
 
       console.log(key);
 
