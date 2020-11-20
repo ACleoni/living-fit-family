@@ -1,13 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import ReactDOMServer from 'react-dom/server';
 import nodemailer from 'nodemailer';
-import opt from '../../utils/otp';
 import MailTemplate from '../../utils/templates';
 import { oauth2Client } from '../../utils/config';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const accessToken = oauth2Client().getAccessToken();
-  const oneTimePassword = opt().generate();
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -27,8 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let info = await transporter.sendMail({
     from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address
     to: req.body.email, // list of receivers
-    subject: 'One Time Password', // Subject line
-    html: ReactDOMServer.renderToStaticMarkup(MailTemplate(oneTimePassword)), // html body
+    subject: 'New Message From Client', // Subject line
+    html: ReactDOMServer.renderToStaticMarkup(MailTemplate('1234')), // html body
   });
 
   let { messageId } = info;
