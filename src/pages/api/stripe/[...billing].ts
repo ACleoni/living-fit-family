@@ -1,32 +1,26 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import OktaJwtVerifier from '@okta/jwt-verifier';
 import Stripe from 'stripe';
-import jwt from 'jsonwebtoken';
-import fs from 'fs';
-import path from 'path';
 import httpHandler from '../http/httpHandler';
 import { getSession } from 'next-auth/client';
 import { stripeAPIErrorMessages } from 'src/utils/constants';
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY, { apiVersion: '2020-08-27' });
+const oktaJwtVerifier = new OktaJwtVerifier({
+  issuer: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6`, // issuer required
+});
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
+      
       const userSession = await getSession({ req });
       if (!userSession) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      const key = fs.readFileSync(path.join(process.cwd(), '.next/serverless/pages/api/stripe/certs', 'public.pem'), 'utf8');
-
-      console.log(key);
-
-      const sub = await jwt.verify(userSession.accessToken, key, (err, decoded) => {
-        if (err) {
-          throw err;
-        }
-        return decoded.sub;
-      });
+      const jwt = await oktaJwtVerifier.verifyAccessToken(userSession.accessToken, 'api://custom');
+      const { sub } = jwt.claims;
 
       const customer = await httpHandler(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, 'GET');
       if (!customer || customer.count === 0) {

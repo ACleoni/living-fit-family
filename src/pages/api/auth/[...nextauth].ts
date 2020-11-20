@@ -14,9 +14,9 @@ const options = {
       version: '2.0',
       scope: 'openid profile email',
       params: { grant_type: 'authorization_code' },
-      accessTokenUrl: `${process.env.OKTA_DOMAIN}/oauth2/default/v1/token`,
-      authorizationUrl: `${process.env.OKTA_DOMAIN}/oauth2/default/v1/authorize?response_type=code`,
-      profileUrl: `${process.env.OKTA_DOMAIN}/oauth2/default/v1/userinfo`,
+      accessTokenUrl: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6/v1/token`,
+      authorizationUrl: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6/v1/authorize?response_type=code`,
+      profileUrl: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6/v1/userinfo`,
       profile: (profile) => {
         return {
           id: profile.sub,
