@@ -9,23 +9,6 @@ import { stripeAPIErrorMessages } from 'src/utils/constants';
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY, { apiVersion: '2020-08-27' });
 
-const allowCors = (fn) => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
-};
-
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
@@ -34,7 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });
       }
 
-      const key = fs.readFileSync(path.join(__dirname, 'certs', 'public.pem'), 'utf8');
+      const key = fs.readFileSync(path.join(process.cwd(), '/src/pages/api/stripe/certs', 'public.pem'), 'utf8');
 
       console.log(key);
 
@@ -65,4 +48,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default allowCors(handler);
+export default handler;
