@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `"Living Fit Family LLC" <${process.env.NODEMAILER_USER_EMAIL}>`, // sender address
-    to: 'alexander.cleoni@gmail.com', // list of receivers
+    to: `${process.env.NODEMAILER_USER_EMAIL}`, // list of receivers
     subject: 'New Contact Information', // Subject line
     html: ReactDOMServer.renderToStaticMarkup(MailTemplate(JSON.parse(req.body))), // html body
   });
