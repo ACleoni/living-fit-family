@@ -1,3 +1,5 @@
+import { Session } from 'next-auth/client';
+
 export function trim(str) {
   str = str.replace(/^\s+/, '');
   for (var i = str.length - 1; i >= 0; i--) {
@@ -11,4 +13,11 @@ export function trim(str) {
 
 export function handleError(err) {
   console.log('HERE');
+}
+
+export function isAdmin(session: Session) {
+  if (session) {
+    return session.groups.includes('Administrators');
+  }
+  return false;
 }

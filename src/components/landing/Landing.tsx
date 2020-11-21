@@ -7,10 +7,9 @@ export default function Landing() {
 
   return (
     <React.Fragment>
-      <div className='uk-container-small' style={{ height: '90vh' }}>
+      <div className='uk-container-large'>
         <Video
-          id={styles.video}
-          classNam='uk-video'
+          className='uk-video'
           cloudName={'dq0fvempx'}
           muted
           autoPlay

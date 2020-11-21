@@ -13,7 +13,6 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
-      
       const userSession = await getSession({ req });
       if (!userSession) {
         return res.status(401).json({ message: stripeAPIErrorMessages.SESSION_EXPIRED });

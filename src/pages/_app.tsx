@@ -4,7 +4,7 @@ import { Provider } from 'next-auth/client';
 
 import UIKit from '../utils/UIKit';
 
-import '../components/editor/editor.css'
+import '../components/editor/editor.css';
 import '../styles/globals.scss';
 
 import Header from '@components/header/Header';

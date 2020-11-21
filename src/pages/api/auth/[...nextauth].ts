@@ -12,7 +12,7 @@ const options = {
       name: 'Okta',
       type: 'oauth',
       version: '2.0',
-      scope: 'openid profile email',
+      scope: 'openid profile email offline_access',
       params: { grant_type: 'authorization_code' },
       accessTokenUrl: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6/v1/token`,
       authorizationUrl: `${process.env.OKTA_DOMAIN}/oauth2/aus18v3lkGFxy2oLX5d6/v1/authorize?response_type=code`,
@@ -36,12 +36,14 @@ const options = {
     session: async (session, user) => {
       session.groups = user.groups;
       session.accessToken = user.accessToken;
+      session.refreshToken = user.refreshToken;
       return Promise.resolve(session);
     },
     jwt: async (token, user, account, profile, isNewUser) => {
       if (profile && profile.groups) {
         token.groups = profile.groups;
         token.accessToken = account.accessToken;
+        token.refreshToken = account.refreshToken;
       }
       return Promise.resolve(token);
     },

@@ -13,8 +13,8 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
   return (
     <React.Fragment>
       <nav
-        className='uk-navbar uk-navbar-container uk-navbar-transparent uk-light uk-background-secondary'
-        data-uk-sticky
+        className='uk-navbar uk-navbar-container uk-navbar-sticky uk-navbar-transparent uk-light uk-background-secondary'
+        data-uk-sticky='animation: uk-animation-slide-top; top: 200'
         data-uk-navbar
       >
         <div className='uk-navbar-left'>
@@ -23,18 +23,15 @@ export default function MobileNavBar({ session, logo, signIn, signOut, handleCli
           </a>
         </div>
         <div className='uk-navbar-right'>
-          <button
-            style={{ border: 'none' }}
-            className='uk-button uk-button-default uk-margin-small-right'
-            type='button'
+          <span
+            className='uk-margin-medium-right'
             uk-toggle='target: #offcanvas-usage'
-          >
-            <span uk-icon='icon: menu'></span>
-          </button>
+            uk-icon='icon: menu; ratio: 1.2'
+          ></span>
         </div>
       </nav>
 
-      <div id='offcanvas-usage' data-uk-offcanvas='flip: true, overlay: true'>
+      <div id='offcanvas-usage' data-uk-offcanvas='flip: true; overlay: true'>
         <div className='uk-offcanvas-bar uk-margin-xlarge-top uk-height-medium'>
           <ul className='uk-nav uk-nav-default'>
             <li className='uk-active'>

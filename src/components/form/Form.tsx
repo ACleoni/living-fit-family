@@ -1,82 +1,78 @@
-import React, { ChangeEvent, JSXElementConstructor } from 'react';
-import styles from './Form.module.scss';
-import FormElements from './FormElements';
-import Map from '../map/Stream';
+import React, { useRef } from 'react';
+import UIkit from 'uikit';
+
+type FormRequestBody = {
+  fullName: string;
+  phoneNumber: string;
+  instagram: string;
+  email: string;
+  message: string;
+};
 
 export default function Form() {
-  const [name, setName] = React.useState('');
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>, type: string): void => {
-    console.log(event.target.value);
-  };
+  const form = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080/sendMail/');
-  };
 
-  const renderFormElements = (): JSX.Element[] => {
-    return FormElements.map((element, index) => (
-      <div className={`${styles.wrapInput} ${styles.validateInput}`} data-validate={element.dataValidate} key={index}>
-        <label className={styles.label} htmlFor={element.name}>
-          {element.name}
-        </label>
-        {element.type === 'input' ? (
-          <input className={styles.input} type='text' name={element.name} required />
-        ) : (
-          <textarea className={styles.input} name={element.name} required></textarea>
-        )}
-        <span className={styles.shadowInput}></span>
-      </div>
-    ));
+    const { elements } = e.target;
+    let body: FormRequestBody;
+
+    for (let i = 0; i < elements.length; i++) {
+      const key = elements[i].name;
+      const value = elements[i].value;
+      if (key && value) {
+        body = { ...body, [key]: value };
+      }
+    }
+
+    fetch('/api/mailer', { method: 'POST', body: JSON.stringify(body) }).then(() => {
+      const modal = UIkit.modal.alert(
+        'We received your message! Thank you for your interest in our training services. Somone from our team will be in contact with you shortly. '
+      ).dialog;
+      const el = modal.$el;
+      el.style.color = 'black';
+      form.current.reset();
+    });
   };
 
   return (
-    <div id='contact' className='uk-child-width-1-3 uk-text-center uk-margin-large-left' data-uk-grid>
-      <div>
-        <form>
-          <fieldset className='uk-fieldset'>
-            <legend className='uk-legend'>Legend</legend>
-
-            <div className='uk-margin'>
-              <input className='uk-input' type='text' placeholder='Input' />
-            </div>
-
-            <div className='uk-margin'>
-              <select className='uk-select'>
-                <option>Option 01</option>
-                <option>Option 02</option>
-              </select>
-            </div>
-
-            <div className='uk-margin'>
-              <textarea className='uk-textarea' rows={5} placeholder='Textarea'></textarea>
-            </div>
-
-            <div className='uk-margin uk-grid-small uk-child-width-auto uk-grid'>
-              <label>
-                <input className='uk-radio' type='radio' name='radio2' checked /> A
-              </label>
-              <label>
-                <input className='uk-radio' type='radio' name='radio2' /> B
-              </label>
-            </div>
-
-            <div className='uk-margin uk-grid-small uk-child-width-auto uk-grid'>
-              <label>
-                <input className='uk-checkbox' type='checkbox' checked /> A
-              </label>
-              <label>
-                <input className='uk-checkbox' type='checkbox' /> B
-              </label>
-            </div>
-
-            <div className='uk-margin'>
-              <input className='uk-range' type='range' value='2' min='0' max='10' step='0.1' />
-            </div>
-          </fieldset>
-        </form>
-      </div>
+    <div className='uk-container uk-padding'>
+      <h1 className='uk-text-light uk-text-center'>Get In Touch</h1>
+      <form onSubmit={(e) => handleSubmit(e)} className='uk-grid-small' data-uk-grid ref={form}>
+        <div className='uk-margin-small uk-width-1-1'>
+          <div className='uk-inline uk-width-1-1'>
+            <span className='uk-form-icon' uk-icon='icon: user'></span>
+            <input className='uk-input' name='fullName' placeholder='full name' required />
+          </div>
+        </div>
+        <div className='uk-margin-small uk-width-1-2@s'>
+          <div className='uk-inline uk-width-1-1'>
+            <span className='uk-form-icon' uk-icon='icon: receiver'></span>
+            <input className='uk-input' name='phoneNumber' placeholder='phone number' required />
+          </div>
+        </div>
+        <div className='uk-margin-small uk-width-1-4@s'>
+          <div className='uk-inline uk-width-1-1'>
+            <span className='uk-form-icon' uk-icon='icon: instagram'></span>
+            <input className='uk-input' name='instagram' placeholder='instagram' required />
+          </div>
+        </div>
+        <div className='uk-margin-small uk-width-1-4@s'>
+          <div className='uk-inline uk-width-1-1'>
+            <span className='uk-form-icon' uk-icon='icon: mail'></span>
+            <input className='uk-input' name='email' placeholder='email' required />
+          </div>
+        </div>
+        <div className='uk-margin-small uk-width-1-2@s'>
+          <textarea className='uk-textarea' name='message' placeholder='message' rows={5} required />
+        </div>
+        <div>
+          <button type='submit' className='uk-button uk-button-primary'>
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

@@ -1,6 +1,4 @@
 import { google } from 'googleapis';
-import firebase from 'firebase';
-import 'firebase/storage';
 
 export function oauth2Client() {
   const OAuth2 = google.auth.OAuth2;

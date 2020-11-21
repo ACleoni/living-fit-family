@@ -51,9 +51,5 @@ export default function Header() {
     handleClick: handleClick,
   };
 
-  return (
-    <div className='uk-position-relative'>
-      {isMobile ? <MobileNavBar {...props} /> : <StandardNavBar headerState={headerState} {...props} />}
-    </div>
-  );
+  return isMobile ? <MobileNavBar {...props} /> : <StandardNavBar headerState={headerState} {...props} />;
 }
