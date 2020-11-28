@@ -3,15 +3,14 @@ import React from 'react';
 import Form from '@components/form/Form';
 import Landing from '@components/landing/Landing';
 import Services from '@components/services/Services';
-import Testimonials from '@components/testimonials/Testimonials';
 
 export default function Index() {
   return (
-    <div className='uk-container-large'>
+    <div>
       <Landing />
-      <Services />
+      {/* <Services />
       <Testimonials />
-      <Form />
+      <Form /> */}
     </div>
   );
 }

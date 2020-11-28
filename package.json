@@ -10,9 +10,13 @@
     "tslint": "tslint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.11.1",
     "@okta/jwt-verifier": "^1.0.0",
     "axios": "^0.21.0",
     "cloudinary-react": "^1.6.7",
+    "clsx": "^1.1.1",
     "cross-env": "^7.0.2",
     "draft-js": "^0.11.7",
     "firebase": "^8.0.2",
@@ -29,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@testing-library/react": "^11.2.2",
     "@types/enzyme": "^3.10.7",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.14",
