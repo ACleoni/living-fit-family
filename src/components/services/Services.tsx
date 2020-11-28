@@ -1,5 +1,4 @@
 import React from 'react';
-import Stream from '../map/Stream';
 import styles from './Services.module.scss';
 
 export default function Services() {
@@ -23,9 +22,7 @@ export default function Services() {
         </div>
       </div>
 
-      <div className='uk-width-small-*'>
-        <Stream />
-      </div>
+      <div className='uk-width-small-*'>{/* <Stream /> */}</div>
       <div className='uk-width-small-* uk-text-center'>
         <h2 className='uk-text-light'>Get access to three virtual training sessions weekly</h2>
         <p className='uk-text-light uk-text-emphasis'>
