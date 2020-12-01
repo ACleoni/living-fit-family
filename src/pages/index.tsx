@@ -8,6 +8,7 @@ export default function Index() {
   return (
     <div>
       <Landing />
+      <Services />
       {/* <Services />
       <Testimonials />
       <Form /> */}

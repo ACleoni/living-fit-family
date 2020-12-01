@@ -1,51 +1,42 @@
+import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import styles from './Services.module.scss';
 
 export default function Services() {
   return (
-    <div className='uk-grid-large uk-padding-large uk-margin uk-flex-center' data-uk-grid>
-      <div className='uk-width-1-1'>
-        <div>
-          <img src='https://res.cloudinary.com/dq0fvempx/image/upload/v1604765261/group-training_pcl77h.jpg' />
+    <Grid
+      container
+      style={{ padding: '5%', background: 'rgba(0, 0, 0, 1)', color: '#f1f1f1', justifyContent: 'center' }}
+    >
+      <Grid item>
+        <Typography variant='h5'>High Intensity Group Training</Typography>
+        <Typography variant='caption'>
+          Stength and functional movements designed for lean muscle gains and fat loss. Sessions up to 1 hour long with
+          thorough instruction, demonstration and guidance.
+        </Typography>
+        <br />
+        <Typography variant='caption'>Sessions available weekly from 2 days to unlimited.</Typography>
+        <div style={{ width: '100%' }}>
+          <img
+            style={{ width: '100%' }}
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606858378/group-training_pcl77h_1_fstquu.png'
+          />
         </div>
-        <div className='uk-width-small-* uk-text-center'>
-          <h1 className='uk-text-light'>High intensity group training</h1>
-          <p className='uk-text-light uk-text-emphasis'>
-            Stength and functional movements designed for lean muscle gains and fat loss. Sessions up to 1 hour long
-            with thorough instruction, demonstration and guidance.
-            <p>Sessions available weekly from 2 days to unlimited.</p>
-            <p className='uk-text-bold'>Note: Previous Experience Reccommended</p>
-            <a href='/#contact' className='uk-text-large uk-text-emphasis'>
-              Contact Us
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div className='uk-width-small-*'>{/* <Stream /> */}</div>
-      <div className='uk-width-small-* uk-text-center'>
-        <h2 className='uk-text-light'>Get access to three virtual training sessions weekly</h2>
-        <p className='uk-text-light uk-text-emphasis'>
-          Get access to three interactive virtual training sessions via Zoom. Ideal for weight and fat loss.
-          <p>No equipment neccessary.</p>
-          <span className='uk-text-large uk-text-emphasis'>Only $100 / month</span>
-        </p>
-      </div>
-
-      <div className='uk-width-small-*'>
-        <img src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605373513/Image_from_iOS_3_kjryt1.jpg' />
-      </div>
-      <div className='uk-width-small-* uk-text-center'>
-        <h1 className='uk-text-light'>One on One training</h1>
-        <p className='uk-text-light uk-text-emphasis'>
-          Get private and uninterrupted training catered to your specific goals. Includes sessions up to one hour and
-          customized meal plans.
-          <p>Sessions available weekly from 2 days to unlimited.</p>
-          <a href='/#contact' className='uk-text-large uk-text-emphasis'>
-            Contact Us
-          </a>
-        </p>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
+    //     {/* <div className='uk-width-small-* uk-text-center'>
+    //       <h1 className='uk-text-light'>High intensity group training</h1>
+    //       <p className='uk-text-light uk-text-emphasis'>
+    //         Stength and functional movements designed for lean muscle gains and fat loss. Sessions up to 1 hour long
+    //         with thorough instruction, demonstration and guidance.
+    //         <p>Sessions available weekly from 2 days to unlimited.</p>
+    //         <p className='uk-text-bold'>Note: Previous Experience Reccommended</p>
+    //         <a href='/#contact' className='uk-text-large uk-text-emphasis'>
+    //           Contact Us
+    //         </a>
+    //       </p>
+    //     </div>
+    //   </div>
+    // </div> */}
   );
 }
