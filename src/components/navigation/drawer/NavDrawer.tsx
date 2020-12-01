@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     width: 'auto',
   },
   paperAnchorTop: {
-    zIndex: -100,
     color: 'white',
     top: '56px',
   },
@@ -27,7 +26,7 @@ export default function NavDrawer() {
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
       <List style={{ background: 'rgba(0, 0, 0, 0.9)' }}>
         {['Home', 'About', 'Services', 'Merch', 'Contact'].map((text, index) => (
-          <div>
+          <div key={index}>
             <ListItem style={{ paddingLeft: '10%' }} button key={text}>
               {/* <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <MailIcon />}</ListItemIcon> */}
               <ListItemText primary={text} style={{ fontSize: '12px' }} />
