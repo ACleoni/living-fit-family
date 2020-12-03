@@ -31,7 +31,6 @@ export default function NavDrawer() {
               {/* <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <MailIcon />}</ListItemIcon> */}
               <ListItemText primary={text} style={{ fontSize: '12px' }} />
             </ListItem>
-            {/* <Divider style={{ background: 'white', height: '0.09px' }} /> */}
           </div>
         ))}
       </List>
