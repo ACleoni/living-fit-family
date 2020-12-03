@@ -23,7 +23,7 @@ export default function Services() {
             Fat Loss. Lean Muscle.
           </Typography>
         </Grid>
-        <Grid container item xs={12} spacing={1} justify='center' style={{paddingLeft: '10%'}}>
+        <Grid container item xs={12} spacing={1} justify='center' style={{ paddingLeft: '10%' }}>
           <Grid item xs={4}>
             <Button size='small' variant='outlined' color='secondary' style={{ fontWeight: 400 }}>
               Connect
@@ -40,7 +40,7 @@ export default function Services() {
 
         <Grid item xs={12}>
           <img
-            width={'100%'}
+            style={{ maxWidth: '1024px' }}
             src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606946154/Screen_Shot_2020-12-02_at_4.55.39_PM_ahpbnw.png'
           />
         </Grid>

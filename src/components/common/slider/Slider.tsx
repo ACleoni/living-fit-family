@@ -32,7 +32,7 @@ export default function Slider() {
         </Grid>
         <Grid item xs={12}>
           <Button size='small' color='secondary' style={{ fontWeight: 400 }}>
-            Learn More
+            Find the right program for you
             <ChevronRightIcon fontSize='small' color='secondary' style={{ fontWeight: 200 }} />
           </Button>
         </Grid>
