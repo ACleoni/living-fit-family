@@ -5,18 +5,15 @@ import Slider from '@components/common/slider/Slider';
 
 export default function Landing() {
   return (
-    <React.Fragment>
-      <Video
-        width={'100%'}
-        cloudName={'dq0fvempx'}
-        muted
-        autoPlay
-        loop
-        playsInline
-        data-keepplaying
-        publicId='landing-page-video'
-      ></Video>
-      <Slider />
-    </React.Fragment>
+    <Video
+      width={'100%'}
+      cloudName={'dq0fvempx'}
+      muted
+      autoPlay
+      loop
+      playsInline
+      data-keepplaying
+      publicId='landing-page-video'
+    ></Video>
   );
 }
