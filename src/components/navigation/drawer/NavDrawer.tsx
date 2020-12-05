@@ -27,7 +27,6 @@ export default function NavDrawer() {
   const { state: context, dispatch } = React.useContext(Store);
 
   const handleClick = () => {
-    console.log('here');
     toggleModal({
       dispatch,
       payload: true,

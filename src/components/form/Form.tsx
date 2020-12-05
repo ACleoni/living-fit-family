@@ -61,6 +61,7 @@ export default function Form() {
           id='outlined-basic'
           label='Full Name'
           variant='outlined'
+          type=''
           size='small'
           InputProps={{
             startAdornment: (
