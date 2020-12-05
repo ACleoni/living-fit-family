@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import OktaJwtVerifier from '@okta/jwt-verifier';
 import Stripe from 'stripe';
-import httpHandler from '../http/httpHandler';
 import { getSession } from 'next-auth/client';
 import { stripeAPIErrorMessages } from 'src/utils/constants';
 
@@ -21,7 +20,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const jwt = await oktaJwtVerifier.verifyAccessToken(userSession.accessToken, 'api://custom');
       const { sub } = jwt.claims;
 
-      const customer = await httpHandler(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, 'GET');
+      const response = await fetch(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, { method: 'GET' });
+      const customer = await response.json();
       if (!customer || customer.count === 0) {
         return res.status(401).json({ message: stripeAPIErrorMessages.UNAUTHORIZED });
       }
