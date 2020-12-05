@@ -1,19 +1,19 @@
 import Head from 'next/head';
 import React from 'react';
-import Form from '@components/form/Form';
 import Landing from '@components/landing/Landing';
 import Services from '@components/services/Services';
-import Slider from '@components/common/slider/Slider';
+import Modal from '@components/common/modal/Modal';
+import { Store } from 'src/context/store';
 
 export default function Index() {
+  const { state: context, dispatch } = React.useContext(Store);
+  console.log(context);
   return (
     <div>
       <Landing />
-      <Slider />
+      {/* <Slider /> */}
       <Services />
-      {/* <Services />
-      <Testimonials />
-      <Form /> */}
+      <Modal modalOpen={context.modalOpen} />
     </div>
   );
 }

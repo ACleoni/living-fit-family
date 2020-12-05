@@ -4,6 +4,8 @@ import { Drawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText } f
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Store } from 'src/context/store';
+import { toggleModal } from 'src/context/actionCreators';
 
 const useStyles = makeStyles({
   list: {
@@ -22,13 +24,23 @@ export default function NavDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({ open: false });
 
+  const { state: context, dispatch } = React.useContext(Store);
+
+  const handleClick = () => {
+    console.log('here');
+    toggleModal({
+      dispatch,
+      payload: true,
+    });
+    console.log(context);
+  };
+
   const list = () => (
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
       <List style={{ background: 'rgba(0, 0, 0, 0.9)' }}>
         {['Home', 'About', 'Services', 'Merch', 'Contact'].map((text, index) => (
           <div key={index}>
-            <ListItem style={{ paddingLeft: '10%' }} button key={text}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <MailIcon />}</ListItemIcon> */}
+            <ListItem onClick={() => handleClick()} style={{ paddingLeft: '10%' }} button key={text}>
               <ListItemText primary={text} style={{ fontSize: '12px' }} />
             </ListItem>
           </div>

@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "src/pages/api/stripe/[...payment].ts",
-    "src/pages/api/auth/[...nextauth].ts"
+    "src/pages/api/auth/[...nextauth].ts", "src/context/store.js"
   ],
   "exclude": ["node_modules"]
 }

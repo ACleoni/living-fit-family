@@ -21,6 +21,9 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
+  overrides: {
+    MuiFormLabel: { root: { color: '#808080' } },
+  },
 });
 
 export default theme;

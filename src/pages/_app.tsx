@@ -10,7 +10,7 @@ import theme from '../styles/theme';
 import '../styles/globals.scss';
 
 import Header from '@components/navigation/Header';
-
+import { StoreProvider } from 'src/context/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
@@ -29,9 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Provider session={pageProps.session}>
         <ThemeProvider theme={theme}>
-          <Header />
-          <CssBaseline />
-          <Component {...pageProps} />
+          <StoreProvider>
+            <Header />
+            <CssBaseline />
+            <Component {...pageProps} />
+          </StoreProvider>
         </ThemeProvider>
       </Provider>
     </React.Fragment>
