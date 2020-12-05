@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,7 +20,7 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' justify='space-between' style={{ backgroundColor: '#000', padding: '8%' }}>
+      <Grid container direction='column' spacing={1} style={{ backgroundColor: '#000', padding: '8%' }}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textSecondary'>
             High Intensity Group Training
@@ -58,6 +59,36 @@ export default function Services() {
             />
           </div>
         </Grid>
+      </Grid>
+      <Grid container spacing={1} style={{ padding: '8%' }}>
+        <Grid item xs={12}>
+          <Typography align='center' variant='h4' color='textPrimary'>
+            Weekly Live Sessions
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography align='center' variant='subtitle1' color='textPrimary'>
+            Interactive. Online. No Equipment.
+          </Typography>
+          <Typography align='center' variant='subtitle1' color='textPrimary'>
+            From $100 / mo.
+          </Typography>
+        </Grid>
+        <div
+          style={{
+            maxWidth: '1024px',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            padding: '10% 0',
+          }}
+        >
+          <img
+            style={{ width: '336px' }}
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
+          />
+          <LiveTvIcon style={{ position: 'relative', top: '15px', right: '75px', color: '#fff' }} />
+        </div>
       </Grid>
     </div>
   );
