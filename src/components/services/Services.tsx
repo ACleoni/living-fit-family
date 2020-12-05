@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LiveTvIcon from '@material-ui/icons/LiveTv';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,16 +77,13 @@ export default function Services() {
           style={{
             maxWidth: '1024px',
             width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
             padding: '10% 0',
           }}
         >
           <img
-            style={{ width: '336px' }}
+            style={{ width: '100%' }}
             src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
           />
-          <LiveTvIcon style={{ position: 'relative', top: '15px', right: '75px', color: '#fff' }} />
         </div>
       </Grid>
     </div>
