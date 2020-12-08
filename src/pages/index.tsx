@@ -3,6 +3,7 @@ import React from 'react';
 import Landing from '@components/landing/Landing';
 import Services from '@components/services/Services';
 import Modal from '@components/common/modal/Modal';
+import Slider from '@components/common/slider/Slider';
 import { Store } from 'src/context/store';
 
 export default function Index() {

@@ -36,7 +36,7 @@ export default function NavDrawer() {
 
   const list = () => (
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
-      <List style={{ background: 'rgba(0, 0, 0, 0.9)' }}>
+      <List>
         {['Home', 'About', 'Services', 'Merch', 'Contact'].map((text, index) => (
           <div key={index}>
             <ListItem onClick={() => handleClick()} style={{ paddingLeft: '10%' }} button key={text}>
@@ -65,6 +65,7 @@ export default function NavDrawer() {
           <MenuIcon fontSize='default' style={{ color: 'white' }} />
         </Button>
         <Drawer
+          color='black'
           classes={{ paperAnchorTop: classes.paperAnchorTop }}
           data-testid='drawer'
           anchor={'top'}

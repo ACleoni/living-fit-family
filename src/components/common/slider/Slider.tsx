@@ -1,16 +1,28 @@
 import React from 'react';
 import { Paper, Container, Button, Grid, Typography } from '@material-ui/core';
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import { Carousel } from 'react-responsive-carousel';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
+      justifyContent: 'space-around',
+      flexWrap: 'nowrap',
+      overflow: 'auto',
+      margin: '25px 0',
+      width: '100%',
+      height: '150px',
+      whiteSpace: 'nowrap',
+    },
+    flexItem: {
+      flex: '0 0 auto',
+      border: '2px solid #B85B14',
+      backgroundColor: '#FC7307',
+      width: '52.5%',
+      height: '200px',
+      marginLeft: '2.5%',
     },
     details: {
       // display: 'flex',
@@ -50,51 +62,24 @@ export default function Slider() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' alignItems='center'>
-        {/* <Grid item xs={12}>
-          <Typography variant='h4' component='h2'>
-            Real Results
-          </Typography>
-        </Grid> */}
-        <Grid
-          item
-          xs={12}
-          style={{ display: 'flex', justifyContent: 'space-between', overflowX: 'auto', flexWrap: 'nowrap' }}
-        >
-          <Card className={classes.root}>
-            {/* <div className={classes.details}> */}
-            <CardMedia
-              className={classes.cover}
-              component='video'
-              ref={videoRef}
-              onClick={() => videoRef.current.play()}
-              src='https://res.cloudinary.com/dq0fvempx/video/upload/v1607051652/IMG_2366_bodosi.mp4'
-            >
-              <div className={classes.controls}>
-                <IconButton aria-label='play/pause'>
-                  <PlayCircleOutlineIcon className={classes.playIcon} />
-                </IconButton>
-              </div>
-            </CardMedia>
-            <CardContent className={classes.content}>
-              <Typography variant='h6'>Strength</Typography>
-            </CardContent>
-            {/* </div> */}
-          </Card>
-          {/* <Paper elevation={1} style={{ flex: '0 0 auto', margin: '5px', backgroundColor: 'black' }}>
-            <img
-              style={{ width: '245px', padding: '10px 10px 10px' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605584908/Image_from_iOS_4_lyi0js.jpg'
-            />
-          </Paper> */}
-          {/* <Paper elevation={1} style={{ flex: '0 0 auto', margin: '5px' }}>
-            <img
-              style={{ width: '245px', padding: '10px 10px 10px' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605584908/Image_from_iOS_4_lyi0js.jpg'
-            />
-          </Paper> */}
-        </Grid>
-      </Grid>
+      <div className={classes.flexItem}>
+        <video
+          width='100%'
+          height='200px'
+          src='https://res.cloudinary.com/dq0fvempx/video/upload/v1607051652/IMG_2366_bodosi.mp4'
+        />
+      </div>
+      <div className={classes.flexItem}>
+        <video
+          // width='100%'
+          height='200px'
+          src='https://res.cloudinary.com/dq0fvempx/video/upload/v1607051652/IMG_2366_bodosi.mp4'
+        />
+      </div>
+      <div className={classes.flexItem}></div>
+      <div className={classes.flexItem}></div>
+      <div className={classes.flexItem}></div>
+      <div className={classes.flexItem}></div>
     </div>
   );
 }

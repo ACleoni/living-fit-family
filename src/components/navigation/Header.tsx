@@ -7,7 +7,7 @@ import { signIn } from 'next-auth/client';
 
 export default function Header() {
   return (
-    <AppBar position='sticky' style={{ opacity: 0.9 }}>
+    <AppBar position='sticky' color='default'>
       <Toolbar>
         <Grid container spacing={1} alignItems='center' justify='center'>
           <Grid item xs={8}>

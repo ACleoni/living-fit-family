@@ -19,31 +19,32 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' spacing={2} style={{ backgroundColor: '#000', padding: '8%' }}>
+      <Grid container direction='column' spacing={2} style={{ padding: '8%' }}>
         <Grid item xs={12}>
-          <Typography align='center' variant='h4' color='textSecondary'>
+          <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
             High Intensity Group Training
           </Typography>
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='body1' align='center' color='textSecondary'>
+          <Typography variant='body1' align='center' color='textPrimary'>
             Fat Loss. Lean Muscle.
           </Typography>
         </Grid>
-        <Grid container item xs={12} spacing={1} justify='flex-end' alignItems='center'>
+        <Grid container item xs={12} justify='flex-end' alignItems='center'>
           <Grid item xs={4}>
-            <Button className={classes.button} size='small' variant='outlined' color='secondary'>
+            <Button className={classes.button} size='small' variant='contained' color='secondary' disableElevation>
               Connect
             </Button>
           </Grid>
 
           <Grid item xs={6}>
             <Button
+              disableElevation
               className={classes.button}
               size='small'
-              color='secondary'
-              endIcon={<ChevronRightIcon color='secondary' />}
+              color='primary'
+              endIcon={<ChevronRightIcon color='primary' />}
             >
               Learn More
             </Button>
@@ -54,7 +55,7 @@ export default function Services() {
           <div style={{ maxWidth: '1024px', width: 'auto' }}>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606946154/Screen_Shot_2020-12-02_at_4.55.39_PM_ahpbnw.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607457218/Screen_Shot_2020-12-08_at_2.53.30_PM_kqymlm.png'
             />
           </div>
         </Grid>

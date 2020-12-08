@@ -4,11 +4,12 @@ import red from '@material-ui/core/colors/red';
 // Create a theme instance.
 const theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
-      main: '#000',
+      main: '#2f9f31',
     },
     secondary: {
-      main: '#2f9f31',
+      main: '#9f2f9d',
     },
     text: {
       primary: '#000',
@@ -21,9 +22,9 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
-  overrides: {
-    MuiFormLabel: { root: { color: '#808080' } },
-  },
+  // overrides: {
+  //   MuiFormLabel: { root: { color: '#808080' } },
+  // },
 });
 
 export default theme;
