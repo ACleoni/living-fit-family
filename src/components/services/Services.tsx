@@ -19,7 +19,7 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' spacing={1} style={{ backgroundColor: '#000', padding: '8%' }}>
+      <Grid container direction='column' spacing={2} style={{ backgroundColor: '#000', padding: '8%' }}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textSecondary'>
             High Intensity Group Training
@@ -59,7 +59,7 @@ export default function Services() {
           </div>
         </Grid>
       </Grid>
-      <Grid container spacing={1} style={{ padding: '8%' }}>
+      <Grid container spacing={1} alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textPrimary'>
             Weekly Live Sessions
@@ -67,7 +67,7 @@ export default function Services() {
         </Grid>
         <Grid item xs={12}>
           <Typography align='center' variant='subtitle1' color='textPrimary'>
-            Interactive. Online. No Equipment.
+            Interactive. Virtual. No Equipment.
           </Typography>
           <Typography align='center' variant='subtitle1' color='textPrimary'>
             From $100 / mo.
@@ -83,6 +83,39 @@ export default function Services() {
           <img
             style={{ width: '100%' }}
             src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
+          />
+        </div>
+      </Grid>
+
+      <Grid container spacing={1} style={{ padding: '8%' }} justify='center'>
+        <Grid item xs={12}>
+          <Typography align='center' variant='h4' color='textPrimary'>
+            Meet Your Trainer
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography align='center' variant='caption' color='textPrimary'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facere tempora impedit accusantium natus
+            suscipit quia perferendis ea, consectetur, aliquam error, delectus iusto. Ducimus, accusamus ut illum
+            incidunt neque voluptas?
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Button className={classes.button} size='small' variant='outlined' color='secondary'>
+            Learn More
+          </Button>
+        </Grid>
+        <div
+          style={{
+            maxWidth: '1024px',
+            width: '100%',
+            height: '460px',
+            padding: '10% 0',
+          }}
+        >
+          <img
+            style={{ width: 'auto', height: '100%' }}
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605065094/oie_transparent_2_acfkk5.png'
           />
         </div>
       </Grid>
