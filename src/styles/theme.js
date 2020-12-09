@@ -4,16 +4,15 @@ import red from '@material-ui/core/colors/red';
 // Create a theme instance.
 const theme = createMuiTheme({
   palette: {
-    type: 'dark',
     primary: {
       main: '#2f9f31',
     },
     secondary: {
-      main: '#9f2f9d',
+      main: '#9F312F',
     },
     text: {
       primary: '#000',
-      secondary: '#fff',
+      secondary: '#f1f1f1',
     },
     error: {
       main: red.A400,
@@ -22,9 +21,15 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
-  // overrides: {
-  //   MuiFormLabel: { root: { color: '#808080' } },
-  // },
+  overrides: {
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        // backdropFilter: 'saturate(180%) blur(20px)',
+        // WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      },
+    },
+  },
 });
 
 export default theme;

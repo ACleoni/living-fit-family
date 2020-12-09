@@ -21,7 +21,7 @@ export default function Services() {
     <div className={classes.root}>
       <Grid container direction='column' spacing={2} style={{ padding: '8%' }}>
         <Grid item xs={12}>
-          <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+          <Typography align='center' variant='h4' color='textPrimary'>
             High Intensity Group Training
           </Typography>
         </Grid>
@@ -32,23 +32,23 @@ export default function Services() {
           </Typography>
         </Grid>
         <Grid container item xs={12} justify='flex-end' alignItems='center'>
-          <Grid item xs={4}>
-            <Button className={classes.button} size='small' variant='contained' color='secondary' disableElevation>
+          <Grid item xs={8}>
+            <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
               Connect
             </Button>
           </Grid>
 
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <Button
               disableElevation
               className={classes.button}
               size='small'
-              color='primary'
+              color='default'
               endIcon={<ChevronRightIcon color='primary' />}
             >
               Learn More
             </Button>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         <Grid item xs={12}>

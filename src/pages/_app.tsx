@@ -4,9 +4,6 @@ import Head from 'next/head';
 import { Provider } from 'next-auth/client';
 
 import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 import theme from '../styles/theme';
 import '../styles/globals.scss';
@@ -33,7 +30,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <StoreProvider>
             <Header />
-            <CssBaseline />
             <Component {...pageProps} />
           </StoreProvider>
         </ThemeProvider>

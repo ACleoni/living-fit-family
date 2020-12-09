@@ -4,8 +4,27 @@ import { Drawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText } f
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import InfoIcon from '@material-ui/icons/Info';
 import { Store } from 'src/context/store';
 import { toggleModal } from 'src/context/actionCreators';
+
+const menuItems = [
+  {
+    text: 'Home',
+  },
+  {
+    text: 'About',
+  },
+  {
+    text: 'Programs',
+  },
+  {
+    text: 'Merch',
+  },
+  {
+    text: 'Contact',
+  },
+];
 
 const useStyles = makeStyles({
   list: {
@@ -15,8 +34,8 @@ const useStyles = makeStyles({
     width: 'auto',
   },
   paperAnchorTop: {
-    color: 'white',
-    top: '56px',
+    color: '#f1f1f1',
+    top: '54px',
   },
 });
 
@@ -36,41 +55,42 @@ export default function NavDrawer() {
 
   const list = () => (
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
-      <List>
-        {['Home', 'About', 'Services', 'Merch', 'Contact'].map((text, index) => (
+      <List style={{ backgroundColor: 'rgba(0,0,0,0.911)', padding: '0 5% 15%' }}>
+        {menuItems.map((item, index) => (
           <div key={index}>
-            <ListItem onClick={() => handleClick()} style={{ paddingLeft: '10%' }} button key={text}>
-              <ListItemText primary={text} style={{ fontSize: '12px' }} />
+            <ListItem onClick={() => handleClick()} button key={index}>
+              <ListItemText primary={item.text} />
             </ListItem>
+            <Divider style={{ width: '90%', marginLeft: '5%', backgroundColor: 'grey' }} />
           </div>
         ))}
       </List>
     </div>
   );
 
-  const toggleDrawer = (open: boolean) => {
-    // if (
-    //   event.type === 'keydown' &&
-    //   ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
-    // ) {
-    //   return;
-    // }
+  const toggleDrawer = (event, open: boolean) => {
+    if (
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
     setState({ ...state, open });
   };
 
   return (
     <div>
       <React.Fragment>
-        <Button data-testid='menu-icon' onClick={() => toggleDrawer(true)}>
-          <MenuIcon fontSize='default' style={{ color: 'white' }} />
+        <Button data-testid='menu-icon' onClick={(event) => toggleDrawer(event, true)}>
+          <MenuIcon fontSize='large' htmlColor='#f1f1f1' />
         </Button>
         <Drawer
-          color='black'
+          color='primary'
           classes={{ paperAnchorTop: classes.paperAnchorTop }}
           data-testid='drawer'
           anchor={'top'}
           open={state.open}
-          onClose={() => toggleDrawer(false)}
+          onClose={(event) => toggleDrawer(event, false)}
         >
           {list()}
         </Drawer>
