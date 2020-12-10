@@ -18,9 +18,9 @@ export default function Landing() {
           background: '#000',
         }}
       ></div>
-      <div style={{ position: 'absolute', top: 400, left: 15, padding: '0 5%' }}>
+      <div style={{ position: 'absolute', top: 410, left: 15, padding: '0 5%' }}>
         <Typography style={{ zIndex: 120 }} variant='h4'>
-          Take Fitness to the
+          Take Living Fit to the
         </Typography>
         <Typography style={{ zIndex: 120, color: '#FFA500' }} variant='h4'>
           Next Level
