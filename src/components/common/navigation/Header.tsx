@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../../public/Logo.svg';
+import Logo from '../../../../public/Logo.svg';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { AppBar, Toolbar, IconButton, Box, Button, Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
 import MyDrawer from './drawer/NavDrawer';

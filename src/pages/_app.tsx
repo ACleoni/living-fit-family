@@ -8,7 +8,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../styles/theme';
 import '../styles/globals.scss';
 
-import Header from '@components/navigation/Header';
+import Header from '@components/common/navigation/Header';
+import Footer from '@components/common/navigation/footer/Footer';
 import { StoreProvider } from 'src/context/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <StoreProvider>
             <Header />
             <Component {...pageProps} />
+            <Footer />
           </StoreProvider>
         </ThemeProvider>
       </Provider>
