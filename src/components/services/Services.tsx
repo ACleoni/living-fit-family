@@ -19,7 +19,7 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' spacing={2} style={{ padding: '8%' }}>
+      <Grid container direction='column' style={{ padding: '8%' }}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textPrimary'>
             High Intensity Group Training
@@ -55,12 +55,12 @@ export default function Services() {
           <div style={{ maxWidth: '1024px', width: 'auto' }}>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607457218/Screen_Shot_2020-12-08_at_2.53.30_PM_kqymlm.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607575967/stock-photo-woman-runner-in-silhouette-on-white-background-dynamic-movement-side-view-638555473_sbflfh.jpg'
             />
           </div>
         </Grid>
       </Grid>
-      <Grid container spacing={1} alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
+      <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textPrimary'>
             Weekly Live Sessions
@@ -73,6 +73,16 @@ export default function Services() {
           <Typography align='center' variant='subtitle1' color='textPrimary'>
             From $100 / mo.
           </Typography>
+          <Button
+            style={{ marginLeft: '35%', marginTop: '5%' }}
+            className={classes.button}
+            size='small'
+            variant='outlined'
+            color='secondary'
+            disableElevation
+          >
+            Learn More
+          </Button>
         </Grid>
         <div
           style={{
@@ -88,7 +98,7 @@ export default function Services() {
         </div>
       </Grid>
 
-      <Grid container spacing={1} style={{ padding: '8%' }} justify='center'>
+      <Grid container style={{ padding: '8%' }} justify='center'>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textPrimary'>
             Meet Your Trainer
