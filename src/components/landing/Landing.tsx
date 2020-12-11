@@ -8,7 +8,7 @@ export default function Landing() {
     <div style={{ height: '500px' }}>
       <div
         style={{
-          bottom: '180px',
+          bottom: '256px',
           left: '0px',
           position: 'absolute',
           right: '0px',
@@ -19,15 +19,15 @@ export default function Landing() {
         }}
       ></div>
       <div style={{ position: 'absolute', top: 410, left: 15, padding: '0 5%' }}>
-        <Typography style={{ zIndex: 120 }} variant='h4'>
+        <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4'>
           Take Living Fit to the
         </Typography>
-        <Typography style={{ zIndex: 120, color: '#FFA500' }} variant='h4'>
+        <Typography style={{ zIndex: 120, fontWeight: 600, color: '#FFA500' }} variant='h4'>
           Next Level
         </Typography>
         <div style={{ margin: '10px' }}></div>
         <Button variant='contained' color='primary'>
-          Get Started
+          Start Online Programs Now
         </Button>
       </div>
       <Video

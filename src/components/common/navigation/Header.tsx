@@ -37,14 +37,14 @@ export default function Header() {
         <Grid container alignItems='center' justify='space-around'>
           <Grid item xs={7}>
             <IconButton edge='start' aria-label='menu'>
-              <img src={Logo} width={120} />
+              <img src={Logo} width={110} />
             </IconButton>
           </Grid>
           <Grid item xs={1}>
-            <ShoppingCartOutlinedIcon fontSize='default' style={{ cursor: 'pointer', marginTop: '5px' }} />
+            <ShoppingCartOutlinedIcon fontSize='small' style={{ cursor: 'pointer', marginTop: '5px' }} />
           </Grid>
           <Grid item xs={2}>
-            <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
+            <Button onClick={() => signIn('okta')} size='small' variant='text' color='inherit'>
               Log In
             </Button>
           </Grid>

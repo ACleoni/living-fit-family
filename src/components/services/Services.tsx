@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,23 +18,25 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column' style={{ padding: '8%' }}>
-        <Grid item xs={12}>
-          <Typography align='center' variant='h4' color='textPrimary'>
-            High Intensity Group Training
-          </Typography>
-        </Grid>
+      <Grid container direction='column'>
+        <Grid container item style={{ background: '#000', padding: '8%' }}>
+          <Grid item xs={12}>
+            <Typography align='center' variant='h4' color='textSecondary' style={{ padding: '0 5%', fontWeight: 600 }}>
+              High Intensity Group Training
+            </Typography>
+          </Grid>
 
-        <Grid item xs={12}>
-          <Typography variant='body1' align='center' color='textPrimary'>
-            Fat Loss. Lean Muscle.
-          </Typography>
-        </Grid>
-        <Grid container item xs={12} justify='flex-end' alignItems='center'>
-          <Grid item xs={8}>
-            <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
-              Connect
-            </Button>
+          <Grid item xs={12}>
+            <Typography variant='body1' align='center' color='textSecondary'>
+              Fat Loss. Lean Muscle.
+            </Typography>
+          </Grid>
+          <Grid container item xs={12} justify='flex-end' alignItems='center'>
+            <Grid item xs={8}>
+              <Button className={classes.button} size='small' variant='contained' color='primary' disableElevation>
+                Connect
+              </Button>
+            </Grid>
           </Grid>
 
           {/* <Grid item xs={6}>
@@ -55,15 +56,15 @@ export default function Services() {
           <div style={{ maxWidth: '1024px', width: 'auto' }}>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607575967/stock-photo-woman-runner-in-silhouette-on-white-background-dynamic-movement-side-view-638555473_sbflfh.jpg'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606946154/Screen_Shot_2020-12-02_at_4.55.39_PM_ahpbnw.png'
             />
           </div>
         </Grid>
       </Grid>
       <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
         <Grid item xs={12}>
-          <Typography align='center' variant='h4' color='textPrimary'>
-            Weekly Live Sessions
+          <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+            Weekly Zoom Sessions
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -96,6 +97,29 @@ export default function Services() {
             src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
           />
         </div>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Typography align='center' variant='h4' color='textPrimary' style={{ padding: '0 5%', fontWeight: 600 }}>
+          <Typography variant='h4' style={{ padding: '0 5%', fontWeight: 600 }} color='primary'>
+            {' '}
+            Personalized{' '}
+          </Typography>
+          One on One Training
+        </Typography>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Typography variant='body1' align='center' color='textPrimary'>
+          Fat Loss. Lean Muscle.
+        </Typography>
+      </Grid>
+      <Grid container item xs={12} justify='flex-end' alignItems='center'>
+        <Grid item xs={8}>
+          <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
+            Connect
+          </Button>
+        </Grid>
       </Grid>
 
       <Grid container style={{ padding: '8%' }} justify='center'>

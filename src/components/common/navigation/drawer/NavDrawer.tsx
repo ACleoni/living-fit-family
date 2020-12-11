@@ -82,7 +82,7 @@ export default function NavDrawer() {
     <div>
       <React.Fragment>
         <Button data-testid='menu-icon' onClick={(event) => toggleDrawer(event, true)}>
-          <MenuIcon fontSize='large' htmlColor='#f1f1f1' />
+          <MenuIcon fontSize='small' htmlColor='#f1f1f1' />
         </Button>
         <Drawer
           color='primary'
