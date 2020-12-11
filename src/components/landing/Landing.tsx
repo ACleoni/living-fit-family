@@ -13,20 +13,20 @@ export default function Landing() {
           right: '0px',
           top: '0px',
           overflow: 'hidden',
-          opacity: 0.4,
+          opacity: 0.5,
           background: '#000',
         }}
       ></div>
-      <div style={{ position: 'absolute', top: 410, left: 15, padding: '0 5%' }}>
+      <div style={{ position: 'absolute', top: 410, left: 15 }}>
         <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4'>
           Take Living Fit to the
         </Typography>
-        <Typography style={{ zIndex: 120, fontWeight: 600, color: '#FFA500' }} variant='h4'>
+        <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4'>
           Next Level
         </Typography>
-        <div style={{ margin: '10px' }}></div>
-        <Button variant='contained' color='primary'>
-          Start Online Program Now
+        <div style={{ margin: '14px' }}></div>
+        <Button variant='contained' color='secondary'>
+          Start Training Online
         </Button>
       </div>
       <Video

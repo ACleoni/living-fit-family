@@ -3,6 +3,17 @@ import { Grid, Link, Paper, Typography } from '@material-ui/core';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
+function Copyright() {
+  return (
+    <Typography variant='caption'>
+      {'Copyright © '}
+      <Link color='inherit' href={process.env.NEXT_PUBLIC_BASE_URL}>
+        {new Date().getFullYear()} Living Fit Family LLC.
+      </Link>
+    </Typography>
+  );
+}
+
 export default function Footer() {
   return (
     <Paper elevation={3}>
@@ -33,11 +44,7 @@ export default function Footer() {
           </Link>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant='caption'>
-            Copyright
-            <CopyrightIcon fontSize='inherit' />
-            2020 Living Fit Family LLC. All Rights Reserved.
-          </Typography>
+          <Copyright />
         </Grid>
       </Grid>
     </Paper>

@@ -1,5 +1,15 @@
 import React from 'react';
-import { Grid, Typography, Button } from '@material-ui/core';
+import {
+  Grid,
+  Typography,
+  Button,
+  Paper,
+  Card,
+  CardContent,
+  useTheme,
+  CardMedia,
+  CardActions,
+} from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -10,29 +20,71 @@ const useStyles = makeStyles((theme: Theme) =>
     button: {
       margin: theme.spacing(0),
     },
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
+    card: {
+      height: '150px',
+      // display: 'flex',
+      // flexDirection: 'column',
+      width: '150px',
+    },
+    cardMedia: {
+      paddingTop: '75%', // 16:9
+    },
+    cardContent: {
+      background: 'rgba(0, 0, 0, 0.015)',
+      // flexGrow: 1,
+    },
   })
 );
 
 export default function Services() {
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <div className={classes.root}>
       <Grid container direction='column'>
+        <Grid container item style={{ padding: '10%' }}>
+          <Grid item xs={12}>
+            <Typography
+              align='center'
+              variant='h4'
+              color='textPrimary'
+              style={{ fontWeight: 600, marginBottom: '24px' }}
+            >
+              Programs Designed For Everyone
+            </Typography>
+          </Grid>
+          <Card className={classes.card}>
+            <CardMedia
+              className={classes.cardMedia}
+              image='https://res.cloudinary.com/dq0fvempx/image/upload/v1607662751/stock-photo-muscular-woman-doing-exercises-with-dumbbells-at-biceps-photo-of-strong-female-isolated-on-white-627396002_giqdam.jpg'
+              title='Image title'
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography variant='subtitle1' component='h2'>
+                Strength
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
         <Grid container item style={{ background: '#000', padding: '10%' }}>
           <Grid item xs={12}>
-            <Typography align='center' variant='h4' color='textSecondary' style={{ fontWeight: 600 }}>
+            <Typography
+              align='center'
+              variant='h4'
+              color='textSecondary'
+              style={{ fontWeight: 600, marginBottom: '24px' }}
+            >
               High Intensity Group Training
             </Typography>
           </Grid>
 
           <Grid item xs={12}>
-            <Typography
-              variant='subtitle1'
-              align='center'
-              color='textSecondary'
-              style={{ fontWeight: 400, marginTop: '10px' }}
-            >
+            <Typography variant='subtitle1' align='center' color='textSecondary' style={{ fontWeight: 400 }}>
               Fat Loss. Lean Muscle.
             </Typography>
           </Grid>
