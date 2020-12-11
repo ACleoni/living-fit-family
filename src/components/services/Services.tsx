@@ -19,21 +19,32 @@ export default function Services() {
   return (
     <div className={classes.root}>
       <Grid container direction='column'>
-        <Grid container item style={{ background: '#000', padding: '8%' }}>
+        <Grid container item style={{ background: '#000', padding: '10%' }}>
           <Grid item xs={12}>
-            <Typography align='center' variant='h4' color='textSecondary' style={{ padding: '0 5%', fontWeight: 600 }}>
+            <Typography align='center' variant='h4' color='textSecondary' style={{ fontWeight: 600 }}>
               High Intensity Group Training
             </Typography>
           </Grid>
 
           <Grid item xs={12}>
-            <Typography variant='body1' align='center' color='textSecondary'>
+            <Typography
+              variant='subtitle1'
+              align='center'
+              color='textSecondary'
+              style={{ fontWeight: 400, marginTop: '10px' }}
+            >
               Fat Loss. Lean Muscle.
             </Typography>
           </Grid>
           <Grid container item xs={12} justify='flex-end' alignItems='center'>
             <Grid item xs={8}>
-              <Button className={classes.button} size='small' variant='contained' color='primary' disableElevation>
+              <Button
+                className={classes.button}
+                size='small'
+                variant='text'
+                color='secondary'
+                style={{ fontWeight: 400 }}
+              >
                 Connect
               </Button>
             </Grid>
@@ -61,68 +72,88 @@ export default function Services() {
           </div>
         </Grid>
       </Grid>
-      <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
-        <Grid item xs={12}>
-          <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-            Weekly Zoom Sessions
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography align='center' variant='subtitle1' color='textPrimary'>
-            Interactive. Virtual. No Equipment.
-          </Typography>
-          <Typography align='center' variant='subtitle1' color='textPrimary'>
-            From $100 / mo.
-          </Typography>
-          <Button
-            style={{ marginLeft: '35%', marginTop: '5%' }}
-            className={classes.button}
-            size='small'
-            variant='outlined'
-            color='secondary'
-            disableElevation
+
+      <Grid container item style={{ padding: '10%' }}>
+        <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
+          <Grid item xs={12}>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Weekly Zoom Sessions
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align='center' variant='subtitle1' color='textPrimary'>
+              Interactive. Virtual. No Equipment.
+            </Typography>
+            <Typography align='center' variant='subtitle1' color='textPrimary'>
+              From $100 / mo.
+            </Typography>
+            <Button
+              style={{ marginLeft: '35%', marginTop: '5%' }}
+              className={classes.button}
+              size='small'
+              variant='outlined'
+              color='secondary'
+              disableElevation
+            >
+              Learn More
+            </Button>
+          </Grid>
+          <div
+            style={{
+              maxWidth: '1024px',
+              width: '100%',
+              padding: '10% 0',
+            }}
           >
-            Learn More
-          </Button>
+            <img
+              style={{ width: '100%' }}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
+            />
+          </div>
         </Grid>
-        <div
-          style={{
-            maxWidth: '1024px',
-            width: '100%',
-            padding: '10% 0',
-          }}
-        >
-          <img
-            style={{ width: '100%' }}
-            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
-          />
-        </div>
       </Grid>
 
-      <Grid item xs={12}>
-        <Typography align='center' variant='h4' color='textPrimary' style={{ padding: '0 5%', fontWeight: 600 }}>
-          <Typography variant='h4' style={{ padding: '0 5%', fontWeight: 600 }} color='primary'>
-            {' '}
-            Personalized{' '}
+      <Grid container item style={{ padding: '10%' }}>
+        <Grid item xs={12}>
+          <Typography
+            align='center'
+            variant='h4'
+            style={{
+              padding: '0 5%',
+              fontWeight: 600,
+            }}
+            color='textPrimary'
+          >
+            Personalized
           </Typography>
-          One on One Training
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12}>
-        <Typography variant='body1' align='center' color='textPrimary'>
-          Fat Loss. Lean Muscle.
-        </Typography>
-      </Grid>
-      <Grid container item xs={12} justify='flex-end' alignItems='center'>
-        <Grid item xs={8}>
-          <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
-            Connect
-          </Button>
+          <Typography align='center' variant='h4' style={{ padding: '0 5%', fontWeight: 600 }} color='textPrimary'>
+            One on One
+          </Typography>
+          <Typography align='center' variant='h4' style={{ padding: '0 5%', fontWeight: 600 }} color='textPrimary'>
+            Sessions
+          </Typography>
+          <Grid item xs={12}>
+            <Typography variant='body1' align='center' color='textPrimary'>
+              Fat Loss. Lean Muscle.
+            </Typography>
+          </Grid>
+          <Grid container item xs={12} justify='flex-end' alignItems='center'>
+            <Grid item xs={8}>
+              <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
+                Connect
+              </Button>
+            </Grid>
+          </Grid>
+          <div style={{ maxWidth: '1024px', width: 'auto' }}>
+            <img
+              style={{ width: '100%' }}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607663055/stock-photo-beautiful-sporty-woman-doing-squats-with-med-ball-photo-of-muscular-fitness-model-isolated-on-1138735496_hxt0lu.jpg'
+            />
+          </div>
         </Grid>
       </Grid>
 
-      <Grid container style={{ padding: '8%' }} justify='center'>
+      {/* <Grid container style={{ padding: '8%' }} justify='center'>
         <Grid item xs={12}>
           <Typography align='center' variant='h4' color='textPrimary'>
             Meet Your Trainer
@@ -153,7 +184,7 @@ export default function Services() {
             src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605065094/oie_transparent_2_acfkk5.png'
           />
         </div>
-      </Grid>
+      </Grid> */}
     </div>
   );
 }

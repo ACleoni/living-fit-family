@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
 import { Video } from 'cloudinary-react';
-import Slider from '@components/common/slider/Slider';
 
 export default function Landing() {
   return (
@@ -27,7 +26,7 @@ export default function Landing() {
         </Typography>
         <div style={{ margin: '10px' }}></div>
         <Button variant='contained' color='primary'>
-          Start Online Programs Now
+          Start Online Program Now
         </Button>
       </div>
       <Video
