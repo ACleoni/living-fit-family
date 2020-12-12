@@ -13,7 +13,7 @@ const menuItems = [
     text: 'Home',
   },
   {
-    text: 'About',
+    text: 'Meet Your Instructor',
   },
   {
     text: 'Programs',
@@ -22,7 +22,7 @@ const menuItems = [
     text: 'Merch',
   },
   {
-    text: 'Contact',
+    text: 'Connect',
   },
 ];
 
@@ -55,13 +55,20 @@ export default function NavDrawer() {
 
   const list = () => (
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
-      <List style={{ backgroundColor: 'rgba(0,0,0,0.911)', padding: '0 5% 15%' }}>
+      <List style={{ backgroundColor: 'rgba(0,0,0,0.911)', padding: '5% 0 10%' }}>
         {menuItems.map((item, index) => (
           <div key={index}>
             <ListItem onClick={() => handleClick()} button key={index}>
               <ListItemText primary={item.text} />
             </ListItem>
-            <Divider style={{ width: '90%', marginLeft: '5%', backgroundColor: 'grey' }} />
+            <Divider
+              style={{
+                width: '90%',
+                marginLeft: '5%',
+                background:
+                  'linear-gradient(90deg, rgba(47,159,49,0.727608543417367) 57%, rgba(236,154,41,0.5575805322128851) 86%)',
+              }}
+            />
           </div>
         ))}
       </List>

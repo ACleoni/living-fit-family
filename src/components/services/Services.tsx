@@ -125,7 +125,7 @@ export default function Services() {
         </Grid>
       </Grid>
 
-      <Grid container item style={{ padding: '10%' }}>
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
           <Grid item xs={12}>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>

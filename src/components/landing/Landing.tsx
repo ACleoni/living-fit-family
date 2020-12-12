@@ -25,7 +25,12 @@ export default function Landing() {
           Next Level
         </Typography>
         <div style={{ margin: '14px' }}></div>
-        <Button variant='contained' color='secondary'>
+        <Button
+          variant='contained'
+          style={{
+            backgroundImage: 'linear-gradient(90deg, rgba(47,159,49,1) 15%, rgba(32,214,128,1) 85%)',
+          }}
+        >
           Start Training Online
         </Button>
       </div>
