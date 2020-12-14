@@ -23,7 +23,7 @@ export default function GroupTraining() {
           <Typography
             align='center'
             component='h1'
-            variant='h5'
+            variant='h4'
             color='textSecondary'
             style={{ fontWeight: 600, padding: '10% 10% 0' }}
           >

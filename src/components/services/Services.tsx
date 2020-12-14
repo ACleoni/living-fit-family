@@ -48,11 +48,11 @@ export default function Services() {
   return (
     <div className={classes.root}>
       <Grid container direction='column'>
-        <Grid container item style={{ padding: '20%' }}>
+        <Grid container item style={{ padding: '15% 10%' }}>
           <Grid item xs={12}>
             <Typography
               align='center'
-              variant='h5'
+              variant='h4'
               color='textPrimary'
               style={{ fontWeight: 600, marginBottom: '24px' }}
             >
@@ -77,7 +77,7 @@ export default function Services() {
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
           <Grid item xs={12}>
-            <Typography align='center' variant='h5' color='textPrimary' style={{ fontWeight: 600 }}>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
               Weekly Zoom Sessions
             </Typography>
           </Grid>
@@ -114,11 +114,11 @@ export default function Services() {
         </Grid>
       </Grid>
 
-      <Grid container item style={{ padding: '10%' }}>
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid item xs={12}>
           <Typography
             align='center'
-            variant='h5'
+            variant='h4'
             style={{
               padding: '0 5%',
               fontWeight: 600,
@@ -127,24 +127,27 @@ export default function Services() {
           >
             Personalized
           </Typography>
-          <Typography align='center' variant='h5' style={{ padding: '0 5%', fontWeight: 600 }} color='textPrimary'>
-            One on One Sessions
-          </Typography>
           <Typography
             align='center'
             variant='h5'
-            style={{ padding: '0 5%', fontWeight: 600 }}
+            style={{ padding: '0 5%', fontWeight: 600, marginBottom: '16px' }}
             color='textPrimary'
-          ></Typography>
+          >
+            One on One Sessions
+          </Typography>
+
           <Grid item xs={12}>
-            <Typography variant='body1' align='center' color='textPrimary'>
-              Fat Loss. Lean Muscle.
+            <Typography variant='body1' align='center' color='textPrimary' style={{ marginBottom: '16px' }}>
+              Private, uninterrupted experience tailored to your individual goals.
             </Typography>
           </Grid>
-          <Grid container item xs={12} justify='flex-end' alignItems='center'>
-            <Grid item xs={8}>
+          <Grid container item xs={12} justify='center' alignItems='center'>
+            <Grid item xs={7}>
               <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
                 Connect
+              </Button>
+              <Button className={classes.button} size='small' variant='text' color='secondary' disableElevation>
+                Learn More
               </Button>
             </Grid>
           </Grid>
@@ -161,7 +164,7 @@ export default function Services() {
         <Grid item xs={12}>
           <Typography
             align='center'
-            variant='h5'
+            variant='h4'
             style={{
               padding: '0 5%',
               fontWeight: 600,
