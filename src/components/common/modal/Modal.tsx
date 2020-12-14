@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      overflow: 'scroll',
     },
     paper: {
       position: 'relative',

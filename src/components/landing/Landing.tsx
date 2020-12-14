@@ -4,50 +4,48 @@ import { Video } from 'cloudinary-react';
 
 export default function Landing() {
   return (
-    <div style={{ height: '500px' }}>
+    <div style={{ height: '60vh', position: 'relative' }}>
       <div
         style={{
-          bottom: '256px',
-          left: '0px',
+          bottom: '0',
+          left: '0',
           position: 'absolute',
-          right: '0px',
-          top: '0px',
+          right: '0',
+          top: '0',
           overflow: 'hidden',
-          opacity: 0.5,
+          opacity: 0.4,
           background: '#000',
+          zIndex: 100,
         }}
       ></div>
-      <div style={{ position: 'absolute', top: 410, left: 15 }}>
-        <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4'>
-          Take Living Fit to the
-        </Typography>
-        <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4'>
-          Next Level
-        </Typography>
-        <div style={{ margin: '14px' }}></div>
-        <Button
-          variant='contained'
+      <div style={{ height: '100%', position: 'relative' }}>
+        <div style={{ position: 'absolute', bottom: '18px', left: '15px', zIndex: 200 }}>
+          <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4' align='justify'>
+            Take Living Fit To The
+          </Typography>
+          <Typography style={{ zIndex: 120, fontWeight: 600, marginBottom: '16px' }} variant='h4' align='justify'>
+            Next Level
+          </Typography>
+          {/* <div style={{ margin: '14px' }}></div> */}
+          <Button color='primary' variant='contained'>
+            Start Training Online Now
+          </Button>
+        </div>
+        <Video
           style={{
-            backgroundImage: 'linear-gradient(90deg, rgba(47,159,49,1) 15%, rgba(32,214,128,1) 85%)',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
           }}
-        >
-          Start Training Online
-        </Button>
+          cloudName={'dq0fvempx'}
+          muted
+          autoPlay
+          loop
+          playsInline
+          data-keepplaying
+          publicId='landing-page-video'
+        ></Video>
       </div>
-      <Video
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-        }}
-        cloudName={'dq0fvempx'}
-        muted
-        autoPlay
-        loop
-        playsInline
-        data-keepplaying
-        publicId='landing-page-video'
-      ></Video>
     </div>
   );
 }

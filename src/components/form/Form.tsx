@@ -18,25 +18,22 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       maxWidth: '768px',
     },
-    modal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    paper: {
-      position: 'relative',
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-    },
   })
 );
 
 export default function Form() {
   const classes = useStyles();
   return (
-    <div>
+    <div style={{ paddingTop: '100px' }}>
+      {/* <iframe
+        width='400'
+        height='250'
+        frameBorder='0'
+        style={{ border: '0' }}
+        src='https://www.google.com/maps/embed/v1/view?key=AIzaSyA4L3opTzpDpr3kXfBPsTjksKWxx-2DKwI
+    &center=-33.8569,151.2152'
+        // allowFullScreen
+      ></iframe> */}
       <Typography
         id='transition-modal-title'
         align='left'
@@ -56,7 +53,7 @@ export default function Form() {
       >
         Interested in joining the <b>Living Fit Family</b>? Please tell us more about yourself.{' '}
       </Typography>
-      <form className={classes.root} noValidate autoComplete='off'>
+      <form className={classes.root} autoComplete='off'>
         <TextField
           id='outlined-basic'
           label='Full Name'
