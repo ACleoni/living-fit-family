@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from '@material-ui/core';
+import { Box, Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -18,26 +18,33 @@ export default function GroupTraining() {
   const classes = useStyles();
   return (
     <div className={classes.root} style={{ backgroundColor: '#000' }}>
-      <Grid container item spacing={1}>
+      <Grid container item>
         <Grid item xs={12}>
           <Typography
             align='center'
             component='h1'
             variant='h4'
             color='textSecondary'
+            paragraph
             style={{ fontWeight: 600, padding: '10% 10% 0' }}
           >
-            High Intensity Group Training
+            Group Sessions
           </Typography>
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='body1' align='center' color='textSecondary' style={{ fontWeight: 400 }}>
-            Fat Loss. Lean Muscle.
+          <Typography
+            variant='body1'
+            align='center'
+            color='textSecondary'
+            paragraph
+            style={{ fontWeight: 400, padding: '0 15%' }}
+          >
+            High intensity, functional, strength-based training. Designed for fat loss and lean muscle gains.
           </Typography>
         </Grid>
-        <Grid container item xs={12} justify='center' alignItems='center'>
-          <Grid item xs={3}>
+        <Grid container item xs={12} justify='center'>
+          <Box display='flex' justifyContent='center'>
             <Button
               className={classes.button}
               size='small'
@@ -47,8 +54,6 @@ export default function GroupTraining() {
             >
               Connect
             </Button>
-          </Grid>
-          <Grid item xs={3}>
             <Button
               className={classes.button}
               size='small'
@@ -58,7 +63,7 @@ export default function GroupTraining() {
             >
               Learn More
             </Button>
-          </Grid>
+          </Box>
         </Grid>
 
         <Grid item xs={12}>

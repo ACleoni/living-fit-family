@@ -116,7 +116,7 @@ export default function Services() {
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid item xs={12}>
-          <Typography
+          {/* <Typography
             align='center'
             variant='h4'
             style={{
@@ -126,27 +126,28 @@ export default function Services() {
             color='textPrimary'
           >
             Personalized
-          </Typography>
+          </Typography> */}
           <Typography
             align='center'
-            variant='h5'
-            style={{ padding: '0 5%', fontWeight: 600, marginBottom: '16px' }}
+            variant='h4'
+            style={{ padding: '0 5%', fontWeight: 600 }}
             color='textPrimary'
+            paragraph
           >
-            One on One Sessions
+            1 on 1 Training
           </Typography>
 
           <Grid item xs={12}>
-            <Typography variant='body1' align='center' color='textPrimary' style={{ marginBottom: '16px' }}>
-              Private, uninterrupted experience tailored to your individual goals.
+            <Typography variant='body1' align='center' color='textPrimary' paragraph>
+              Enjoy a personalized, private, and uninterrupted experience tailored to your goals.
             </Typography>
           </Grid>
           <Grid container item xs={12} justify='center' alignItems='center'>
-            <Grid item xs={7}>
-              <Button className={classes.button} size='small' variant='outlined' color='secondary' disableElevation>
+            <Grid item xs={12}>
+              <Button className={classes.button} size='small' variant='outlined' color='secondary'>
                 Connect
               </Button>
-              <Button className={classes.button} size='small' variant='text' color='secondary' disableElevation>
+              <Button className={classes.button} size='small' variant='text' color='secondary'>
                 Learn More
               </Button>
             </Grid>
