@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import GroupTraining from './group/Group';
+import WifiTetheringIcon from '@material-ui/icons/WifiTethering';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     button: {
-      margin: theme.spacing(0),
+      margin: theme.spacing(1),
     },
     cardGrid: {
       paddingTop: theme.spacing(8),
@@ -75,30 +76,32 @@ export default function Services() {
       </Grid>
       <GroupTraining />
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
-        <Grid container alignItems='center' justify='flex-end' style={{ padding: '8%' }}>
-          <Grid item xs={12}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <WifiTetheringIcon fontSize='large' color='primary' />
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-              Weekly Zoom Sessions
+              Live Streaming
             </Typography>
           </Grid>
+
           <Grid item xs={12}>
-            <Typography align='center' variant='subtitle1' color='textPrimary'>
+            <Typography align='center' variant='body1' color='textPrimary'>
               Interactive. Virtual. No Equipment.
             </Typography>
-            <Typography align='center' variant='subtitle1' color='textPrimary'>
+            <Typography align='center' variant='subtitle1' style={{ color: '#86868b' }}>
               From $100 / mo.
             </Typography>
-            <Button
-              style={{ marginLeft: '35%', marginTop: '5%' }}
-              className={classes.button}
-              size='small'
-              variant='outlined'
-              color='secondary'
-              disableElevation
-            >
+          </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='text' color='secondary'>
+              Connect
+            </Button>
+            <Button className={classes.button} size='small' variant='contained' color='secondary'>
               Learn More
             </Button>
           </Grid>
+
           <div
             style={{
               maxWidth: '1024px',
