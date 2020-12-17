@@ -49,15 +49,13 @@ export default function Services() {
   return (
     <div className={classes.root}>
       <Grid container direction='column'>
-        <Grid container item style={{ padding: '15% 10%' }}>
+        <Grid container item style={{ padding: '15% 20%' }}>
           <Grid item xs={12}>
-            <Typography
-              align='center'
-              variant='h4'
-              color='textPrimary'
-              style={{ fontWeight: 600, marginBottom: '24px' }}
-            >
-              Programs Designed For Everyone
+            <Typography align='center' variant='h4' color='textPrimary' paragraph style={{ fontWeight: 600 }}>
+              Be Limitless
+            </Typography>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              Redefine whats possible with any one of our training programs
             </Typography>
           </Grid>
           <Card className={classes.card}>
