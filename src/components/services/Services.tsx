@@ -52,10 +52,10 @@ export default function Services() {
   return (
     <div className={classes.root}>
       <Grid container direction='column'>
-        <Grid container item style={{ padding: '15% 20%' }}>
+        <Grid container item style={{ padding: '15% 20%', backgroundColor: '#fbfbfd' }}>
           <Grid item xs={12}>
             <Typography align='center' variant='h4' color='textPrimary' paragraph style={{ fontWeight: 600 }}>
-              Be Limitless
+              Real Work. Real Results
             </Typography>
             <Typography align='center' variant='body1' color='textPrimary'>
               Redefine whats possible with any one of our training programs
@@ -75,8 +75,10 @@ export default function Services() {
           </Card>
         </Grid>
       </Grid>
+      <Divider style={{ height: '12px', background: '#fff' }} />
 
       <GroupTraining />
+
       <Divider style={{ height: '12px', background: '#fff' }} />
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
@@ -101,13 +103,13 @@ export default function Services() {
             <Button className={classes.button} size='small' variant='text' color='secondary'>
               Connect
             </Button>
-            <Button className={classes.button} size='small' variant='contained' color='secondary'>
+            <Button className={classes.button} size='small' variant='outlined' color='secondary'>
               Learn More
             </Button>
           </Grid>
           <Grid container item xs={12} justify='center'>
             <img
-              style={{ width: '100%', alignSelf: 'center' }}
+              style={{ width: '100%', alignSelf: 'center', marginTop: '25px' }}
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608245613/oie_transparent_3_fpimwo.png'
             />
           </Grid>
@@ -120,7 +122,7 @@ export default function Services() {
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-              One on One
+              1-on-1 Training
             </Typography>
           </Grid>
 
@@ -134,18 +136,20 @@ export default function Services() {
             <Button className={classes.button} size='small' variant='text' color='secondary'>
               Connect
             </Button>
-            <Button className={classes.button} size='small' variant='contained' color='secondary'>
+            <Button className={classes.button} size='small' variant='outlined' color='secondary'>
               Learn More
             </Button>
           </Grid>
           <Box display='block' maxWidth='1024px'>
             <img
               width='100%'
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608237700/Screen_Shot_2020-12-17_at_3.40.58_PM_wmjb4g.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608247544/oie_transparent_5_g5hpug.png'
             />
           </Box>
         </Grid>
       </Grid>
+
+      <Divider style={{ height: '12px', background: '#fff' }} />
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
@@ -173,7 +177,7 @@ export default function Services() {
           <Box display='block' maxWidth='1024px'>
             <img
               width='100%'
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608238412/Screen_Shot_2020-12-17_at_3.53.26_PM_lyt36u.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608247872/oie_transparent_6_zqmpzn.png'
             />
           </Box>
         </Grid>
