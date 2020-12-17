@@ -9,10 +9,12 @@ import {
   useTheme,
   CardMedia,
   CardActions,
+  Box,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import GroupTraining from './group/Group';
 import WifiTetheringIcon from '@material-ui/icons/WifiTethering';
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -73,6 +75,7 @@ export default function Services() {
         </Grid>
       </Grid>
       <GroupTraining />
+
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
@@ -99,100 +102,75 @@ export default function Services() {
               Learn More
             </Button>
           </Grid>
-
-          <div
-            style={{
-              maxWidth: '1024px',
-              width: '100%',
-              padding: '10% 0',
-            }}
-          >
+          <Box>
             <img
               style={{ width: '100%' }}
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
             />
-          </div>
+          </Box>
         </Grid>
       </Grid>
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
-        <Grid item xs={12}>
-          {/* <Typography
-            align='center'
-            variant='h4'
-            style={{
-              padding: '0 5%',
-              fontWeight: 600,
-            }}
-            color='textPrimary'
-          >
-            Personalized
-          </Typography> */}
-          <Typography
-            align='center'
-            variant='h4'
-            style={{ padding: '0 5%', fontWeight: 600 }}
-            color='textPrimary'
-            paragraph
-          >
-            1 on 1 Training
-          </Typography>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              1 on 1 Training
+            </Typography>
+          </Grid>
 
           <Grid item xs={12}>
-            <Typography variant='body1' align='center' color='textPrimary' paragraph>
+            <Typography align='center' variant='body1' color='textPrimary'>
               Enjoy a personalized, private, and uninterrupted experience tailored to your goals.
             </Typography>
           </Grid>
-          <Grid container item xs={12} justify='center' alignItems='center'>
-            <Grid item xs={12}>
-              <Button className={classes.button} size='small' variant='outlined' color='secondary'>
-                Connect
-              </Button>
-              <Button className={classes.button} size='small' variant='text' color='secondary'>
-                Learn More
-              </Button>
-            </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='text' color='secondary'>
+              Connect
+            </Button>
+            <Button className={classes.button} size='small' variant='contained' color='secondary'>
+              Learn More
+            </Button>
           </Grid>
-          <div style={{ maxWidth: '1024px', width: 'auto' }}>
+          <Box display='block' maxWidth='1024px'>
             <img
-              style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607663055/stock-photo-beautiful-sporty-woman-doing-squats-with-med-ball-photo-of-muscular-fitness-model-isolated-on-1138735496_hxt0lu.jpg'
+              width='100%'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608237700/Screen_Shot_2020-12-17_at_3.40.58_PM_wmjb4g.png'
             />
-          </div>
+          </Box>
         </Grid>
       </Grid>
 
-      <Grid container item style={{ padding: '10%' }}>
-        <Grid item xs={12}>
-          <Typography
-            align='center'
-            variant='h4'
-            style={{
-              padding: '0 5%',
-              fontWeight: 600,
-            }}
-            color='textPrimary'
-          >
-            Explore
-          </Typography>
-          <Grid item xs={12}>
-            <Typography variant='body1' align='center' color='textPrimary'>
-              A new fitness experience
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Explore
+              <LocalMallOutlinedIcon
+                fontSize='large'
+                style={{ color: 'rgba(0, 0, 0, .85)', position: 'relative', top: '4px', right: '-3px' }}
+              />
             </Typography>
           </Grid>
-          <Grid container item xs={12} justify='flex-end' alignItems='center'>
-            <Grid item xs={8}>
-              <Button className={classes.button} size='small' variant='text' color='secondary' disableElevation>
-                Shop Now
-              </Button>
-            </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              An all new way to live fit.
+            </Typography>
           </Grid>
-          <div style={{ maxWidth: '1024px', width: 'auto' }}>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='text' color='secondary'>
+              Shop Now
+            </Button>
+          </Grid>
+          <Box display='block' maxWidth='1024px'>
             <img
-              style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607663055/stock-photo-beautiful-sporty-woman-doing-squats-with-med-ball-photo-of-muscular-fitness-model-isolated-on-1138735496_hxt0lu.jpg'
+              width='100%'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608238412/Screen_Shot_2020-12-17_at_3.53.26_PM_lyt36u.png'
             />
-          </div>
+          </Box>
         </Grid>
       </Grid>
     </div>
