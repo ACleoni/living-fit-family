@@ -107,7 +107,7 @@ export default function Services() {
           </Grid>
           <Grid container item xs={12} justify='center'>
             <img
-              style={{ width: '100%' }}
+              style={{ width: '100%', alignSelf: 'center' }}
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608245613/oie_transparent_3_fpimwo.png'
             />
           </Grid>
