@@ -26,9 +26,9 @@ const theme = createMuiTheme({
   overrides: {
     MuiAppBar: {
       colorPrimary: {
-        backgroundColor: 'rgba(0,0,0,0.8)',
-        // backdropFilter: 'saturate(180%) blur(20px)',
-        // WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+        backgroundColor: 'rgb(0, 0, 0, .93)',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       },
     },
   },
