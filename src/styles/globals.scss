@@ -1,20 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway|Roboto';
-
-// 1. Your custom variables and variable overwrites.
-$global-link-color: #da7d02;
-$global-primary-background: #2f9f31 !default;
-
-// 2. Import default variables and available mixins.
-@import '/node_modules/uikit/src/scss/variables-theme.scss';
-@import '/node_modules/uikit/src/scss/mixins-theme.scss';
-
-// 3. Your custom mixin overwrites.
-@mixin hook-card() {
-  color: #000;
-}
-
-// 4. Import UIkit.
-@import '/node_modules/uikit/src/scss/uikit-theme.scss';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 $base-bgcolor: #fff;
 $base-color: #fff;
@@ -29,7 +14,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: $base-bgcolor;
-  color: $base-color !important;
+  color: $base-color;
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   margin: 0;
   min-height: 100%;
@@ -43,30 +28,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-nav {
-  a {
-    color: #fff !important;
-    &:hover {
-      color: $global-primary-background !important;
-    }
-  }
-}
-
-// p {
-//   color: #000 !important;
-// }
-
-.transparent {
-  background: rgba(0, 0, 0, 0) !important;
-}
-
-.opaque {
-  background: rgba(0, 0, 0, 0.8) !important;
-  backdrop-filter: saturate(180%) blur(20px) !important;
-}
-
-.uk-sticky-placeholder {
-  display: none !important;
 }

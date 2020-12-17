@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import firebase from '../app/firebase/firebaseApp';
 
-import TextEditor from '@components/editor/editor';
+// import TextEditor from '@components/editor/editor';
 import Axios from 'axios';
 
 export default function AtHomePage({ data }) {
@@ -12,7 +12,7 @@ export default function AtHomePage({ data }) {
           <h1 className='uk-text-light'>At Home Workouts</h1>
         </div>
       </div>
-      <TextEditor data={data} />
+      {/* <TextEditor data={data} /> */}
     </div>
   );
 }

@@ -1,26 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<video
-  autoPlay={true}
-  data-keepplaying={true}
-  id="#video"
-  loop={true}
-  muted={true}
-  playsInline={true}
-  poster="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.jpg"
->
-  <source
-    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.webm"
-    type="video/webm"
-  />
-  <source
-    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.mp4"
-    type="video/mp4"
-  />
-  <source
-    src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.ogv"
-    type="video/ogg"
-  />
-</video>
+Array [
+  <div
+    className="uk-container-large"
+  >
+    <video
+      autoPlay={true}
+      className="uk-video"
+      data-keepplaying={true}
+      loop={true}
+      muted={true}
+      playsInline={true}
+      poster="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.jpg"
+    >
+      <source
+        src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.webm"
+        type="video/webm"
+      />
+      <source
+        src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.mp4"
+        type="video/mp4"
+      />
+      <source
+        src="http://res.cloudinary.com/dq0fvempx/video/upload/landing-page-video.ogv"
+        type="video/ogg"
+      />
+    </video>
+  </div>,
+  <div
+    className="uk-padding-remove"
+    data-uk-slideshow={true}
+  >
+    <ul
+      className="uk-slideshow-items"
+    >
+      <li>
+        <blockquote
+          cite="#"
+        >
+          <p>
+            All we have to decide is what to do with the time that is given us.
+          </p>
+          <footer>
+            Gandalf in in
+             
+            <cite>
+              <a
+                href=""
+              >
+                The Fellowship of the Ring
+              </a>
+            </cite>
+          </footer>
+        </blockquote>
+      </li>
+      <li>
+        <blockquote
+          cite="#"
+        >
+          <p>
+            All we have to decide is what to do with the time that is given us.
+          </p>
+          <footer>
+            Gandalf in in
+             
+            <cite>
+              <a
+                href=""
+              >
+                The Fellowship of the Ring
+              </a>
+            </cite>
+          </footer>
+        </blockquote>
+      </li>
+      <li>
+        <blockquote
+          cite="#"
+        >
+          <p>
+            All we have to decide is what to do with the time that is given us.
+          </p>
+          <footer>
+            Gandalf in in
+             
+            <cite>
+              <a
+                href=""
+              >
+                The Fellowship of the Ring
+              </a>
+            </cite>
+          </footer>
+        </blockquote>
+      </li>
+    </ul>
+  </div>,
+]
 `;

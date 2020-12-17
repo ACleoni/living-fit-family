@@ -1,22 +1,42 @@
-import { AppProps /*, AppContext */ } from 'next/app';
+import React from 'react';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'next-auth/client';
 
-import UIKit from '../utils/UIKit';
+import { ThemeProvider } from '@material-ui/core/styles';
 
-import '../components/editor/editor.css';
+import theme from '../styles/theme';
 import '../styles/globals.scss';
 
-import Header from '@components/header/Header';
+import Header from '@components/common/navigation/Header';
+import Footer from '@components/common/navigation/footer/Footer';
+import { StoreProvider } from 'src/context/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
-    <Provider session={pageProps.session}>
-      <UIKit>
-        <Header />
-        <Component {...pageProps} />
-      </UIKit>
-    </Provider>
+    <React.Fragment>
+      <Head>
+        <title>Living Fit Family</title>
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
+      </Head>
+      <Provider session={pageProps.session}>
+        <ThemeProvider theme={theme}>
+          <StoreProvider>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </StoreProvider>
+        </ThemeProvider>
+      </Provider>
+    </React.Fragment>
   );
 }
 

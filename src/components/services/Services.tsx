@@ -1,54 +1,183 @@
 import React from 'react';
-import Stream from '../map/Stream';
-import styles from './Services.module.scss';
+import {
+  Grid,
+  Typography,
+  Button,
+  Paper,
+  Card,
+  CardContent,
+  useTheme,
+  CardMedia,
+  CardActions,
+  Box,
+  Divider,
+} from '@material-ui/core';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import GroupTraining from './group/Group';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    button: {
+      margin: theme.spacing(1),
+    },
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
+    card: {
+      height: '150px',
+      // display: 'flex',
+      // flexDirection: 'column',
+      width: '150px',
+    },
+    cardMedia: {
+      paddingTop: '75%', // 16:9
+    },
+    cardContent: {
+      background: 'rgba(0, 0, 0, 0.015)',
+      // flexGrow: 1,
+    },
+  })
+);
 
 export default function Services() {
+  const classes = useStyles();
+  const theme = useTheme();
+
   return (
-    <div className='uk-grid-large uk-padding-large uk-margin uk-flex-center' data-uk-grid>
-      <div className='uk-width-1-1'>
-        <div>
-          <img src='https://res.cloudinary.com/dq0fvempx/image/upload/v1604765261/group-training_pcl77h.jpg' />
-        </div>
-        <div className='uk-width-small-* uk-text-center'>
-          <h1 className='uk-text-light'>High intensity group training</h1>
-          <p className='uk-text-light uk-text-emphasis'>
-            Stength and functional movements designed for lean muscle gains and fat loss. Sessions up to 1 hour long
-            with thorough instruction, demonstration and guidance.
-            <p>Sessions available weekly from 2 days to unlimited.</p>
-            <p className='uk-text-bold'>Note: Previous Experience Reccommended</p>
-            <a href='/#contact' className='uk-text-large uk-text-emphasis'>
-              Contact Us
-            </a>
-          </p>
-        </div>
-      </div>
+    <div className={classes.root}>
+      <Grid container direction='column'>
+        <Grid container item style={{ padding: '15% 20%' }}>
+          <Grid item xs={12}>
+            <Typography align='center' variant='h4' color='textPrimary' paragraph style={{ fontWeight: 600 }}>
+              Be Limitless
+            </Typography>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              Redefine whats possible with any one of our training programs
+            </Typography>
+          </Grid>
+          <Card className={classes.card}>
+            <CardMedia
+              className={classes.cardMedia}
+              image='https://res.cloudinary.com/dq0fvempx/image/upload/v1607662751/stock-photo-muscular-woman-doing-exercises-with-dumbbells-at-biceps-photo-of-strong-female-isolated-on-white-627396002_giqdam.jpg'
+              title='Image title'
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography variant='subtitle1' component='h2'>
+                Strength
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
 
-      <div className='uk-width-small-*'>
-        <Stream />
-      </div>
-      <div className='uk-width-small-* uk-text-center'>
-        <h2 className='uk-text-light'>Get access to three virtual training sessions weekly</h2>
-        <p className='uk-text-light uk-text-emphasis'>
-          Get access to three interactive virtual training sessions via Zoom. Ideal for weight and fat loss.
-          <p>No equipment neccessary.</p>
-          <span className='uk-text-large uk-text-emphasis'>Only $100 / month</span>
-        </p>
-      </div>
+      <GroupTraining />
+      <Divider style={{ height: '12px', background: '#fff' }} />
 
-      <div className='uk-width-small-*'>
-        <img src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605373513/Image_from_iOS_3_kjryt1.jpg' />
-      </div>
-      <div className='uk-width-small-* uk-text-center'>
-        <h1 className='uk-text-light'>One on One training</h1>
-        <p className='uk-text-light uk-text-emphasis'>
-          Get private and uninterrupted training catered to your specific goals. Includes sessions up to one hour and
-          customized meal plans.
-          <p>Sessions available weekly from 2 days to unlimited.</p>
-          <a href='/#contact' className='uk-text-large uk-text-emphasis'>
-            Contact Us
-          </a>
-        </p>
-      </div>
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <LiveTvIcon fontSize='large' style={{ color: 'black' }} />
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Stream Live
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              Interactive. Virtual. No Equipment.
+            </Typography>
+            <Typography align='center' variant='subtitle1' style={{ color: '#86868b' }}>
+              From $100 / mo.
+            </Typography>
+          </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='text' color='secondary'>
+              Connect
+            </Button>
+            <Button className={classes.button} size='small' variant='contained' color='secondary'>
+              Learn More
+            </Button>
+          </Grid>
+          <Grid container item xs={12} justify='center'>
+            <img
+              style={{ width: '100%' }}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608245613/oie_transparent_3_fpimwo.png'
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+
+      <Divider style={{ height: '12px', background: '#fff' }} />
+
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              One on One
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary' style={{ padding: '0 10%' }}>
+              Enjoy personalized, private, and uninterrupted training sessions tailored to your goals.
+            </Typography>
+          </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='text' color='secondary'>
+              Connect
+            </Button>
+            <Button className={classes.button} size='small' variant='contained' color='secondary'>
+              Learn More
+            </Button>
+          </Grid>
+          <Box display='block' maxWidth='1024px'>
+            <img
+              width='100%'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608237700/Screen_Shot_2020-12-17_at_3.40.58_PM_wmjb4g.png'
+            />
+          </Box>
+        </Grid>
+      </Grid>
+
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Explore
+              <LocalMallOutlinedIcon
+                fontSize='large'
+                style={{ color: 'rgba(0, 0, 0, .85)', position: 'relative', top: '4px', right: '-3px' }}
+              />
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              An all new way to live fit.
+            </Typography>
+          </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            <Button className={classes.button} size='small' variant='outlined' color='secondary'>
+              Shop Now
+            </Button>
+          </Grid>
+          <Box display='block' maxWidth='1024px'>
+            <img
+              width='100%'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608238412/Screen_Shot_2020-12-17_at_3.53.26_PM_lyt36u.png'
+            />
+          </Box>
+        </Grid>
+      </Grid>
     </div>
   );
 }

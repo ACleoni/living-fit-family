@@ -1,77 +1,123 @@
-import React, { useRef } from 'react';
-import UIkit from 'uikit';
+import React from 'react';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import PersonIcon from '@material-ui/icons/Person';
+import PhoneIcon from '@material-ui/icons/Phone';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import { Button, Divider } from '@material-ui/core';
 
-type FormRequestBody = {
-  fullName: string;
-  phoneNumber: string;
-  instagram: string;
-  email: string;
-  message: string;
-};
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '40ch',
+      },
+      maxWidth: '768px',
+    },
+  })
+);
 
 export default function Form() {
-  const form = useRef(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const { elements } = e.target;
-    let body: FormRequestBody;
-
-    for (let i = 0; i < elements.length; i++) {
-      const key = elements[i].name;
-      const value = elements[i].value;
-      if (key && value) {
-        body = { ...body, [key]: value };
-      }
-    }
-
-    fetch('/api/mailer', { method: 'POST', body: JSON.stringify(body) }).then(() => {
-      const modal = UIkit.modal.alert(
-        'We received your message! Thank you for your interest in our training services. Somone from our team will be in contact with you shortly. '
-      ).dialog;
-      const el = modal.$el;
-      el.style.color = 'black';
-      form.current.reset();
-    });
-  };
-
+  const classes = useStyles();
   return (
-    <div className='uk-container uk-padding'>
-      <h1 className='uk-text-light uk-text-center'>Get In Touch</h1>
-      <form onSubmit={(e) => handleSubmit(e)} className='uk-grid-small' data-uk-grid ref={form}>
-        <div className='uk-margin-small uk-width-1-1'>
-          <div className='uk-inline uk-width-1-1'>
-            <span className='uk-form-icon' uk-icon='icon: user'></span>
-            <input className='uk-input' name='fullName' placeholder='full name' required />
-          </div>
-        </div>
-        <div className='uk-margin-small uk-width-1-2@s'>
-          <div className='uk-inline uk-width-1-1'>
-            <span className='uk-form-icon' uk-icon='icon: receiver'></span>
-            <input className='uk-input' name='phoneNumber' placeholder='phone number' required />
-          </div>
-        </div>
-        <div className='uk-margin-small uk-width-1-4@s'>
-          <div className='uk-inline uk-width-1-1'>
-            <span className='uk-form-icon' uk-icon='icon: instagram'></span>
-            <input className='uk-input' name='instagram' placeholder='instagram' required />
-          </div>
-        </div>
-        <div className='uk-margin-small uk-width-1-4@s'>
-          <div className='uk-inline uk-width-1-1'>
-            <span className='uk-form-icon' uk-icon='icon: mail'></span>
-            <input className='uk-input' name='email' placeholder='email' required />
-          </div>
-        </div>
-        <div className='uk-margin-small uk-width-1-2@s'>
-          <textarea className='uk-textarea' name='message' placeholder='message' rows={5} required />
-        </div>
-        <div>
-          <button type='submit' className='uk-button uk-button-primary'>
-            Send Message
-          </button>
-        </div>
+    <div style={{ paddingTop: '100px' }}>
+      {/* <iframe
+        width='400'
+        height='250'
+        frameBorder='0'
+        style={{ border: '0' }}
+        src='https://www.google.com/maps/embed/v1/view?key=AIzaSyA4L3opTzpDpr3kXfBPsTjksKWxx-2DKwI
+    &center=-33.8569,151.2152'
+        // allowFullScreen
+      ></iframe> */}
+      <Typography
+        id='transition-modal-title'
+        align='left'
+        variant='h5'
+        color='textPrimary'
+        style={{ padding: '10px 0' }}
+      >
+        Get In Touch
+      </Typography>
+      <Divider />
+      <Typography
+        id='transition-modal-title'
+        align='left'
+        variant='body1'
+        color='textPrimary'
+        style={{ margin: '10px 0' }}
+      >
+        Interested in joining the <b>Living Fit Family</b>? Please tell us more about yourself.{' '}
+      </Typography>
+      <form className={classes.root} autoComplete='off'>
+        <TextField
+          id='outlined-basic'
+          label='Full Name'
+          variant='outlined'
+          size='small'
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <PersonIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <TextField
+          id='outlined-basic'
+          label='Phone Number'
+          variant='outlined'
+          size='small'
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <PhoneIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <TextField
+          id='outlined-basic'
+          label='Instagram'
+          variant='outlined'
+          size='small'
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <InstagramIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <TextField
+          id='outlined-basic'
+          label='Email'
+          variant='outlined'
+          size='small'
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <MailOutlineIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <TextField
+          id='outlined-basic'
+          label='Message'
+          variant='outlined'
+          size='medium'
+          multiline
+          rows={4}
+          rowsMax={4}
+        />
+        <Button variant='outlined' color='secondary'>
+          Send Message
+        </Button>
       </form>
     </div>
   );
