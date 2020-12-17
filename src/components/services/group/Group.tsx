@@ -64,7 +64,7 @@ export default function GroupTraining() {
           <div style={{ maxWidth: '1024px', width: 'auto' }}>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608152979/charles-gaudreault-xXofYCc3hqc-unsplash_i9ws6i.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606946154/Screen_Shot_2020-12-02_at_4.55.39_PM_ahpbnw.png'
             />
           </div>
         </Grid>

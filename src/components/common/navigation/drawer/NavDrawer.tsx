@@ -61,14 +61,13 @@ export default function NavDrawer() {
             <ListItem onClick={() => handleClick()} button key={index}>
               <ListItemText primary={item.text} />
             </ListItem>
-            <Divider
+            {/* <Divider
               style={{
                 width: '90%',
                 marginLeft: '5%',
-                background:
-                  'linear-gradient(90deg, rgba(47,159,49,0.727608543417367) 57%, rgba(236,154,41,0.5575805322128851) 86%)',
+                background: '#fff',
               }}
-            />
+            /> */}
           </div>
         ))}
       </List>

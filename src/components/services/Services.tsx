@@ -10,10 +10,11 @@ import {
   CardMedia,
   CardActions,
   Box,
+  Divider,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import GroupTraining from './group/Group';
-import WifiTetheringIcon from '@material-ui/icons/WifiTethering';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -74,14 +75,16 @@ export default function Services() {
           </Card>
         </Grid>
       </Grid>
+
       <GroupTraining />
+      <Divider style={{ height: '12px', background: '#fff' }} />
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
-            <WifiTetheringIcon fontSize='large' color='primary' />
+            <LiveTvIcon fontSize='large' style={{ color: 'black' }} />
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-              Live Streaming
+              Stream Live
             </Typography>
           </Grid>
 
@@ -102,26 +105,28 @@ export default function Services() {
               Learn More
             </Button>
           </Grid>
-          <Box>
+          <Grid container item xs={12} justify='center'>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1607186310/ZoomSession_huyaxv.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608245613/oie_transparent_3_fpimwo.png'
             />
-          </Box>
+          </Grid>
         </Grid>
       </Grid>
+
+      <Divider style={{ height: '12px', background: '#fff' }} />
 
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-              1 on 1 Training
+              One on One
             </Typography>
           </Grid>
 
           <Grid item xs={12}>
-            <Typography align='center' variant='body1' color='textPrimary'>
-              Enjoy a personalized, private, and uninterrupted experience tailored to your goals.
+            <Typography align='center' variant='body1' color='textPrimary' style={{ padding: '0 10%' }}>
+              Enjoy personalized, private, and uninterrupted training sessions tailored to your goals.
             </Typography>
           </Grid>
 
@@ -161,7 +166,7 @@ export default function Services() {
           </Grid>
 
           <Grid container item xs={12} justify='center'>
-            <Button className={classes.button} size='small' variant='text' color='secondary'>
+            <Button className={classes.button} size='small' variant='outlined' color='secondary'>
               Shop Now
             </Button>
           </Grid>
