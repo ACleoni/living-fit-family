@@ -26,24 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       margin: theme.spacing(1),
-    },
-    cardGrid: {
-      paddingTop: theme.spacing(8),
-      paddingBottom: theme.spacing(8),
-    },
-    card: {
-      height: '200px',
-      display: 'flex',
-      // flexDirection: 'column',
-      width: '330px',
-    },
-    cardMedia: {
-      // height: '200px',
-      paddingTop: '75%', // 16:9
-    },
-    cardContent: {
-      background: 'rgba(0, 0, 0, 0.015)',
-      // flexGrow: 1,
+      // fontWeight: 400,
     },
   })
 );
@@ -55,17 +38,20 @@ export default function Services() {
   return (
     <div className={classes.root}>
       <Grid container item style={{ padding: '10% 15%', backgroundColor: '#fbfbfd' }}>
-        <Grid container alignItems='center' justify='flex-end'>
+        <Grid container alignItems='center'>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
-              Train different with the fit fam.
+              Discover new
+            </Typography>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              ways to train.
             </Typography>
           </Grid>
 
           <Grid container item xs={12} justify='center'>
             <Button
               className={classes.button}
-              size='small'
+              size='large'
               variant='text'
               color='secondary'
               endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
@@ -75,12 +61,10 @@ export default function Services() {
           </Grid>
 
           <Grid container item xs={12} justify='center'>
-            {/* <Paper elevation={0}> */}
             <img
               style={{ width: '100%', alignSelf: 'center' }}
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608258954/Image_from_iOS_vg0p5w.png'
             ></img>
-            {/* </Paper> */}
           </Grid>
         </Grid>
       </Grid>
@@ -175,7 +159,7 @@ export default function Services() {
 
           <Grid item xs={12}>
             <Typography align='center' variant='body1' color='textPrimary'>
-              An all new way to live fit.
+              Fitness Apparel and Accessories
             </Typography>
           </Grid>
 

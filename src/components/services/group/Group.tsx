@@ -6,11 +6,10 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      // backgroundColor: 'black',
-      // padding: '10% 12%',
     },
     button: {
       margin: theme.spacing(0),
+      color: '#2997ff',
     },
   })
 );
@@ -42,8 +41,8 @@ export default function GroupTraining() {
         <Grid container item justify='center'>
           <Button
             className={classes.button}
+            size='small'
             variant='text'
-            color='secondary'
             endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
             style={{ fontWeight: 400 }}
           >
@@ -51,8 +50,8 @@ export default function GroupTraining() {
           </Button>
           <Button
             className={classes.button}
+            size='small'
             variant='text'
-            color='secondary'
             endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
             style={{ fontWeight: 400 }}
           >

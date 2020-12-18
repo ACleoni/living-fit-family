@@ -115,7 +115,7 @@ export default function Form() {
           rows={4}
           rowsMax={4}
         />
-        <Button variant='outlined' color='secondary'>
+        <Button variant='contained' color='primary'>
           Send Message
         </Button>
       </form>

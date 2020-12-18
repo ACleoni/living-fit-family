@@ -13,13 +13,13 @@ export default function Landing() {
           right: '0',
           top: '0',
           overflow: 'hidden',
-          opacity: 0.4,
+          opacity: 0.3,
           background: '#000',
           zIndex: 100,
         }}
       ></div>
       <div style={{ height: '100%', position: 'relative' }}>
-        <div style={{ position: 'absolute', bottom: '18px', left: '15px', zIndex: 200 }}>
+        <div style={{ position: 'absolute', bottom: '18px', left: '25px', zIndex: 200 }}>
           <Typography style={{ zIndex: 120 }} variant='h4' align='justify'>
             Take Living Fit To The
           </Typography>
