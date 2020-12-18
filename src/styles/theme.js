@@ -23,6 +23,9 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
+  typography: {
+    fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+  },
   overrides: {
     MuiAppBar: {
       colorPrimary: {
