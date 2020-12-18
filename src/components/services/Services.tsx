@@ -77,7 +77,7 @@ export default function Services() {
           <Grid container item xs={12} justify='center'>
             {/* <Paper elevation={0}> */}
             <img
-              style={{ width: '100%' }}
+              style={{ width: '100%', alignSelf: 'center' }}
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608258954/Image_from_iOS_vg0p5w.png'
             ></img>
             {/* </Paper> */}
