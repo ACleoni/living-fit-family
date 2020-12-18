@@ -16,6 +16,8 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import GroupTraining from './group/Group';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
+import ChevronRightSharpIcon from '@material-ui/icons/ChevronRightSharp';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,12 +32,13 @@ const useStyles = makeStyles((theme: Theme) =>
       paddingBottom: theme.spacing(8),
     },
     card: {
-      height: '150px',
-      // display: 'flex',
+      height: '200px',
+      display: 'flex',
       // flexDirection: 'column',
-      width: '150px',
+      width: '330px',
     },
     cardMedia: {
+      // height: '200px',
       paddingTop: '75%', // 16:9
     },
     cardContent: {
@@ -51,30 +54,37 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container direction='column'>
-        <Grid container item style={{ padding: '15% 20%', backgroundColor: '#fbfbfd' }}>
-          <Grid item xs={12}>
-            <Typography align='center' variant='h4' color='textPrimary' paragraph style={{ fontWeight: 600 }}>
-              Real Work. Real Results
-            </Typography>
-            <Typography align='center' variant='body1' color='textPrimary'>
-              Redefine whats possible with any one of our training programs
+      <Grid container item style={{ padding: '10% 15%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end'>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Train different with the fit fam.
             </Typography>
           </Grid>
-          <Card className={classes.card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image='https://res.cloudinary.com/dq0fvempx/image/upload/v1607662751/stock-photo-muscular-woman-doing-exercises-with-dumbbells-at-biceps-photo-of-strong-female-isolated-on-white-627396002_giqdam.jpg'
-              title='Image title'
-            />
-            <CardContent className={classes.cardContent}>
-              <Typography variant='subtitle1' component='h2'>
-                Strength
-              </Typography>
-            </CardContent>
-          </Card>
+
+          <Grid container item xs={12} justify='center'>
+            <Button
+              className={classes.button}
+              size='small'
+              variant='text'
+              color='secondary'
+              endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
+            >
+              Find Out How
+            </Button>
+          </Grid>
+
+          <Grid container item xs={12} justify='center'>
+            {/* <Paper elevation={0}> */}
+            <img
+              style={{ width: '100%' }}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608258954/Image_from_iOS_vg0p5w.png'
+            ></img>
+            {/* </Paper> */}
+          </Grid>
         </Grid>
       </Grid>
+
       <Divider style={{ height: '12px', background: '#fff' }} />
 
       <GroupTraining />
