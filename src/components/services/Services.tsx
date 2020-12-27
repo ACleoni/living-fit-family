@@ -74,7 +74,6 @@ export default function Services() {
       <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
-            <LiveTvIcon fontSize='large' style={{ color: 'black' }} />
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
               Group Sessions
             </Typography>
@@ -95,10 +94,12 @@ export default function Services() {
             </Button>
           </Grid>
           <Grid container item xs={12} justify='center'>
-            <img
-              style={{ width: '100%', alignSelf: 'center', marginTop: '25px' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608245613/oie_transparent_3_fpimwo.png'
-            />
+            <Paper elevation={3}>
+              <img
+                style={{ width: '100%', alignSelf: 'center', padding: '6px 6px 0 6px', objectFit: 'cover' }}
+                src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
+              />
+            </Paper>
           </Grid>
         </Grid>
       </Grid>
