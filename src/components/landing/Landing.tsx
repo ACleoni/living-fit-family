@@ -20,10 +20,10 @@ export default function Landing() {
       ></div>
       <div style={{ height: '100%', position: 'relative' }}>
         <div style={{ position: 'absolute', bottom: '18px', left: '25px', zIndex: 200 }}>
-          <Typography style={{ zIndex: 120 }} variant='h4' align='justify'>
+          <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4' align='justify'>
             Take Living Fit To The
           </Typography>
-          <Typography style={{ zIndex: 120, marginBottom: '16px' }} variant='h4' align='justify'>
+          <Typography style={{ zIndex: 120, marginBottom: '16px', fontWeight: 600 }} variant='h4' align='justify'>
             Next Level
           </Typography>
           {/* <div style={{ margin: '14px' }}></div> */}

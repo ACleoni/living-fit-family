@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function GroupTraining() {
   const classes = useStyles();
   return (
-    <div className={classes.root} style={{ backgroundColor: '#000', padding: '10% 12%' }}>
+    <div className={classes.root} style={{ background: '#fbfbfd', padding: '10% 0' }}>
       <Grid container item>
         <Grid item xs={12}>
           <Typography
             align='center'
             component='h1'
             variant='h4'
-            color='textSecondary'
+            color='textPrimary'
             paragraph
             style={{ fontWeight: 600 }}
           >
@@ -32,8 +32,8 @@ export default function GroupTraining() {
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
-          <Typography variant='body1' align='center' color='textSecondary' paragraph>
+        <Grid item xs={12} style={{ padding: '0 12%' }}>
+          <Typography variant='body1' align='center' color='textPrimary' paragraph>
             High intensity, functional, strength-based training. Designed for fat loss and lean muscle gains.
           </Typography>
         </Grid>
@@ -63,7 +63,7 @@ export default function GroupTraining() {
           <div style={{ maxWidth: '1024px', width: 'auto' }}>
             <img
               style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1606946154/Screen_Shot_2020-12-02_at_4.55.39_PM_ahpbnw.png'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
             />
           </div>
         </Grid>
