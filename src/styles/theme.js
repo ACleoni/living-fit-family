@@ -33,11 +33,6 @@ const theme = createMuiTheme({
         WebkitBackdropFilter: 'saturate(180%) blur(20px)',
       },
     },
-    MuiToolbar: {
-      regular: {
-        minHeight: '48px',
-      },
-    },
   },
 });
 

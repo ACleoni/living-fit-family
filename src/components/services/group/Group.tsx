@@ -17,57 +17,35 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function GroupTraining() {
   const classes = useStyles();
   return (
-    <div className={classes.root} style={{ background: '#fbfbfd', padding: '10% 0' }}>
-      <Grid container item>
-        <Grid item xs={12}>
-          <Typography
-            align='center'
-            component='h1'
-            variant='h4'
-            color='textPrimary'
-            paragraph
-            style={{ fontWeight: 600 }}
-          >
+    <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+      <Grid container alignItems='center' justify='flex-end' spacing={1}>
+        <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+          <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
             Group Sessions
           </Typography>
         </Grid>
 
-        <Grid item xs={12} style={{ padding: '0 12%' }}>
-          <Typography variant='body1' align='center' color='textPrimary' paragraph>
+        <Grid item xs={12}>
+          <Typography align='center' variant='body1' color='textPrimary'>
             High intensity, functional, strength-based training. Designed for fat loss and lean muscle gains.
           </Typography>
         </Grid>
 
-        <Grid container item justify='center'>
-          <Button
-            className={classes.button}
-            size='small'
-            variant='text'
-            endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
-            style={{ fontWeight: 400 }}
-          >
+        <Grid container item xs={12} justify='center'>
+          <Button className={classes.button} size='small' variant='text' color='secondary'>
             Connect
           </Button>
-          <Button
-            className={classes.button}
-            size='small'
-            variant='text'
-            endIcon={<ChevronRightSharpIcon fontSize='large' style={{ left: -6, position: 'relative' }} />}
-            style={{ fontWeight: 400 }}
-          >
+          <Button className={classes.button} size='small' variant='outlined' color='secondary'>
             Learn More
           </Button>
         </Grid>
-
-        <Grid item xs={12}>
-          <div style={{ maxWidth: '1024px', width: 'auto' }}>
-            <img
-              style={{ width: '100%' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
-            />
-          </div>
+        <Grid container item xs={12} justify='center'>
+          <img
+            style={{ width: '100%', alignSelf: 'center', marginTop: '25px' }}
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
+          />
         </Grid>
       </Grid>
-    </div>
+    </Grid>
   );
 }
