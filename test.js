@@ -1,15 +1,34 @@
-function findMissingNumber(array) {
-  var n = array.length;
+const { doc } = require('prettier');
 
-  var sumTotal = (n * (n + 1)) / 2;
-  var sum = 0;
+var docRef = db.collection('profileData').doc('Cox');
 
-  for (var i = 0; i < n - 1; i++) {
-    sum = sum + array[i];
+docRef
+  .get()
+  .then(function (doc) {
+    if (doc.exists) {
+      console.log('User Profile:', doc.data());
+      var userInfo = doc.data();
+      var userIncome = userInfo.income;
+      console.log(userIncome);
+    } else {
+      // doc.data() will be undefined in this case
+      console.log('Profile does not exist!');
+    }
+  })
+  .catch(function (error) {
+    console.log('ERROR:', error);
+  });
+
+async function getProfileData() {
+  try {
+    const doc = await docRef.get();
+
+    if (doc) {
+      const userInfo = await doc.data();
+      const userIncome = userInfo.income;
+      console.log(userIncome);
+    }
+  } catch (error) {
+    console.log('ERROR:', error);
   }
-  return sumTotal - sum;
 }
-
-const misingNumber = findMissingNumber([1, 2, 3, 4, 5, 6, 7, 8, 10]);
-
-console.log(misingNumber);

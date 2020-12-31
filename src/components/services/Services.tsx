@@ -17,7 +17,7 @@ import GroupTraining from './group/Group';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import ChevronRightSharpIcon from '@material-ui/icons/ChevronRightSharp';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import { Video } from 'cloudinary-react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,7 +71,7 @@ export default function Services() {
 
       <Divider style={{ height: '12px', background: '#fff' }} />
 
-      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+      <Grid container item style={{ padding: '10% 0', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
@@ -80,7 +80,7 @@ export default function Services() {
           </Grid>
 
           <Grid item xs={12}>
-            <Typography align='center' variant='body1' color='textPrimary'>
+            <Typography align='center' variant='body1' color='textPrimary' style={{ padding: '0 10%' }}>
               High intensity, functional, strength-based training. Designed for fat loss and lean muscle gains.
             </Typography>
           </Grid>
@@ -93,13 +93,13 @@ export default function Services() {
               Learn More
             </Button>
           </Grid>
-          <Grid container item xs={12} justify='center'>
-            <Paper elevation={3}>
-              <img
-                style={{ width: '100%', alignSelf: 'center', padding: '6px 6px 0 6px', objectFit: 'cover' }}
-                src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
-              />
-            </Paper>
+          <Grid container item xs={12} justify='center' style={{ padding: '5%' }}>
+            {/* <Paper elevation={3} color='primary'> */}
+            <img
+              style={{ width: '100%', alignSelf: 'center', objectFit: 'cover' }}
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609102251/group-training_ez9xau.jpg'
+            />
+            {/* </Paper> */}
           </Grid>
         </Grid>
       </Grid>
@@ -205,6 +205,60 @@ export default function Services() {
               src='https://res.cloudinary.com/dq0fvempx/image/upload/v1608247872/oie_transparent_6_zqmpzn.png'
             />
           </Box>
+        </Grid>
+      </Grid>
+
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Real Results
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              See transformations in as little as 30 days with our high intensity workout sessions.
+            </Typography>
+          </Grid>
+          <Box display='block' maxWidth='1024px'>
+            <img
+              width='100%'
+              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605584908/Image_from_iOS_4_lyi0js.jpg'
+            />
+          </Box>
+        </Grid>
+      </Grid>
+
+      <Grid container item style={{ padding: '10%', backgroundColor: '#fbfbfd' }}>
+        <Grid container alignItems='center' justify='flex-end' spacing={1}>
+          <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
+            <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
+              Living Fit HIIT
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography align='center' variant='body1' color='textPrimary'>
+              See transformations in as little as 30 days with our high intensity workout sessions.
+            </Typography>
+          </Grid>
+          <Paper elevation={3} square style={{ width: '320px' }}>
+            <Video
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              cloudName={'dq0fvempx'}
+              muted
+              autoPlay
+              loop
+              playsInline
+              data-keepplaying
+              publicId='Image_from_iOS_hoq8ve'
+            ></Video>
+          </Paper>
         </Grid>
       </Grid>
     </div>
