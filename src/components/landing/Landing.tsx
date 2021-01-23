@@ -8,7 +8,7 @@ export default function Landing() {
       <Box
         className='hero-container'
         width={'100vw'}
-        height={'60vh'}
+        height={'90vh'}
         overflow={'hidden'}
         display={'inline-block'}
         textAlign={'center'}
@@ -17,7 +17,7 @@ export default function Landing() {
           className='hero-filter'
           zIndex={'10'}
           width={'100%'}
-          height={'60vh'}
+          height={'90vh'}
           bgcolor={'rgba(0, 0, 0, 0.5)'}
           position={'absolute'}
           top={'0'}
