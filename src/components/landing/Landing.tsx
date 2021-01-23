@@ -11,7 +11,7 @@ export default function Landing() {
         height={'90vh'}
         overflow={'hidden'}
         display={'inline-block'}
-        textAlign={'center'}
+        // textAlign={'center'}
       >
         <Box
           className='hero-filter'
@@ -27,15 +27,15 @@ export default function Landing() {
           className='headlines'
           display={'inline-block'}
           position={'absolute'}
-          textAlign={'center'}
+          // textAlign={'center'}
           zIndex={50}
-          marginTop={'280px'}
+          marginTop={'500px'}
           marginLeft={'50px'}
         >
           <Typography variant='h4' color='textSecondary'>
             Take Living Fit
           </Typography>
-          <Typography variant='h4' color='textSecondary'>
+          <Typography variant='h4' color='textSecondary' paragraph>
             To The Next Level
           </Typography>
           <Button color='inherit' variant='outlined' size='large'>
