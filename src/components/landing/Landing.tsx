@@ -29,17 +29,17 @@ export default function Landing() {
           position={'absolute'}
           // textAlign={'center'}
           zIndex={50}
-          marginTop={'500px'}
+          marginTop={'280px'}
           marginLeft={'50px'}
         >
-          <Typography variant='h4' color='textSecondary'>
-            Take Living Fit
+          <Typography variant='h3' color='textSecondary' paragraph>
+            Discover new ways to train.
           </Typography>
-          <Typography variant='h4' color='textSecondary' paragraph>
-            To The Next Level
+          <Typography variant='subtitle1' color='textSecondary' paragraph>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           </Typography>
           <Button color='inherit' variant='outlined' size='large'>
-            Start Training Online Now
+            Start Now
           </Button>
         </Box>
         <Video
