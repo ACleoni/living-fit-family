@@ -37,7 +37,17 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Grid container item style={{ padding: '10% 15%', backgroundColor: '#fbfbfd' }}>
+      <Box bgcolor='#fbfbfd' height='120px' padding='5%' marginBottom='100px'>
+        <Box>
+          <Typography color='textPrimary' variant='h4' align='center'>
+            80+
+          </Typography>
+          <Typography color='textPrimary' variant='h5' align='center'>
+            Happy Clients
+          </Typography>
+        </Box>
+      </Box>
+      {/* <Grid container item style={{ padding: '10% 15%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center'>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
             <Typography align='center' variant='h4' color='textPrimary' style={{ fontWeight: 600 }}>
@@ -69,7 +79,7 @@ export default function Services() {
         </Grid>
       </Grid>
 
-      <Divider style={{ height: '12px', background: '#fff' }} />
+      <Divider style={{ height: '12px', background: '#fff' }} /> */}
 
       <Grid container item style={{ padding: '10% 0', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center' justify='flex-end' spacing={1}>
@@ -243,22 +253,35 @@ export default function Services() {
               See transformations in as little as 30 days with our high intensity workout sessions.
             </Typography>
           </Grid>
-          <Paper elevation={3} square style={{ width: '320px' }}>
+          <img
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1609461467/dumbells_yfgvpi.jpg'
+            style={{ position: 'relative', zIndex: 0, width: '20px', left: '0px', top: '180px' }}
+          />
+          <Paper elevation={3} square style={{ width: '330px' }}>
             <Video
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
+              width='100%'
+              height='100%'
+              // style={{
+              //   width: '100%',
+              //   height: '100%',
+              //   objectFit: 'cover',
+              // }}
               cloudName={'dq0fvempx'}
               muted
-              autoPlay
+              controls
               loop
               playsInline
-              data-keepplaying
               publicId='Image_from_iOS_hoq8ve'
             ></Video>
           </Paper>
+          <Grid item xs={12}>
+            <Typography align='center' variant='subtitle1' style={{ color: '#86868b' }}>
+              <Button color='primary' variant='text' size='small'>
+                Subscribe
+              </Button>
+              to our newsletter to get updates on Living Fit HIIT times and dates.
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
     </div>

@@ -4,39 +4,50 @@ import { Video } from 'cloudinary-react';
 
 export default function Landing() {
   return (
-    <div style={{ height: '60vh', position: 'relative' }}>
-      <div
-        style={{
-          bottom: '0',
-          left: '0',
-          position: 'absolute',
-          right: '0',
-          top: '0',
-          overflow: 'hidden',
-          opacity: 0.3,
-          background: '#000',
-          zIndex: 100,
-        }}
-      ></div>
-      <div style={{ height: '100%', position: 'relative' }}>
-        <div style={{ position: 'absolute', bottom: '18px', left: '25px', zIndex: 200 }}>
-          <Typography style={{ zIndex: 120, fontWeight: 600 }} variant='h4' align='justify'>
-            Take Living Fit To The
+    <Box id='landing-home-hero' zIndex={0} width={'100%'}>
+      <Box
+        className='hero-container'
+        width={'100vw'}
+        height={'60vh'}
+        overflow={'hidden'}
+        display={'inline-block'}
+        textAlign={'center'}
+      >
+        <Box
+          className='hero-filter'
+          zIndex={'10'}
+          width={'100%'}
+          height={'60vh'}
+          bgcolor={'rgba(0, 0, 0, 0.5)'}
+          position={'absolute'}
+          top={'0'}
+          left={'0'}
+        ></Box>
+        <Box
+          className='headlines'
+          display={'inline-block'}
+          position={'absolute'}
+          textAlign={'center'}
+          zIndex={50}
+          marginTop={'280px'}
+          marginLeft={'50px'}
+        >
+          <Typography variant='h4' color='textSecondary'>
+            Take Living Fit
           </Typography>
-          <Typography style={{ zIndex: 120, marginBottom: '16px', fontWeight: 600 }} variant='h4' align='justify'>
-            Next Level
+          <Typography variant='h4' color='textSecondary'>
+            To The Next Level
           </Typography>
-          {/* <div style={{ margin: '14px' }}></div> */}
-          <Button color='primary' variant='contained' disableElevation>
+          <Button color='inherit' variant='outlined' size='large'>
             Start Training Online Now
           </Button>
-        </div>
+        </Box>
         <Video
           style={{
-            width: '100%',
-            height: '100%',
             objectFit: 'cover',
           }}
+          width='100%'
+          height='100%'
           cloudName={'dq0fvempx'}
           muted
           autoPlay
@@ -45,7 +56,37 @@ export default function Landing() {
           data-keepplaying
           publicId='landing-page-video'
         ></Video>
-      </div>
-    </div>
+      </Box>
+    </Box>
+    // <div style={{ height: '60vh', position: 'relative' }}>
+    //   <div
+    //     style={{
+    //       bottom: '0',
+    //       left: '0',
+    //       position: 'absolute',
+    //       right: '0',
+    //       top: '0',
+    //       overflow: 'hidden',
+    //       opacity: 0.5,
+    //       background: '#000',
+    //       zIndex: 100,
+    //     }}
+    //   ></div>
+    //   <div style={{ height: '100%', position: 'relative' }}>
+    //     <div style={{ position: 'absolute', bottom: '28px', left: '20px', zIndex: 200 }}>
+    //       <Typography style={{ zIndex: 120 }} variant='h4' align='justify'>
+    //         Take Living Fit To The Next Level
+    //       </Typography>
+    //       <Typography style={{ zIndex: 120, marginBottom: '16px'}} variant='h4' align='justify'>
+
+    //       </Typography>
+    //       {/* <div style={{ margin: '14px' }}></div> */}
+    //       <Button color='inherit' variant='outlined' size='large'>
+    //         Start Training Online Now
+    //       </Button>
+    //     </div>
+    //
+    //   </div>
+    // </div>
   );
 }

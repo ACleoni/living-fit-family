@@ -12,7 +12,7 @@ const theme = createMuiTheme({
       main: '#06c',
     },
     text: {
-      primary: 'rgba(0, 0, 0, .85)',
+      primary: '#111111',
       secondary: '#f5f5f7',
     },
     error: {
@@ -28,9 +28,8 @@ const theme = createMuiTheme({
   overrides: {
     MuiAppBar: {
       colorPrimary: {
-        backgroundColor: 'rgb(0, 0, 0, .93)',
-        backdropFilter: 'saturate(180%) blur(20px)',
-        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+        backgroundColor: 'rgb(0, 0, 0, 0)',
+        boxShadow: 'none'
       },
     },
   },
