@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from '../../../../public/Logo.svg';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
 import { AppBar, Toolbar, IconButton, Box, Button, Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
 import MyDrawer from './drawer/NavDrawer';
 import { signIn } from 'next-auth/client';
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     sectionDesktop: {
-      display: 'inline-block',
+      float: 'right',
       [theme.breakpoints.up('md')]: {
         display: 'flex',
       },
@@ -38,48 +37,33 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
   const classes = useStyles();
+  const [state, setState] = React.useState({ open: false });
+
+  const toggleDrawer = (event, open: boolean) => {
+    if (
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+    setState({ ...state, open });
+  };
+
   return (
     <AppBar>
       <Toolbar>
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-          <img src={Logo} width={120} />
-          <div className={classes.sectionDesktop}>
-            {/* <IconButton>
-              <LocalMallIcon fontSize='small' htmlColor='#f1f1f1' />
-            </IconButton> */}
-            {/* <IconButton>
-              <AccountCircleIcon fontSize='small' htmlColor='#f1f1f1' />
-            </IconButton> */}
-            <span style={{ float: 'left', marginTop: '9px' }}>
-              <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
-                Login
-              </Button>
-            </span>
-            <span style={{ float: 'right' }}>
-              <MyDrawer />
-            </span>
-            {/* <IconButton> */}
-
-            {/* </IconButton> */}
+        <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+          <img src={Logo} width={120} style={{ alignSelf: 'center' }} />
+          <div>
+            <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
+              Login
+            </Button>
+            <IconButton data-testid='menu-icon' onClick={(event) => toggleDrawer(event, true)}>
+              <MenuIcon style={{ float: 'right' }} fontSize='large' htmlColor='#f1f1f1' />
+            </IconButton>
+            <MyDrawer open={state.open} toggleDrawer={toggleDrawer} />
           </div>
         </div>
-
-        {/* <Grid container alignItems='center' justify='space-around'>
-          <Grid item xs={7}>
-            <img src={Logo} width={120} />
-          </Grid>
-          <Grid item xs={1}>
-            <LocalMallIcon fontSize='small' />
-          </Grid>
-          <Grid item xs={2}>
-            <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
-              Log In
-            </Button>
-          </Grid>
-          <Grid item xs={1}>
-            <MyDrawer />
-          </Grid>
-        </Grid> */}
       </Toolbar>
     </AppBar>
   );

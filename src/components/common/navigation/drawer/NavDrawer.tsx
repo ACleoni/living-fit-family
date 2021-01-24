@@ -1,29 +1,34 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Drawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import InfoIcon from '@material-ui/icons/Info';
+import EmojiPeopleOutlinedIcon from '@material-ui/icons/EmojiPeopleOutlined';
+import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import { Store } from 'src/context/store';
 import { toggleModal } from 'src/context/actionCreators';
 
 const menuItems = [
   {
-    text: 'Home',
-  },
-  {
-    text: 'Meet Your Instructor',
+    text: 'Trainer',
+    icon: () => <EmojiPeopleOutlinedIcon  />,
   },
   {
     text: 'Programs',
+    icon: () => <FitnessCenterOutlinedIcon  />,
   },
   {
-    text: 'Merch',
+    text: 'Bag',
+    icon: () => <LocalMallOutlinedIcon  />,
+  },
+  {
+    text: 'Account',
+    icon: () => <AccountCircleOutlinedIcon  />,
   },
   {
     text: 'Connect',
+    icon: () => <EmailOutlinedIcon />,
   },
 ];
 
@@ -40,9 +45,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NavDrawer() {
+export default function NavDrawer({ open, toggleDrawer }) {
   const classes = useStyles();
-  const [state, setState] = React.useState({ open: false });
 
   const { state: context, dispatch } = React.useContext(Store);
 
@@ -56,52 +60,37 @@ export default function NavDrawer() {
 
   const list = () => (
     <div className={`${classes.list} ${classes.fullList}`} role='presentation'>
-      <List style={{ backgroundColor: 'rgba(0,0,0,0.911)', padding: '5% 0 10%' }}>
+      <List>
         {menuItems.map((item, index) => (
           <div key={index}>
             <ListItem onClick={() => handleClick()} button key={index}>
-              <ListItemText primary={item.text} />
+              <ListItemIcon>{item.icon ? item.icon() : <LocalMallOutlinedIcon htmlColor='white' />}</ListItemIcon>
+              <ListItemText primary={item.text} style={{ color: 'black' }} />
             </ListItem>
-            {/* <Divider
+            <Divider
               style={{
                 width: '90%',
                 marginLeft: '5%',
-                background: '#fff',
               }}
-            /> */}
+            />
           </div>
         ))}
       </List>
     </div>
   );
 
-  const toggleDrawer = (event, open: boolean) => {
-    if (
-      event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
-    ) {
-      return;
-    }
-    setState({ ...state, open });
-  };
-
   return (
     <div>
-      <React.Fragment>
-        <Button data-testid='menu-icon' onClick={(event) => toggleDrawer(event, true)}>
-          <MenuIcon fontSize='large' htmlColor='#f1f1f1' />
-        </Button>
-        <Drawer
-          color='primary'
-          classes={{ paperAnchorTop: classes.paperAnchorTop }}
-          data-testid='drawer'
-          anchor={'top'}
-          open={state.open}
-          onClose={(event) => toggleDrawer(event, false)}
-        >
-          {list()}
-        </Drawer>
-      </React.Fragment>
+      <Drawer
+        color='primary'
+        classes={{ paperAnchorTop: classes.paperAnchorTop }}
+        data-testid='drawer'
+        anchor={'top'}
+        open={open}
+        onClose={(event) => toggleDrawer(event, false)}
+      >
+        {list()}
+      </Drawer>
     </div>
   );
 }
