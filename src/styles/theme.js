@@ -25,14 +25,15 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
   },
-  overrides: {
-    MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: 'rgb(0, 0, 0, 0)',
-        boxShadow: 'none'
-      },
-    },
-  },
+  // overrides: {
+  //   MuiAppBar: {
+  //     colorPrimary: {
+  //       backgroundColor: 'rgba(0,0,0,0.8)',
+  //       WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+  //       backdropFilter: 'saturate(180%) blur(20px)',
+  //     },
+  //   },
+  // },
 });
 
 export default theme;

@@ -12,19 +12,19 @@ import { toggleModal } from 'src/context/actionCreators';
 const menuItems = [
   {
     text: 'Trainer',
-    icon: () => <EmojiPeopleOutlinedIcon  />,
+    icon: () => <EmojiPeopleOutlinedIcon />,
   },
   {
     text: 'Programs',
-    icon: () => <FitnessCenterOutlinedIcon  />,
+    icon: () => <FitnessCenterOutlinedIcon />,
   },
   {
     text: 'Bag',
-    icon: () => <LocalMallOutlinedIcon  />,
+    icon: () => <LocalMallOutlinedIcon />,
   },
   {
     text: 'Account',
-    icon: () => <AccountCircleOutlinedIcon  />,
+    icon: () => <AccountCircleOutlinedIcon />,
   },
   {
     text: 'Connect',
@@ -67,12 +67,11 @@ export default function NavDrawer({ open, toggleDrawer }) {
               <ListItemIcon>{item.icon ? item.icon() : <LocalMallOutlinedIcon htmlColor='white' />}</ListItemIcon>
               <ListItemText primary={item.text} style={{ color: 'black' }} />
             </ListItem>
-            <Divider
-              style={{
-                width: '90%',
-                marginLeft: '5%',
-              }}
-            />
+            {index !== menuItems.length - 1 ? 
+            (
+              <Divider style={{ width: '90%',marginLeft: '5%' }}/>
+            ) : null
+            }
           </div>
         ))}
       </List>

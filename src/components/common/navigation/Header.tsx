@@ -25,12 +25,14 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'flex',
       },
     },
-    appBar: {
-      // position: 'relative',
-      backgroundColor: '#000',
-      // border: '2px solid #000',
-      // boxShadow: theme.shadows[5],
-      // padding: theme.spacing(2, 4, 3),
+    active: {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+    },
+    inactive: {
+      backgroundColor: 'rgba(0,0,0,0)',
+      boxShadow: 'none',
     },
   })
 );
@@ -38,6 +40,18 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Header() {
   const classes = useStyles();
   const [state, setState] = React.useState({ open: false });
+  const [style, setStyle] = React.useState({ active: false });
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        console.log('here');
+        setStyle({ ...style, active: true });
+      } else {
+        setStyle({ ...style, active: false });
+      }
+    });
+  }, []);
 
   const toggleDrawer = (event, open: boolean) => {
     if (
@@ -50,7 +64,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar>
+    <AppBar classes={{ colorPrimary: style.active || state.open ? classes.active : classes.inactive }}>
       <Toolbar>
         <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
           <img src={Logo} width={120} style={{ alignSelf: 'center' }} />
