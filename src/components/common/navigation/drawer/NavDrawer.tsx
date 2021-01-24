@@ -4,6 +4,7 @@ import { Drawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText } f
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import InfoIcon from '@material-ui/icons/Info';
 import { Store } from 'src/context/store';
 import { toggleModal } from 'src/context/actionCreators';
