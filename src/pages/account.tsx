@@ -68,7 +68,7 @@ export default function RecipeReviewCard() {
               Alexander Cleoni
             </Typography>
             <Typography variant='subtitle2' color='textPrimary' style={{ marginLeft: '5vmin', color: 'grey' }}>
-              Joined April 6, 2016
+              Joined April 6, 2020
             </Typography>
           </div>
           <Divider />
