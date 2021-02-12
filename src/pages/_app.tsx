@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <StoreProvider>
             <Header />
             <Component {...pageProps} />
-            <Footer />
+            {/* <Footer /> */}
           </StoreProvider>
         </ThemeProvider>
       </Provider>

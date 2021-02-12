@@ -19,8 +19,6 @@ import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import { Store } from 'src/context/store';
 import { toggleModal } from 'src/context/actionCreators';
 import { useSession, signIn, signOut } from 'next-auth/client';
-import { useRouter } from 'next/router';
-import Axios from 'axios';
 
 
 const menuItems = [
@@ -39,7 +37,6 @@ const menuItems = [
   {
     text: 'Account',
     icon: () => <AccountCircleOutlinedIcon />,
-    onClick: () => signIn('okta'),
   },
   {
     text: 'Connect',
@@ -58,17 +55,11 @@ const useStyles = makeStyles({
 
 export default function Menu({ open, toggleDrawer }) {
   const classes = useStyles();
-  const router = useRouter();
   const [session, loading] = useSession();
 
   const { state: context, dispatch } = React.useContext(Store);
 
   const handleClick = async() => {
-    const response = await Axios({
-          method: 'get',
-          url: '/api/stripe/billing',
-    })
-    router.push(response.data.message);
     // toggleModal({
     //   dispatch,
     //   payload: true,

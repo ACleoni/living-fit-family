@@ -15,8 +15,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { Box, Button, colors, Divider } from '@material-ui/core';
+import { Box, Button, colors, Divider, Paper } from '@material-ui/core';
 import { fontcolor } from '*.jpg';
+import Axios from 'axios';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,8 +45,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function RecipeReviewCard() {
+export default function AccountPage() {
   const classes = useStyles();
+  const router = useRouter();
+
+  const handleClick = async () => {
+    const response = await Axios({
+      method: 'get',
+      url: '/api/stripe/billing',
+    });
+    router.push(response.data.message);
+  };
 
   return (
     <Box width='100%' marginTop='65px'>
@@ -82,17 +93,26 @@ export default function RecipeReviewCard() {
                 Active
               </Typography>
             </div>
-            <Button variant='outlined' size='small' color='secondary' style={{ marginLeft: '60px' }}>
+            <Button
+              variant='outlined'
+              size='small'
+              color='secondary'
+              style={{ marginLeft: '60px' }}
+              onClick={() => handleClick()}
+            >
               Edit Billing
             </Button>
           </div>
         </div>
       </Box>
       <Divider />
-      <Box width='100%' height='100%' justifyContent='center' display='flex' padding='5%'>
+      <Box width='100%' height='100%' justifyContent='center' display='flex' flexDirection='column' padding='5%'>
         <Typography color='textPrimary' variant='h5' style={{ fontWeight: 600 }}>
           My Home Workouts
         </Typography>
+        <Paper elevation={4} style={{ height: '400px', padding: '20px' }}>
+          Men Do som Shit
+        </Paper>
       </Box>
     </Box>
   );
