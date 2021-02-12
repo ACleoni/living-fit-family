@@ -45,11 +45,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Box width='100%' marginTop='65px'>
@@ -95,7 +90,7 @@ export default function RecipeReviewCard() {
       </Box>
       <Divider />
       <Box width='100%' height='100%' justifyContent='center' display='flex'>
-        <Typography color='textPrimary' variant='h5' style={{fontWeight: 600}}>
+        <Typography color='textPrimary' variant='h5' style={{ fontWeight: 600 }}>
           My Homework
         </Typography>
       </Box>
