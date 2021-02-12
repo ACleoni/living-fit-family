@@ -53,7 +53,7 @@ export default function RecipeReviewCard() {
           borderRadius='50%'
           width='50px'
           height='50px'
-          bgcolor='red'
+          bgcolor='darkgrey'
           display='flex'
           justifyContent='center'
           alignItems='center'
@@ -68,7 +68,7 @@ export default function RecipeReviewCard() {
               Alexander Cleoni
             </Typography>
             <Typography variant='subtitle2' color='textPrimary' style={{ marginLeft: '5vmin', color: 'grey' }}>
-              Member since April 6, 2016
+              Joined April 6, 2016
             </Typography>
           </div>
           <Divider />
@@ -76,10 +76,10 @@ export default function RecipeReviewCard() {
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', margin: '5% 0' }}>
             <div>
               <Typography variant='body2' color='textPrimary' style={{ marginLeft: '5vmin', fontWeight: 600 }}>
-                SUBSCRIBTION
+                MEMBERSHIP
               </Typography>
-              <Typography variant='subtitle2' color='textPrimary' style={{ marginLeft: '5vmin', color: 'grey' }}>
-                Monthly
+              <Typography variant='subtitle2' color='primary' style={{ marginLeft: '5vmin' }}>
+                Active
               </Typography>
             </div>
             <Button variant='outlined' size='small' color='secondary' style={{ marginLeft: '60px' }}>
@@ -89,9 +89,9 @@ export default function RecipeReviewCard() {
         </div>
       </Box>
       <Divider />
-      <Box width='100%' height='100%' justifyContent='center' display='flex'>
+      <Box width='100%' height='100%' justifyContent='center' display='flex' padding='5%'>
         <Typography color='textPrimary' variant='h5' style={{ fontWeight: 600 }}>
-          My Homework
+          My Home Workouts
         </Typography>
       </Box>
     </Box>
