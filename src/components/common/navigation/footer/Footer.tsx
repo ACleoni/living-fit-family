@@ -16,7 +16,7 @@ function Copyright() {
 
 export default function Footer() {
   return (
-    <Paper elevation={3}>
+    <Paper elevation={2} style={{ position: 'absolute', bottom: 0, width: '100%' }}>
       <Grid container direction='column' justify='center' alignItems='center' style={{ color: '#a5a5a5' }}>
         <Grid item xs={12}>
           <div>

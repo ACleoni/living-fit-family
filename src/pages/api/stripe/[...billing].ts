@@ -20,7 +20,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const jwt = await oktaJwtVerifier.verifyAccessToken(userSession.accessToken, 'api://custom');
       const { sub } = jwt.claims;
 
-      const response = await fetch(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, { method: 'GET' });
+      const response = await fetch(`${process.env.STRIPE_SEARCH_API}?query=${sub}&prefix=false`, {
+        method: 'GET',
+        headers: { Authorization: `Bearer ${process.env.STRIPE_API_KEY}` },
+      });
+      
       const customer = await response.json();
       if (!customer || customer.count === 0) {
         return res.status(401).json({ message: stripeAPIErrorMessages.UNAUTHORIZED });

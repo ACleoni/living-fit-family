@@ -2,8 +2,8 @@ import React from 'react';
 import Logo from '../../../../public/Logo.svg';
 import MenuIcon from '@material-ui/icons/Menu';
 import { AppBar, Toolbar, IconButton, Box, Button, Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
-import MyDrawer from './drawer/NavDrawer';
-import { signIn } from 'next-auth/client';
+import Menu from './drawer/Menu';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,18 +39,23 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
   const classes = useStyles();
+  const router = useRouter();
+
   const [state, setState] = React.useState({ open: false });
   const [style, setStyle] = React.useState({ active: false });
 
   React.useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        console.log('here');
-        setStyle({ ...style, active: true });
-      } else {
-        setStyle({ ...style, active: false });
-      }
-    });
+    if (router.pathname === '/') {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          setStyle({ ...style, active: true });
+        } else {
+          setStyle({ ...style, active: false });
+        }
+      });
+    } else {
+      setStyle({ active: true });
+    }
   }, []);
 
   const toggleDrawer = (event, open: boolean) => {
@@ -64,21 +69,23 @@ export default function Header() {
   };
 
   return (
-    <AppBar classes={{ colorPrimary: style.active || state.open ? classes.active : classes.inactive }}>
-      <Toolbar>
-        <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-          <img src={Logo} width={120} style={{ alignSelf: 'center' }} />
-          <div>
-            <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
-              Login
-            </Button>
-            <IconButton data-testid='menu-icon' onClick={(event) => toggleDrawer(event, true)}>
-              <MenuIcon style={{ float: 'right' }} fontSize='large' htmlColor='#f1f1f1' />
-            </IconButton>
-            <MyDrawer open={state.open} toggleDrawer={toggleDrawer} />
+    <div>
+      <AppBar classes={{ colorPrimary: style.active || state.open ? classes.active : classes.inactive }}>
+        <Toolbar>
+          <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+            <img src={Logo} width={120} style={{ marginTop: '1vmin' }} />
+            <div>
+              {/* <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
+                Login
+              </Button> */}
+              <IconButton data-testid='menu-icon' onClick={(event) => toggleDrawer(event, !state.open)}>
+                <MenuIcon style={{ float: 'right' }} fontSize='large' htmlColor='#f1f1f1' />
+              </IconButton>
+            </div>
           </div>
-        </div>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+        <Menu open={state.open} toggleDrawer={toggleDrawer} />
+      </AppBar>
+    </div>
   );
 }

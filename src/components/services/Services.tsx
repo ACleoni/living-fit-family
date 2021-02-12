@@ -37,16 +37,55 @@ export default function Services() {
 
   return (
     <div className={classes.root}>
-      <Box bgcolor='#fbfbfd' height='120px' padding='5%' marginBottom='100px'>
+      <Box
+        display='flex'
+        justifyContent='space-around'
+        flexWrap='wrap-around'
+        bgcolor='#fbfbfd'
+        height='120px'
+        padding='5%'
+        marginBottom='100px'
+      >
         <Box>
-          <Typography color='textPrimary' variant='h4' align='center'>
-            80+
+          <Typography color='textPrimary' variant='body1' align='center'>
+            Build
           </Typography>
-          <Typography color='textPrimary' variant='h5' align='center'>
-            Happy Clients
+          <Typography color='textPrimary' variant='body2' align='center'>
+            Confidence
           </Typography>
         </Box>
+        <Box>
+          <i
+            className='fa fa-heartbeat'
+            style={{
+              fontSize: '50px',
+              background: 'linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%)',
+            }}
+          ></i>
+          
+          <Typography color='textPrimary' variant='body1' align='center'>
+            Live
+          </Typography>
+          <Typography color='textPrimary' variant='body2' align='center'>
+            Healthy
+          </Typography>
+        </Box>
+        <Box>
+          <Typography color='textPrimary' variant='body1' align='center'>
+            Reach
+          </Typography>
+          <Typography color='textPrimary' variant='body2' align='center'>
+            Potentialllllllll
+          </Typography>
+        </Box>
+        <Box display='block' maxWidth='1024px' width='140px'>
+          <img
+            width='100%'
+            src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605584908/Image_from_iOS_4_lyi0js.jpg'
+          />
+        </Box>
       </Box>
+
       {/* <Grid container item style={{ padding: '10% 15%', backgroundColor: '#fbfbfd' }}>
         <Grid container alignItems='center'>
           <Grid container item xs={12} direction='column' justify='center' alignItems='center'>
