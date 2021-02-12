@@ -79,7 +79,7 @@ export default function AccountPage() {
               Alexander Cleoni
             </Typography>
             <Typography variant='subtitle2' color='textPrimary' style={{ marginLeft: '5vmin', color: 'grey' }}>
-              Joined April 6, 2020
+              Joined April 2, 2020
             </Typography>
           </div>
           <Divider />
