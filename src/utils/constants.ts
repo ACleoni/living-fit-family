@@ -4,3 +4,8 @@ export const stripeAPIErrorMessages = Object.freeze({
   UNAUTHORIZED:
     'You do not have access to the billing portal. Please contact the support team at livingfitfamilyllc@gmail.com.',
 });
+
+export const routes = Object.freeze({
+  HOME: '/',
+  ACCOUNT: '/account',
+});

@@ -1,25 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Drawer,
-  Button,
-  List,
-  Divider,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Fade,
-  Typography,
-} from '@material-ui/core';
+import { useSession, signIn, signOut } from 'next-auth/client';
+import { useRouter } from 'next/router';
+import { Button, List, Divider, ListItem, ListItemIcon, ListItemText, Fade } from '@material-ui/core';
 import EmojiPeopleOutlinedIcon from '@material-ui/icons/EmojiPeopleOutlined';
 import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
-import { Store } from 'src/context/store';
-import { toggleModal } from 'src/context/actionCreators';
-import { useSession, signIn, signOut } from 'next-auth/client';
-
+import { routes } from 'src/utils/constants';
 
 const menuItems = [
   {
@@ -37,6 +26,7 @@ const menuItems = [
   {
     text: 'Account',
     icon: () => <AccountCircleOutlinedIcon />,
+    route: routes.ACCOUNT,
   },
   {
     text: 'Connect',
@@ -53,21 +43,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Menu({ open, toggleDrawer }) {
-  const classes = useStyles();
+export default function Menu({ activeMenu, toggleDrawer }) {
   const [session, loading] = useSession();
-
-  const { state: context, dispatch } = React.useContext(Store);
-
-  const handleClick = async() => {
-    // toggleModal({
-    //   dispatch,
-    //   payload: true,
-    // });
-  };
+  const classes = useStyles();
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     signIn('okta');
+  };
+
+  const handleClick = (event, route) => {
+    toggleDrawer(event, !activeMenu);
+    router.push(route);
   };
 
   const list = () => (
@@ -75,7 +62,7 @@ export default function Menu({ open, toggleDrawer }) {
       <List>
         {menuItems.map((item, index) => (
           <div key={index}>
-            <ListItem onClick={() => handleClick()} button key={index}>
+            <ListItem onClick={(event) => handleClick(event, item.route)} button key={index}>
               <ListItemIcon>{item.icon()}</ListItemIcon>
               <ListItemText primary={item.text} style={{ color: 'black' }} />
             </ListItem>
@@ -85,7 +72,13 @@ export default function Menu({ open, toggleDrawer }) {
       </List>
       <div style={{ width: '100%', padding: '5% 15%' }}>
         {session && (
-          <Button variant='contained' color='primary' disableElevation fullWidth onClick={() => signOut()}>
+          <Button
+            variant='contained'
+            color='primary'
+            disableElevation
+            fullWidth
+            onClick={() => signOut({ callbackUrl: routes.HOME })}
+          >
             Log Out
           </Button>
         )}
@@ -99,14 +92,12 @@ export default function Menu({ open, toggleDrawer }) {
   );
 
   return (
-    // <div>
     <Fade
-      in={open}
-      style={{ position: 'absolute', width: '100%', top: '50px', zIndex: 1000, backgroundColor: '#fff' }}
+      in={activeMenu}
+      style={{ position: 'absolute', width: '100%', top: '58px', zIndex: 1000, backgroundColor: '#fff' }}
       onExit={(e) => toggleDrawer(e)}
     >
       {list()}
     </Fade>
-    // </div>
   );
 }

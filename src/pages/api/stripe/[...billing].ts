@@ -24,7 +24,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         method: 'GET',
         headers: { Authorization: `Bearer ${process.env.STRIPE_API_KEY}` },
       });
-      
+
       const customer = await response.json();
       if (!customer || customer.count === 0) {
         return res.status(401).json({ message: stripeAPIErrorMessages.UNAUTHORIZED });

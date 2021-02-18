@@ -1,9 +1,10 @@
 import React from 'react';
 import Logo from '../../../../public/Logo.svg';
 import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Toolbar, IconButton, Box, Button, Grid, makeStyles, createStyles, Theme } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, makeStyles, createStyles, Theme } from '@material-ui/core';
 import Menu from './drawer/Menu';
 import { useRouter } from 'next/router';
+import { routes } from 'src/utils/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,50 +42,61 @@ export default function Header() {
   const classes = useStyles();
   const router = useRouter();
 
-  const [state, setState] = React.useState({ open: false });
-  const [style, setStyle] = React.useState({ active: false });
+  const initialState = {
+    activeMenu: false,
+    activeHeader: false,
+  };
+
+  const [state, setState] = React.useState(initialState);
 
   React.useEffect(() => {
-    if (router.pathname === '/') {
+    if (router.pathname === routes.HOME) {
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-          setStyle({ ...style, active: true });
+          setState({ ...state, activeHeader: true });
         } else {
-          setStyle({ ...style, active: false });
+          setState({ ...state, activeHeader: false });
         }
       });
-    } else {
-      setStyle({ active: true });
     }
   }, []);
 
-  const toggleDrawer = (event, open: boolean) => {
+  const toggleDrawer = (event, activeMenu: boolean) => {
     if (
       event.type === 'keydown' &&
       ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
     ) {
       return;
     }
-    setState({ ...state, open });
+    setState({ ...state, activeMenu });
+  };
+
+  const handleClick = (event) => {
+    toggleDrawer(event, false);
+    router.push(routes.HOME);
   };
 
   return (
     <div>
-      <AppBar classes={{ colorPrimary: style.active || state.open ? classes.active : classes.inactive }}>
+      <AppBar
+        classes={{
+          colorPrimary:
+            state.activeHeader || state.activeMenu || router.pathname !== routes.HOME
+              ? classes.active
+              : classes.inactive,
+        }}
+      >
         <Toolbar>
           <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-            <img src={Logo} width={120} style={{ marginTop: '1vmin' }} />
+            <img src={Logo} width={120} style={{ marginTop: '1vmin' }} onClick={(event) => handleClick(event)} />
             <div>
-              {/* <Button onClick={() => signIn('okta')} size='small' variant='contained' color='primary'>
-                Login
-              </Button> */}
-              <IconButton data-testid='menu-icon' onClick={(event) => toggleDrawer(event, !state.open)}>
+              <IconButton data-testid='menu-icon' onClick={(event) => toggleDrawer(event, !state.activeMenu)}>
                 <MenuIcon style={{ float: 'right' }} fontSize='large' htmlColor='#f1f1f1' />
               </IconButton>
             </div>
           </div>
         </Toolbar>
-        <Menu open={state.open} toggleDrawer={toggleDrawer} />
+        <Menu activeMenu={state.activeMenu} toggleDrawer={toggleDrawer} />
       </AppBar>
     </div>
   );
