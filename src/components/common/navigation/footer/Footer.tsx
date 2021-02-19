@@ -1,7 +1,69 @@
 import React from 'react';
-import { Grid, Link, Paper, Typography } from '@material-ui/core';
-import CopyrightIcon from '@material-ui/icons/Copyright';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import { Grid, Link, Container, Box, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  },
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbar: {
+    flexWrap: 'wrap',
+  },
+  toolbarTitle: {
+    flexGrow: 1,
+  },
+  link: {
+    margin: theme.spacing(1, 1.5),
+  },
+  heroContent: {
+    padding: theme.spacing(8, 0, 6),
+  },
+  cardHeader: {
+    backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
+  },
+  cardPricing: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'baseline',
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+  },
+}));
+
+const footers = [
+  {
+    title: 'Company',
+    description: ['Team', 'History', 'Contact us', 'Locations'],
+  },
+  {
+    title: 'Features',
+    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+  },
+  {
+    title: 'Resources',
+    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+  },
+  {
+    title: 'Legal',
+    description: ['Privacy policy', 'Terms of use'],
+  },
+];
 
 function Copyright() {
   return (
@@ -15,38 +77,32 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const classes = useStyles();
   return (
-    <Paper elevation={2} style={{ position: 'absolute', bottom: 0, width: '100%' }}>
-      <Grid container direction='column' justify='center' alignItems='center' style={{ color: '#a5a5a5' }}>
-        <Grid item xs={12}>
-          <div>
-            <img
-              style={{ width: '150px' }}
-              src='https://res.cloudinary.com/dq0fvempx/image/upload/v1605971940/LivingFitFamily_1_wj8rnw.jpg'
-            />
-          </div>
+    <React.Fragment>
+      <Container maxWidth='md' component='footer' className={classes.footer}>
+        <Grid container spacing={4} justify='space-evenly'>
+          {footers.map((footer) => (
+            <Grid item xs={6} sm={3} key={footer.title}>
+              <Typography variant='h6' color='textPrimary' gutterBottom>
+                {footer.title}
+              </Typography>
+              <ul>
+                {footer.description.map((item) => (
+                  <li key={item}>
+                    <Link href='#' variant='subtitle1' color='textSecondary'>
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          ))}
         </Grid>
-        <Grid container item direction='row' justify='center' alignContent='center'>
-          <Grid item xs={6}>
-            <Typography variant='body2'>About</Typography>
-            <Typography variant='body2'>Terms of Service</Typography>
-            <Typography variant='body2'>Privacy Policy</Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography variant='body2'>Shop</Typography>
-            <Typography variant='body2'>Instuctor</Typography>
-            <Typography variant='body2'>Contact</Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs={2}>
-          <Link href='https://instagram.com/livingfitluke' color='inherit'>
-            <InstagramIcon />
-          </Link>
-        </Grid>
-        <Grid item xs={12}>
+        <Box mt={5}>
           <Copyright />
-        </Grid>
-      </Grid>
-    </Paper>
+        </Box>
+      </Container>
+    </React.Fragment>
   );
 }

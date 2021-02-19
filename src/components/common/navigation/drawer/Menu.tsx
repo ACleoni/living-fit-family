@@ -18,6 +18,7 @@ const menuItems = [
   {
     text: 'Programs',
     icon: () => <FitnessCenterOutlinedIcon />,
+    route: '/packages',
   },
   {
     text: 'Bag',

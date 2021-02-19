@@ -109,9 +109,6 @@ function AccountPage() {
         <Typography color='textPrimary' variant='h5' style={{ fontWeight: 600 }}>
           My Homework
         </Typography>
-        <Paper elevation={4} style={{ height: '400px', padding: '20px' }}>
-          Men Do som Shit
-        </Paper>
       </Box>
     </Box>
   );
