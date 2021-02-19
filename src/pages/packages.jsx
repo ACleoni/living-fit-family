@@ -151,7 +151,7 @@ export default function PackagesPage() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant.toString()} color='primary'>
+                  <Button fullWidth variant={tier.buttonVariant} color='primary'>
                     {tier.buttonText}
                   </Button>
                 </CardActions>
